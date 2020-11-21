@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@magenta/image@0.2.1/dist/magentaimage.min.js"></script>
+    <title>Style Transfer</title>
+</head>
+<body>
+           <!--Nav top -->
+           <nav class="flex-nav-top">
+            <li><a href="../../../index.html">Home</a></li>
+            <li><a href="../../dlp.html">DLP - Playground</a></li>
+            <li><a href="../model.html">Modelos</a></li>
+            <li>
+              <a href="../../tf-playground/tfplayground.html"
+                >TensorFlow Playground</a
+              >
+            </li>
+            <li><a href="../../ganlab/ganlab.html">GAN Lab</a></li>
+          </nav>
+          <!-- FIN Nav top-->
+          <!-- Nav left -->
+          <nav class="flex-nav-left">
+            <button class="btn-left"><a href="..//model-1/model-1.html">Model 1</a></button>
+            <button class="btn-left">
+              <a href="../model-2/model-2.html">Model 2</a>
+            </button>
+            <button class="btn-left"><a href="../model-3/model-3.html">Clasificador Iris</a></button>
+            <button class="btn-left"><a href="../model-4/model-4.html">Multiclasificador BCWD</a></button>
+            <button class="btn-left"><a href="../model-5/model-5.html">Clasificador MNIST</a></button>
+            <button class="btn-left"><a href="../model-6/model-6.html">Clasificador Fashion MNIST</a></button>
+            <button class="btn-left"><a href="../model-7/model-7.html">Transfer Learning con MobileNet</a></button>
+            <button class="btn-left"><a href="./model-8.html">Style Transfer con Magenta.js</a></button>
+          </nav>
+          <!-- FIN Nav left-->
+    <h1>Style Transfer</h1>
+
+
+
+<img id="contentImg" src="avengers.png"/>
+<img id="styleImg" src="kadinsky.jpg"/>
+
+<button  class="btn btn-transfer">
+    <i class="fas fa-random"></i>
+    <span>Click to transfer</span>
+</button>
+
+<canvas id="stylized"></canvas>
+
+<script>
+const model = new mi.ArbitraryStyleTransferNetwork();
+const canvas = document.getElementById('stylized');
+const ctx = canvas.getContext('2d');
+const contentImg = document.getElementById('contentImg');
+const styleImg = document.getElementById('styleImg');
+
+const BtnTransfer = document.querySelector(".btn-transfer");
+BtnTransfer.addEventListener("click", function(event){
+    model.initialize().then(() => {
+    stylize();
+  });
+});
+
+
+
+async function stylize() {
+  //await clearCanvas();
+
+  // Resize the canvas to be the same size as the source image.
+  canvas.width = contentImg.width;
+  canvas.height = contentImg.height;
+
+  // This does all the work!
+  model.stylize(contentImg, styleImg).then((imageData) => {
+    ctx.putImageData(imageData, 0, 0);
+  });
+}
+</script>
+</body>
+</html>
