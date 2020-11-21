@@ -4,36 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DLP</title>
-    <!--
-    <script src="./codemirror/lib/codemirror.js"></script>
-    <script src="./codemirror/mode/javascript/javascript.js"></script>
-  -->
-  <script src="./codemirror/addon/edit/matchbrackets.js"></script>
-  <link rel="stylesheet" href="./code-editor/codemirror-5-50-2.css">
-  <!--
-    <link rel="stylesheet" href="./codemirror/lib/codemirror.css" />
-    -->
-    <link rel="stylesheet" href="./code-editor/editor-js.css">
-    <link rel="stylesheet" href="../style.css" />
+
+    <!-- <script src="./codemirror/addon/edit/matchbrackets.js"></script> -->
+
+    <link rel="stylesheet" href="./code-editor/codemirror-5-50-2.css" />
+    <link rel="stylesheet" href="./code-editor/editor-js.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
     <!--Nav top -->
     <nav class="flex-nav-top">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="./dlp.html">DLP - Playground</a></li>
-      <li><a href="./modelos/model.html">Modelos</a></li>
-      <li>
-        <a href="./tf-playground/tfplayground.html">TensorFlow Playground</a>
-      </li>
-      <li><a href="./ganlab/ganlab.html">GAN Lab</a></li>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./dlp.html">DLP - Playground</a></li>
+        <li><a href="./modelos/model.html">Modelos</a></li>
+        <li>
+          <a href="https://playground.tensorflow.org/" target="_blank">TensorFlow Playground</a>
+        </li>
+        <li><a href="https://poloclub.github.io/ganlab/" target="_blank">GAN Lab</a></li>
+      </ul>
     </nav>
     <!-- FIN Nav top-->
-    <h1>DLP Playground</h1>
-    <h2>Code Editor</h2>
+
     <!--CodeMirror Editor-->
-<section id="static">
-    <pre><code id="static-js" data-height="">// Define a model for linear regression.
+    <div class="contenedor-editor">
+      <h1>DLP Playground</h1>
+      <h2>Code Editor</h2>
+
+      <section id="static">
+        <pre><code id="static-js" data-height="">// Define a model for linear regression.
 const model = tf.sequential();
 model.add(tf.layers.dense({units: 1, inputShape: [1]}));
 model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
@@ -46,24 +56,38 @@ model.fit(xs, ys, {epochs: 10}).then(() => {
   model.predict(tf.tensor2d([5], [1, 1])).print();
 });
     </code></pre>
-</section>
+      </section>
 
-<section id="live" class="live hidden">
+      <section id="live" class="live hidden">
+        <div id="editor" class="editor"></div>
 
-      <div id="editor" class="editor"></div>
-
-      <div class="output-container">
+        <div class="output-container">
           <div class="buttons-container">
-              <button id="execute" class="button run" type="button">Run &rsaquo;</button>
-              <button id="reset" type="button" class="button">Reset</button>
+            <button id="execute" class="button run" type="button">
+              Run &rsaquo;
+            </button>
+            <button id="reset" type="button" class="button">Reset</button>
           </div>
           <div id="console" class="output">
-              <code></code>
+            <code></code>
           </div>
-      </div>
-</section>
+        </div>
+      </section>
+    </div>
 
-
+    <div>
+      <footer>
+        <p>Legal disclaimer, copyright, etc.</p>
+        <ul>
+          <li>
+            <a href="#"><img src="../img/icon1.png" alt="Social Media 1." /></a>
+          </li>
+          <li>
+            <a href="#"><img src="../img/icon2.png" alt="Social Media 2." /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
 
     <script src="./code-editor/codemirror-5-50-2.js"></script>
     <script src="./code-editor/editor-js.js"></script>
