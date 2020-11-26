@@ -3,13 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modelo 1</title>
-    <!--
-    <script src="../../codemirror/lib/codemirror.js"></script>
-    <link rel="stylesheet" href="../../codemirror/lib/codemirror.css" />
-    <script src="../../codemirror/mode/javascript/javascript.js"></script>
-    <script src="../../codemirror/addon/edit/matchbrackets.js"></script>
-    -->
+
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
       rel="stylesheet"
@@ -18,43 +12,76 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css">
-    <link rel="stylesheet" href="../../code-editor/editor-js.css">
+    <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css" />
+    <link rel="stylesheet" href="../../code-editor/editor-js.css" />
     <link rel="stylesheet" href="../../../css/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <title>Modelo 1</title>
   </head>
   <body>
-    <!--Nav top -->
-    <nav class="flex-nav-top">
-      <ul>
-      <li><a href="../../../index.html">Home</a></li>
-      <li><a href="../../dlp.html">DLP - Playground</a></li>
-      <li><a href="../model.html">Modelos</a></li>
-      <li>
-        <a href="https://playground.tensorflow.org/" target="_blank">TensorFlow Playground</a>
-      </li>
-      <li><a href="https://poloclub.github.io/ganlab/" target="_blank">GAN Lab</a></li>
-    </ul>
-    </nav>
-    <!-- FIN Nav top-->
-    <!-- Nav left -->
-    <nav class="flex-nav-left">
-      <button class="btn-left"><a href="./model-1.html">Model 1</a></button>
-      <button class="btn-left">
-        <a href="../model-2/model-2.html">Model 2</a>
-      </button>
-      <button class="btn-left"><a href="../model-3/model-3.html">Clasificador Iris</a></button>
-      <button class="btn-left"><a href="../model-4/model-4.html">Multiclasificador BCWD</a></button>
-      <button class="btn-left"><a href="../model-5/model-5.html">Clasificador MNIST</a></button>
-      <button class="btn-left"><a href="../model-6/model-6.html">Clasificador Fashion MNIST</a></button>
-      <button class="btn-left"><a href="../model-7/model-7.html">Transfer Learning con MobileNet</a></button>
-      <button class="btn-left"><a href="../model-8/model-8.html">Style Transfer con Magenta.js</a></button>
+    <!-- THE HEADER - SECOND HEADER-->
+    <div id="the-header">
+      <header>
+        <div class="second-header">
+          <h1><a href="../../../index.html"> Plataforma JS </a></h1>
+        </div>
+      </header>
+    </div>
 
-    </nav>
-    <!-- FIN Nav left-->
-    <h2>Code Editor</h2>
+    <!-- NAV -  BARRA NAVEGACION-->
+    <div id="the-nav">
+      <nav>
+        <ul id="menu">
+          <li><a href="../../../index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Let's play!</a>
+            <div class="dropdown-content">
+              <a href="../../model.html">Modelos</a>
+              <a href="https://playground.tensorflow.org/" target="_blank"
+                >Tensorflow Playground</a
+              >
+              <a href="https://poloclub.github.io/ganlab/" target="_blank"
+                >GAN Lab</a
+              >
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Doc's TensorFlow.js</a>
+            <div class="dropdown-content">
+              <a href="https://js.tensorflow.org/api/latest/" target="_blank"
+                >Referencia API</a
+              >
+              <a
+                href="https://github.com/tensorflow/tfjs-models"
+                target="_blank"
+                >Modelos tfjs</a
+              >
+              <a
+                href="https://github.com/tensorflow/tfjs-examples/"
+                target="_blank"
+                >Más ejemplos tfjs</a
+              >
+              <a
+                href="https://blog.tensorflow.org/search?label=TensorFlow.js&max-results=10"
+                target="_blank"
+                >Blog TensorFlow.js</a
+              >
+            </div>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropbtn">About</a>
+            <div class="dropdown-content">
+              <a href="../../about/how-works.html">¿Cómo se trabaja en tfjs?</a>
+              <a href="../../about/recursos.html">Otros recursos</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
     <!--CodeMirror Editor-->
-
+    <h2>Code Editor</h2>
     <section id="static">
       <pre><code id="static-js" data-height="">
         const trainData = {
@@ -102,25 +129,42 @@
         const hugeFileMB = 10000;
         model.predict(tf.tensor2d([[smallFileMB],[bigFileMB],[hugeFileMB]])).print();
       </code></pre>
-  </section>
+    </section>
+    <section id="live" class="live hidden">
+      <div id="editor" class="editor"></div>
 
-  <section id="live" class="live hidden">
-        <div id="editor" class="editor"></div>
-
-        <div class="output-container">
-            <div class="buttons-container">
-                <button id="execute" class="button run" type="button">Run &rsaquo;</button>
-                <button id="reset" type="button" class="button">Reset</button>
-            </div>
-            <div id="console" class="output">
-                <code></code>
-            </div>
+      <div class="output-container">
+        <div class="buttons-container">
+          <button id="execute" class="button run" type="button">
+            Run &rsaquo;
+          </button>
+          <button id="reset" type="button" class="button">Reset</button>
         </div>
-  </section>
+        <div id="console" class="output">
+          <code></code>
+        </div>
+      </div>
+    </section>
 
-
-
-  <script src="../../code-editor/codemirror-5-50-2.js"></script>
-  <script src="../../code-editor/editor-js.js"></script>
+    <!-- FOOTER -  PIE DE PAGINA-->
+    <div id="the-footer">
+      <footer>
+        <p>Legal disclaimer, copyright, etc.</p>
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="../../../img/icon1.png" alt="Social Media 1."
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../../../img/icon2.png" alt="Social Media 2."
+            /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <script src="../../code-editor/codemirror-5-50-2.js"></script>
+    <script src="../../code-editor/editor-js.js"></script>
   </body>
 </html>

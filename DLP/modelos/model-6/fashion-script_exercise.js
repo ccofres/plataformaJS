@@ -149,4 +149,4 @@ async function run() {
   alert("Training is done, try classifying your drawings!");
 }
 
-document.addEventListener("DOMContentLoaded", run);
+//document.addEventListener("DOMContentLoaded", run);

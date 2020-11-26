@@ -23,23 +23,40 @@
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
+    <!-- THE HEADER - SECOND HEADER-->
+    <div id="the-header"">
+      <header>
+        <div class="second-header">
+          <h1><a href="../index.html"> Plataforma JS </a></h1>
+        </div>
+      </header>
+    </div>
+    <!-- ---------- -->
     <!--Nav top -->
-    <nav class="flex-nav-top">
-      <ul>
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="./dlp.html">DLP - Playground</a></li>
-        <li><a href="./modelos/model.html">Modelos</a></li>
-        <li>
-          <a href="https://playground.tensorflow.org/" target="_blank">TensorFlow Playground</a>
-        </li>
-        <li><a href="https://poloclub.github.io/ganlab/" target="_blank">GAN Lab</a></li>
-      </ul>
-    </nav>
+    <div id="the-nav">
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./dlp.html">DLP - Playground</a></li>
+          <li><a href="./modelos/model.html">Modelos</a></li>
+          <li>
+            <a href="https://playground.tensorflow.org/" target="_blank"
+              >TensorFlow Playground</a
+            >
+          </li>
+          <li>
+            <a href="https://poloclub.github.io/ganlab/" target="_blank"
+              >GAN Lab</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
     <!-- FIN Nav top-->
 
     <!--CodeMirror Editor-->
     <div class="contenedor-editor">
-      <h1>DLP Playground</h1>
+
       <h2>Code Editor</h2>
 
       <section id="static">
@@ -75,7 +92,7 @@ model.fit(xs, ys, {epochs: 10}).then(() => {
       </section>
     </div>
 
-    <div>
+    <div id="the-footer">
       <footer>
         <p>Legal disclaimer, copyright, etc.</p>
         <ul>
