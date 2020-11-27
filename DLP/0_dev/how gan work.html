@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>how gan work</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h3 id="discriminador">Discriminador</h3>
+      <ul>
+        <li>
+          Tiene como <strong>entradas</strong>
+          <ul>
+            <li>
+              Los datos reales, que provienen de la base de datos de
+              entrenamiento.
+            </li>
+            <li>Los datos falsos, sintetizados por el Discriminador.</li>
+          </ul>
+        </li>
+        <li>
+          La <strong>salida</strong> es la probabilidad del ejemplo de entrada
+          de ser real.
+        </li>
+        <li>
+          El <strong>objetivo</strong> es distinguir los datos falsos
+          provenientes del Generador y los datos reales provenientes de la base
+          de datos.
+        </li>
+      </ul>
+      <p>De esta forma, se definen:</p>
+      <ul>
+        <li>
+          <strong>Conjunto de entrenamiento:</strong> Base de datos de ejemplos
+          reales. El Generador debe aprender a emular de forma perfecta estos
+          datos. Estos datos sirven como entrada a la red Discriminador.
+        </li>
+        <li>
+          <strong>Vector de ruido aleatorio:</strong> Vector
+          <strong>z</strong> de entrada a la red Generador. Esta entrada es
+          utilizada por el Generador como punto de partida para la síntesis de
+          datos falsos.
+        </li>
+        <li>
+          <strong>Red Generadora:</strong> Toma como entrada un vector de
+          números aleatorio <strong>z</strong>, y genera como salida un dato
+          falso <strong>x*</strong>. El objetivo es que el dato falso sea
+          indistinguible del dato real.
+        </li>
+        <li>
+          <strong>Red Discriminadora:</strong> Toma como entrada un dato real
+          <strong>x</strong> o un dato falso <strong>x*</strong>. El objetivo es
+          determinar, para cada dato, la probabilidad si es real.
+        </li>
+        <li>
+          <strong>Proceso iterativo de entrenamiento/sintonización:</strong>
+          Para cada una de las predicciones del Discriminador, se determina lo
+          buena o no de esta, y se utiliza el resultado para volver a sintonizar
+          la red Discriminadora y Generadora mediante
+          <em>Propagación hacia atrás</em> (Backpropagation).
+        </li>
+      </ul>
+      <h2 id="proceso-básico-de-entrenamiento">
+        Proceso básico de entrenamiento
+      </h2>
+      <p>
+        El algorítmo de entrenamiento para una GAN para cada uno de los ciclos
+        de iteración es como sigue:
+      </p>
+      <ul>
+        <li>
+          Entrenamiento del <em>Discriminador</em>:
+          <ul>
+            <li>
+              Se toma una muestra aleatoria <strong>x</strong> desde el conjunto
+              de entrenamiento.
+            </li>
+            <li>
+              Se obtiene un nuevo vector aleatorio <strong>z</strong>, y usando
+              la red del Generador se sintetiza un ejemplo falso
+              <strong>x*</strong>.
+            </li>
+            <li>
+              Se usa la red del Discriminador para clasificar
+              <strong>x</strong> y <strong>x*</strong>.
+            </li>
+            <li>
+              Se calculan los errores de clasificación y se propaga hacia atras
+              (backpropagation) el error total para actualizar los parámetros de
+              entrenamiento del Discriminador, intentando minimizar el error de
+              clasificación.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Entrenamiento del <em>Generador</em>:
+          <ul>
+            <li>
+              Se toma un nuevo vector aleatorio <strong>z</strong>, y se usa la
+              red del Generador para sintetizar un ejemplo falso
+              <strong>x*</strong>.
+            </li>
+            <li>Se usa el Discriminador para clasificar <strong>x</strong>.</li>
+            <li>
+              Se calculan los errores de clasificación y se propaga hacia atras
+              (backpropagation) el error para actualizar los parámetros de
+              entrenamiento del Generador, intentando maximizar el error del
+              Discriminador.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        Debido a que este proceso de entrenamiento es iterativo, cada vez que el
+        <em>Discriminador</em> es entrenado y mejora respecto al
+        <em>Generador</em>, el <em>Generador</em> es actualizado y mejora en el
+        proceso.<br />
+        Lo anterior, en palabras más simples, se debe a que el
+        <em>Generador</em> y el <em>Discriminador</em> están inmersos en un
+        <em>juego de suma cero</em>, debido a que cada red tiene como objetivo
+        mejorar respecto a la otra, haciendo que la otra red empeore. Esto lleva
+        a que la arquitectura deba tender a un punto de <em>equilibrio</em>, en
+        el cual ninguna de las dos pueda seguir mejorando.
+      </p>
+      <p>
+        De acuerdo Ian Goodfellow, teóricamente para cada red
+        <em>Generador</em> existe una única red <em>Discriminador</em> óptima.
+        Se muestra también que el <em>Generador</em> es óptimo cuando el
+        <em>Discriminador</em> alcanza predicciones de un valor de 0.5 para
+        todas las entradas. Es decir, el <em>Generador</em> es óptimo cuando el
+        <em>Discriminador</em> está completamente confundido y es incapaz de
+        distinguir entre datos reales y datos falsos.
+      </p>
+      <p>
+        Sin embargo, alcanzar el <em>equilibrio</em> para una GAN, significa en
+        la práctica alcanzar el <strong>Equilibrio de Nash</strong> para un caso
+        en el que no existen algorítmos, en donde las
+        <em>funciones de costo</em> son no convexas y el espacio de parámetros
+        es de altas dimensiones. Debido a lo anterior, la utilización de
+        <strong>Gradiente Descendiente</strong> no garantiza su convergencia, y
+        se han desarrollado diversas arquitecturas y “trucos” de entrenamiento
+        heurístico para alcanzar la convergencia.
+      </p>
+      <p>
+        Para una explicación más detallada del funcionamiento de las GANs, se
+        recomienda el artículo de Ian Goodfellow, “Generative Adversarial
+        Network”, el tutorial realizado en la conferencia NIPS de 2016 por él
+        mismo y el Workshop realizado en la misma conferencia disponible en
+        video.
+      </p>
+    </div>
+  </body>
+</html>

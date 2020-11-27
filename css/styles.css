@@ -9,9 +9,6 @@ html {
 
 body {
   font-family: "Oswald", sans-serif;
-  /*font-family: "Open Sans", sans-serif;
-  background-image: url(subway-lines.jpg);*/
-  /*background-color: #590817;*/
   background: radial-gradient(circle, #884552, #f28444);
 }
 
@@ -22,8 +19,8 @@ h4,
 h5,
 h6 {
   font-family: "Orbitron", sans-serif;
-  /*font-family: "Kavivanar", cursive;*/
   font-weight: normal;
+  color: #8c1f33;
 }
 
 h2 {
@@ -46,20 +43,17 @@ a:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  /*background: radial-gradient(circle, #f28444, #884552);*/
 }
 
 #the-header .leftheader {
   flex-basis: 40%;
   text-align: right;
-  /*border: 3px dotted blue*/
 }
 #the-header .rightheader {
   flex-basis: 60%;
   text-align: left;
   margin-top: 3.75rem;
   padding-left: 0.5rem;
-  /*border: 3px dotted red;*/
 }
 #the-header .rightheader h1 {
   margin: 0;
@@ -77,7 +71,6 @@ a:hover {
 }
 #the-header .second-header h1 {
   margin: 0rem;
-  /*   border: 5px solid red; */
   padding: 0rem;
   font-size: 2em;
   font-weight: 1000;
@@ -152,13 +145,11 @@ a:hover {
 
 /*ARTICULOS*/
 #the-articles {
-  /*border-bottom: 1px solid #da0090;*/
   margin-bottom: 2rem;
   display: flex;
   flex-flow: column wrap;
 }
 #the-articles article {
-  /*border: 5px dotted red;*/
   margin: 1rem 2rem 0.5rem 2rem;
   display: flex;
   background-color: white;
@@ -195,57 +186,4 @@ a:hover {
 }
 #the-footer footer li {
   display: inline-block;
-}
-
-/*SIDE NAV*/
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 3;
-  top: 9rem;
-  left: 0;
-  background-color: #590817;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 0px;
-  border-radius: 10px;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-}
-
-.sidenav a {
-  padding: 0.7rem 0.5rem 0.7rem 0.5rem;
-  text-decoration: none;
-  list-style-type: disc;
-  font-size: 1rem;
-  text-align: center;
-  color: #f2c1ae;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  /*   color: #f1f1f1; */
-  background-color: #8c1f33;
-}
-
-.sidenav .closebtn {
-  font-size: 3rem;
-  text-align: center;
-  margin: 0rem;
-  padding: 0rem 0rem 0rem 0rem;
-}
-.sidenav .closebtn:hover {
-  color: #f1f1f1;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {
-    padding-top: 15px;
-  }
-  .sidenav a {
-    font-size: 18px;
-  }
 }

@@ -12,15 +12,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../../css/styles.css" />
-    <link rel="stylesheet" href="../../css/art-styles.css" />
-    <title>¿Cómo funciona?</title>
+    <link rel="stylesheet" href="../../css/papers.css" />
+    <!--     <script src="./ui-sidebar.js"></script> -->
+    <title>Papers</title>
   </head>
   <body>
     <!-- THE HEADER - SECOND HEADER-->
     <div id="the-header">
       <header>
         <div class="second-header">
-          <h1><a href="../../index.html"> Plataforma JS </a></h1>
+          <h1><a href="../../../index.html"> Plataforma JS </a></h1>
         </div>
       </header>
     </div>
@@ -29,9 +30,9 @@
     <div id="the-nav">
       <nav>
         <ul id="menu">
-          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../../index.html">Home</a></li>
           <li class="dropdown">
-            <a href="#" class="dropbtn">Let's play!</a>
+            <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
             <div class="dropdown-content">
               <a href="../model.html">Modelos</a>
               <a href="https://playground.tensorflow.org/" target="_blank"
@@ -42,12 +43,14 @@
               >
             </div>
           </li>
+
           <li class="dropdown">
-            <a href="#" class="dropbtn">Doc's TensorFlow.js</a>
+            <a href="javascript:void(0)" class="dropbtn">Doc's TensorFlow.js</a>
             <div class="dropdown-content">
               <a href="https://js.tensorflow.org/api/latest/" target="_blank"
                 >Referencia API</a
               >
+
               <a
                 href="https://github.com/tensorflow/tfjs-models"
                 target="_blank"
@@ -67,24 +70,56 @@
           </li>
 
           <li class="dropdown">
-            <a href="#" class="dropbtn">About</a>
+            <a href="javascript:void(0)" class="dropbtn">About</a>
             <div class="dropdown-content">
-              <a href="./how-works.html">¿Cómo se trabaja en tfjs?</a>
-              <a href="./recursos.html">Otros recursos</a>
+              <a href="../about/how-works.html">¿Cómo se trabaja en tfjs?</a>
+              <a href="../about/recursos.html">Otros recursos</a>
             </div>
           </li>
         </ul>
       </nav>
     </div>
 
-    <div id="contenido-html">
-      <h1>Recursos</h1>
-      <ul>
-        <li>
-          <a href="../articulos/papers.html">Papers</a>
-        </li>
-      </ul>
-      <h1>Otros recursos</h1>
+    <!--    REDES NEURONALES    -->
+    <h1>Deep Learning</h1>
+    <button class="collapsible">
+      Schmidhuber 2015, "Deep learning in neural networks: An overview"
+    </button>
+    <div class="content">
+      <iframe
+        style="
+          width: 100%;
+          height: 100%;
+          overflow: show;
+          border: 1px solid #000;
+        "
+        src="https://arxiv.org/pdf/1404.7828.pdf"
+        width="100"
+        height="100"
+        scrolling="yes"
+        >Iframes not supported</iframe
+      >
+    </div>
+
+    <!--  GAN   -->
+    <h1>GAN</h1>
+    <button class="collapsible">
+      Recent Progress on Generative Adversarial Networks (GANs): A Survey
+    </button>
+    <div class="content">
+      <iframe
+        style="
+          width: 100%;
+          height: 100%;
+          overflow: show;
+          border: 1px solid #000;
+        "
+        src="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8667290"
+        width="100"
+        height="100"
+        scrolling="yes"
+        >Iframes not supported</iframe
+      >
     </div>
 
     <!-- FOOTER -  PIE DE PAGINA-->
@@ -94,16 +129,18 @@
         <ul>
           <li>
             <a href="#"
-              ><img src="../../img/icon1.png" alt="Social Media 1."
+              ><img src="../../../img/icon1.png" alt="Social Media 1."
             /></a>
           </li>
           <li>
             <a href="#"
-              ><img src="../../img/icon2.png" alt="Social Media 2."
+              ><img src="../../../img/icon2.png" alt="Social Media 2."
             /></a>
           </li>
         </ul>
       </footer>
     </div>
+
+    <script src="./papers.js"></script>
   </body>
 </html>
