@@ -5,7 +5,7 @@
   position: fixed;
   z-index: 3;
   top: 9rem;
-  left: 0;
+  right: 0px;
   background-color: #590817;
   overflow-x: hidden;
   transition: 0.5s;

@@ -1,0 +1,57 @@
+/*SIDE EDITOR*/
+.sideEditor {
+  height: 77%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 23%;
+  left: 0px;
+  background-color: #590817;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 0px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  /*   padding: 1rem 2rem 2rem 2rem; */
+  /*   text-align: center; */
+}
+#contenedor-editor section {
+  padding: 1rem 2% 2rem 2%;
+}
+.sideEditor a {
+  padding: 0.7rem 0.5rem 0.7rem 0.5rem;
+}
+
+.sideEditor a:hover {
+  background-color: #8c1f33;
+}
+
+.sideEditor h2 {
+  color: #f2c1ae;
+  padding: 1rem 2rem 1rem 3rem;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bolder;
+}
+
+.sideEditor .closebtn {
+  font-size: 4rem;
+  color: #f2c1ae;
+  text-decoration: none;
+  text-align: center;
+  margin: 0rem;
+  padding: 0rem 0rem 0rem 0rem;
+}
+.sideEditor .closebtn:hover {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
