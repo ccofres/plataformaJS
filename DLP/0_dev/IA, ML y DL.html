@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IA, ML y DL</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h1 id="la-inteligencia-artificial-y-el-aprendizaje-automático">
+        La Inteligencia Artificial y el Aprendizaje Automático
+      </h1>
+      <p>
+        La Inteligencia Artificial o IA, es un campo de investigación y estudio
+        que intenta comprender <em>cómo los seres humanos pensamos</em> y
+        construir a partir de esto entidades o máquinas que muestren capacidades
+        cognitivas, que perciban, entiendan, infieran o deduzcan, es decir, que
+        demuestren <em>inteligencia</em>.
+      </p>
+      <p>
+        El Aprendizaje Automático o Machine Learning, es un subcampo de la
+        Inteligencia Artificial, que intenta dotar a una máquina o sistema con
+        la capacidad de aprender de datos sin haber sido explícitamente
+        programada. Para esto se desarrollan técnicas con la capacidad de
+        generalizar comportamientos y aprender patrones, y de esta forma
+        mejorar, describir y predecir ciertos resultados.
+      </p>
+      <p>
+        En general, las técnicas o enfoques del Aprendizaje Automático se pueden
+        dividir en 3 categorías:
+      </p>
+      <ul>
+        <li>
+          <strong>Aprendizaje Supervisado:</strong> al sistema o máquina se le
+          presenta un conjunto de datos o ejemplos de entrenamiento, compuestos
+          por los valores de entrada y los valores de salida deseados. A partir
+          de ello se busca generalizar un patrón mediante algún algoritmo para
+          hacer predicciones de datos no conocidos fuera del conjunto de datos
+          de entrenamiento.
+        </li>
+        <li>
+          <strong>Aprendizaje No Supervisado:</strong> el sistema se dota de un
+          conjunto de entrenamiento compuesto sólo por los valores de entrada,
+          sin los valores de salida deseados. Es decir, el conjunto de
+          entrenamiento no contiene los resultados debidamente etiquetas,
+          clasificados o categorizados para cada uno de los valores de entrada,
+          por lo que el algorítmo debe aprender a realizar la clasificación o
+          categorización de los datos sólo a partir de los valores de entrada.
+        </li>
+        <li>
+          <strong>Aprendizaje por Refuerzo:</strong> el sistema o máquina a
+          través de la interacción aprende lo bueno o malo de una acción a
+          través del resultado obtenido. Si la acción o comportamiento es el
+          correcto, la recompensa es positiva, en caso contrario, la recompensa
+          será negativa.
+        </li>
+      </ul>
+      ç
+      <h1 id="el-aprendizaje-profundo">El Aprendizaje Profundo</h1>
+      <p>
+        El Deep Learning o Aprendizaje Profundo, es un subcampo del Machine
+        Learning que utiliza como arquitectura fundamental
+        <em>Redes Neuronales</em>. Utiliza este tipo de redes como forma para
+        extraer información de los datos con el menor esfuerzo humano posible,
+        intentando hacer el proceso de forma automática.
+      </p>
+      <p>
+        Gran parte de los conceptos básicos del
+        <em>Aprendizaje Profundo</em> surgieron en los años 60, 80 y 90, pero ha
+        tenido su mayor auge en la última década debido principalmente a
+        factores como:
+      </p>
+      <ul>
+        <li>
+          Digitalización de la información y la consiguiente habilidad de
+          acceder a datos fácilmente, haciendo que muchos problemas tengan ahora
+          una forma digital.
+        </li>
+        <li>
+          Comunidades científicas que debido al avance de las telecomunicaciones
+          y en especial el internet, son capaces de trabajar y compartir
+          remotamente.
+        </li>
+        <li>
+          Grandes avances en la computación y el diseño de nuevo Hardware (CPU,
+          GPU, TPU), permitiendo la ejecución efectiva a gran escala.
+        </li>
+        <li>
+          Desarrollo de herramientas como TensorFlow, PyTorch y Keras con
+          grandes niveles de abstracción que ayudan a las personas a resolver
+          problemas en cada vez menos tiempo y con cada vez menos conocimientos,
+          dejando a la <em>idea</em> y los <em>datos</em> como el punto central
+          y no el esfuerzo.
+        </li>
+      </ul>
+      <p>
+        Para esto, utiliza un conjunto de datos de ejemplo como
+        <strong>base o set de entrenamiento</strong> que se utiliza para
+        reconocer patrones. Una vez que se extraen estos patrones, el sistema
+        puede ser capáz de utilizarlos para <em>etiquetar</em> nuevos datos de
+        entrada.<br />
+        Las Redes Neuronales son un modelo basado en el funcionamiento del
+        cerebro, diseñado para el reconocimiento de patrones. Estos patrones son
+        numéricos y están contenidos en vectores, como representación de los
+        datos recibidos como entrada.
+      </p>
+      <h2 id="estructura-de-las-redes-neuronales">
+        Estructura de las Redes Neuronales
+      </h2>
+      <p>
+        Las redes neuronales están compuestas por capas, y cada una de estas
+        capas está compuesta por nodos o neuronas. Los nodos tienen la siguiente
+        estructura:
+      </p>
+      <ul>
+        <li>Una o más entradas que reciben los datos a procesar.</li>
+        <li>
+          Pesos dados a cada una de las entradas. Estos aumentan o disminuyen la
+          importancia de dicha entrada.
+        </li>
+        <li>
+          Función sumatoria, encargada de sumar todas las combinaciones de
+          peso-entrada.
+        </li>
+        <li>
+          Función de activación, que determina la activación o no de un nodo
+          según el valor obtenido en la función sumatoria. Esta función puede
+          ser una simple función escalón, una función lineal que devuelve el
+          mismo valor calculado, una función lineal por tramos que devuelve un
+          valor si el valor de la función sumatoria está dentro de ciertos
+          límites como la función ReLU.
+        </li>
+      </ul>
+      <p>
+        Para entender el modelo de redes neuronales, se deben definir los
+        siguientes concepto básicos:
+      </p>
+      <ul>
+        <li>
+          <strong>Etiquetas:</strong> tambień llamadas <em>labels</em> por su
+          nombre en inglés. Corresponde al valor, clasificación o categoría a
+          predecir.
+        </li>
+        <li>
+          <strong>Atributos:</strong> también llamados <em>features</em>.
+          Corresponden a las variables de entrada a cada nodo o neurona.
+        </li>
+        <li>
+          <strong>Set de datos:</strong> corresponde a los ejemplos a utilizar
+          para entrenar o hacer predicciones con el modelo.<br />
+          Estos ejemplos pueden corresponder a atributos debidamente
+          etiquetados, que suelen utilizarse como ejemplos de entrenamiento para
+          un modelo, o pueden corresponder a atributos sin etiquetar que se
+          utilizan para probar el modelo ya entrenado o en instancias de
+          aprendizaje no supervisado.
+        </li>
+      </ul>
+      <h2 id="entrenamiento-de-una-red-neuronal">
+        Entrenamiento de una red neuronal
+      </h2>
+      <p>
+        Con el fin de extraer información de los datos, el modelo de red
+        neuronal debe definir la relación entre las entradas o atributos y su
+        salida o etiquetas. Para esto el modelo debe pasar por el proceso de
+        entrenamiento o aprendizaje para posteriormente poder hacer inferencias
+        de acuerdo a los patrones aprendidos durante el entrenamiento.<br />
+        En el <strong>proceso de entrenamiento</strong> ocurre un ajuste o
+        modificación de los pesos asociados a cada entrada a un nodo, con el fin
+        de minimizar una <strong>función de pérdida</strong>. Esta
+        <strong>función de pérdida</strong> recibe la predicción ^y y la
+        etiqueta correcta <em>y</em>, asociadas a ciertos atributos. Con esto,
+        la <em>Función de Pérdida</em> calcula lo incorrecto o no de una
+        predicción.<br />
+        Estas <em>Funciones de Pérdida o Costo</em> pueden eliguirse de acuerdo
+        al tipo de modelo de red neuronal a implementar
+      </p>
+      <p>
+        para evaluar su rendimiento o performance. Entre estas, una de las más
+        utilizadas es la MSE, Mean Square Error, también conocida
+      </p>
+      <p>como \emph{Costo cuadrático}, definida como:</p>
+      <p>\begin{equation}</p>
+      <p>MSE = \frac{1}{N}</p>
+      <p>\sum (y - (prediccion(x)))^2</p>
+      <p>\end{equation}</p>
+      <p>
+        Los pesos se suelen inicializar con valores escogidos de forma
+        aleatoria, y generalmente
+      </p>
+      <p>
+        son números pequeños. El ajuste de estos pesos ocurre gracias a un
+        algorítmo de optimización,
+      </p>
+      <p>
+        que ayudan a reducir o minimizar la \emph{Función de Pérdida}. Estos
+        algorítmos de optimización suelen estar
+      </p>
+      <p>
+        basados en el cálculo del \textbf{gradiente} de la \emph{función de
+        pérdida}, debido a que éste indica la dirección de
+      </p>
+      <p>
+        máximo crecimiento de la función en cierto punto. Este tipo de
+        algorítmos es por tanto llamado
+      </p>
+      <p>
+        \textbf{Descenso de Gradiente}, y son técnicas conocidas como
+        \textbf{Gradient Descent Optimization}. Entre ellas
+      </p>
+      <p>
+        se encuentran una gran variedad de algorítmos que implementan el
+        Descenso de Gradiente, tales como Adagrad, Adadelta,
+      </p>
+      <p>
+        Adam, Adamax, Nadam, y otros \cite{ruderOverviewGradientDescent2017}.
+      </p>
+      <p>
+        Para actualizar el peso una vez que la \emph{Función de Pérdida} a
+        calculado el error y el algorítmo de optimización
+      </p>
+      <p>
+        a recalculado los pesos para \emph{minimizar la Función de Pérdida}, se
+        recurre a un algorítmo de propagación hacia atras,
+      </p>
+      <p>
+        desde la capa de salida hacia las capas anteriores. Este algorítmo de
+        propagación se conoce como \textbf{Backpropagation}
+      </p>
+      <p>
+        o \textbf{Propagación hacia atras}
+        \cite{gershensonArtificialNeuralNetworks2003}
+        \cite{epelbaumDeepLearningTechnical2017}.
+      </p>
+    </div>
+  </body>
+</html>
