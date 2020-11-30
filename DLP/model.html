@@ -77,14 +77,17 @@
               <a href="./about/recursos.html">Otros recursos</a>
             </div>
           </li>
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
         </ul>
       </nav>
     </div>
 
     <!-- SIDENAV -->
-    <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+    <!--     <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
       >&#9776; Ejemplos
-    </span>
+    </span> -->
     <nav id="mySidenav" class="sidenav"></nav>
     <!-- FIN SideNav-->
 
@@ -115,7 +118,11 @@
       <h2 id="redes-neuronales">Redes Neuronales</h2>
       <ul>
         <li><a href="#">Introducción a las Redes Neuronales</a></li>
-        <li><a href="#">Primeros modelos en TensorFlow.js</a></li>
+        <li>
+          <a style="cursor: pointer" onclick="DenseNet()">
+            Primeros modelos en TensorFlow.js
+          </a>
+        </li>
       </ul>
       <h2 id="redes-convolucionales">Redes Convolucionales</h2>
       <ul>
@@ -123,7 +130,7 @@
           <a href="#">Introducción a las Redes Neuronales Convolucionales</a>
         </li>
         <li>
-          <a href="#"
+          <a style="cursor: pointer" onclick="CnnNet()"
             >Modelos de Redes Neuronales Convolucionales en TensorFlow.js</a
           >
         </li>
@@ -136,7 +143,7 @@
           >
         </li>
         <li>
-          <a href="#"
+          <a style="cursor: pointer" onclick="GenNet()"
             >Modelos de Redes Generativas Adversarias en TensorFlow.js</a
           >
         </li>
