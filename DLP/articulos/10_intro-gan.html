@@ -36,7 +36,7 @@
         <ul id="menu">
           <li><a href="../../index.html">Home</a></li>
           <li class="dropdown">
-            <a href="#" class="dropbtn">Let's play!</a>
+            <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
             <div class="dropdown-content">
               <a href="../model.html">Modelos</a>
               <a href="https://playground.tensorflow.org/" target="_blank"
@@ -47,8 +47,9 @@
               >
             </div>
           </li>
+
           <li class="dropdown">
-            <a href="#" class="dropbtn">Doc's TensorFlow.js</a>
+            <a href="javascript:void(0)" class="dropbtn">Doc's TensorFlow.js</a>
             <div class="dropdown-content">
               <a href="https://js.tensorflow.org/api/latest/" target="_blank"
                 >Referencia API</a
@@ -72,10 +73,10 @@
           </li>
 
           <li class="dropdown">
-            <a href="#" class="dropbtn">About</a>
+            <a href="javascript:void(0)" class="dropbtn">About</a>
             <div class="dropdown-content">
-              <a href="./how-works.html">¿Cómo se trabaja en tfjs?</a>
-              <a href="./recursos.html">Otros recursos</a>
+              <a href="../about/how-works.html">¿Cómo se trabaja en tfjs?</a>
+              <a href="../about/recursos.html">Otros recursos</a>
             </div>
           </li>
         </ul>
@@ -93,19 +94,17 @@
         <p>
           Las Redes Generativas Adversariales, o GANs, fueron descritas por
           primera vez el 2014 en el artículo de Ian Goodfellow, “Generative
-          Adversarial Networks”. Son una clase de redes neuronales dentro de las
-          técnicas del Machine Learning que permiten la generación de imagénes
-          sintéticas, forzando las imágenes sintéticas generadas a ser
-          estadísticamente indistinguibles de las imágenes originales. La gran
-          capacidad de generación y la potencia de la idea de las redes
-          adversariales generativas ha hecho que en los últimos años se haya
-          puesto el foco en su investigación y en la generación de nuevas
-          arquitecturas.
+          Adversarial Networks”. Son una clase dentro de las técnicas del
+          Machine Learning que permiten la generación de imagénes sintéticas,
+          forzando las imágenes sintéticas generadas a ser estadísticamente
+          indistinguibles de las imágenes originales. La gran capacidad de
+          generación y la potencia de la idea de las redes adversariales
+          generativas ha hecho que en los últimos años se haya puesto el foco en
+          su investigación y en la generación de nuevas arquitecturas.
         </p>
         <p>
           Las GANs consisten básicamente en dos redes que compiten mutuamente:
-          una
-          <strong>red genera datos falsos</strong>, y la otra
+          una <strong>red genera datos falsos</strong>, y otra que
           <strong>intenta distinguir los datos falsos de los reales</strong
           >.<br />
           De esta forma, las GANs:
@@ -169,8 +168,15 @@
             base de datos.
           </li>
         </ul>
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3fu9lCU-fdwbIp1vTI8Aj1EJAOamTyR-j5yy2lD_tXIt4qEMDtPQgC4Ddej_qvhRQCEb8j7suW6eqtS38kpxyzR77vpSNaUb6SSMXQHeQP14UpILcvbbtRgorO0zwqJ8njiZ2VjaVFlwg1fY2_ssWk=w679-h513-no?authuser=2"
+            alt="Elementos y funcionamiento de una GAN"
+          />
+          <p>Figura 1: Elementos y funcionamiento de una GAN</p>
+        </div>
         <p>De esta forma, se definen:</p>
-        <ul>
+        <ol>
           <li>
             <strong>Conjunto de entrenamiento:</strong> Base de datos de
             ejemplos reales. El Generador debe aprender a emular de forma
@@ -201,7 +207,7 @@
             sintonizar la red Discriminadora y Generadora mediante
             <em>Propagación hacia atrás</em> (Backpropagation).
           </li>
-        </ul>
+        </ol>
         <h2 id="proceso-básico-de-entrenamiento">
           Proceso básico de entrenamiento
         </h2>
@@ -209,55 +215,62 @@
           El algorítmo de entrenamiento para una GAN para cada uno de los ciclos
           de iteración es como sigue:
         </p>
-        <ul>
+        <ol>
           <li>
-            Entrenamiento del <em>Discriminador</em>:
+            <p>Entrenamiento del <em>Discriminador</em>:</p>
             <ul>
               <li>
-                Se toma una muestra aleatoria <strong>x</strong> desde el
-                conjunto de entrenamiento.
+                <strong>a)</strong> Se toma una muestra aleatoria
+                <strong>x</strong> desde el conjunto de entrenamiento.
               </li>
               <li>
-                Se obtiene un nuevo vector aleatorio <strong>z</strong>, y
-                usando la red del Generador se sintetiza un ejemplo falso
-                <strong>x*</strong>.
+                <strong>b)</strong> Se obtiene un nuevo vector aleatorio
+                <strong>z</strong>, y usando la red del Generador se sintetiza
+                un ejemplo falso <strong>x*</strong>.
               </li>
               <li>
-                Se usa la red del Discriminador para clasificar
-                <strong>x</strong> y <strong>x*</strong>.
+                <strong>c)</strong> Se usa la red del Discriminador para
+                clasificar <strong>x</strong> y <strong>x*</strong>.
               </li>
               <li>
-                Se calculan los errores de clasificación y se propaga hacia
-                atras (backpropagation) el error total para actualizar los
-                parámetros de entrenamiento del Discriminador, intentando
-                minimizar el error de clasificación.
+                <strong>d)</strong> Se calculan los errores de clasificación y
+                se propaga hacia atras (backpropagation) el error total para
+                actualizar los parámetros de entrenamiento del Discriminador,
+                intentando minimizar el error de clasificación.
               </li>
             </ul>
           </li>
           <li>
-            Entrenamiento del <em>Generador</em>:
+            <p>Entrenamiento del <em>Generador</em>:</p>
             <ul>
               <li>
-                Se toma un nuevo vector aleatorio <strong>z</strong>, y se usa
-                la red del Generador para sintetizar un ejemplo falso
-                <strong>x*</strong>.
+                <strong>a)</strong> Se toma un nuevo vector aleatorio
+                <strong>z</strong>, y se usa la red del Generador para
+                sintetizar un ejemplo falso <strong>x*</strong>.
               </li>
               <li>
-                Se usa el Discriminador para clasificar <strong>x</strong>.
+                <strong>b)</strong> Se usa el Discriminador para clasificar
+                <strong>x</strong>.
               </li>
               <li>
-                Se calculan los errores de clasificación y se propaga hacia
-                atras (backpropagation) el error para actualizar los parámetros
-                de entrenamiento del Generador, intentando maximizar el error
-                del Discriminador.
+                <strong>c)</strong> Se calculan los errores de clasificación y
+                se propaga hacia atrás (backpropagation) el error para
+                actualizar los parámetros de entrenamiento del Generador,
+                intentando maximizar el error del Discriminador.
               </li>
             </ul>
           </li>
-        </ul>
+        </ol>
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3d6Flsy6LjTv88bN3V7lOHl2_qTNkvUY24Xz8x2-NSPwBLdVYtIFagVt5N_v4rlsG8wxbYwQ048N8SVh30As5q3S7Jcxa9E5UIbCaAb0MczY6Mf6gHUuLsfj0PywA_SGUVSzpGURfQ_3OJkXWaz1DU=w361-h641-no?authuser=2"
+            alt="Proceso iterativo de entrenamiento de una GAN"
+          />
+          <p>Figura 2: Proceso iterativo de entrenamiento de una GAN</p>
+        </div>
         <p>
           Debido a que este proceso de entrenamiento es iterativo, cada vez que
-          el
-          <em>Discriminador</em> es entrenado y mejora respecto al
+          el <em>Discriminador</em> es entrenado y mejora respecto al
           <em>Generador</em>, el <em>Generador</em> es actualizado y mejora en
           el proceso.<br />
           Lo anterior, en palabras más simples, se debe a que el
@@ -295,15 +308,6 @@
           video.
         </p>
       </div>
-
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/AJVyzd0rqdc"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
     </div>
 
     <!-- FOOTER -  PIE DE PAGINA-->
