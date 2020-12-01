@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
       rel="stylesheet"
@@ -11,11 +12,15 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <!--     <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css" />
-    <link rel="stylesheet" href="../../code-editor/editor-js.css" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../../../css/styles.css" />
-    <!--     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.4.3/dist/tfjs-vis.umd.min.js"></script> -->
+    <link rel="stylesheet" href="../../../css/style-sidebar.css" />
+    <link rel="stylesheet" href="../../../css/art-styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@magenta/image@0.2.1/dist/magentaimage.min.js"></script>
     <title>Style Transfer</title>
   </head>
@@ -77,6 +82,9 @@
               <a href="../../about/recursos.html">Otros recursos</a>
             </div>
           </li>
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -121,6 +129,10 @@
       }
     </script>
 
+        <!-- SIDENAV -->
+        <nav id="mySidenav" class="sidenav"></nav>
+        <!-- FIN SideNav-->
+
     <!-- FOOTER -  PIE DE PAGINA-->
     <div id="the-footer">
       <footer>
@@ -139,5 +151,6 @@
         </ul>
       </footer>
     </div>
+    <script src="../ui-sidebar.js"></script>
   </body>
 </html>

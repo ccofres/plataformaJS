@@ -11,12 +11,18 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <!--     <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css" />
-    <link rel="stylesheet" href="../../code-editor/editor-js.css" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css" />
+    <link rel="stylesheet" href="../../code-editor/editor-js.css" />
     <link rel="stylesheet" href="../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../css/style-sidebar.css" />
+    <link rel="stylesheet" href="../../../css/art-styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.4.3/dist/tfjs-vis.umd.min.js"></script>
-    <title>Modelo 5 - Clasificador MNIST</title>
+    <title>Clasificador MNIST</title>
   </head>
   <body>
     <!-- THE HEADER - SECOND HEADER-->
@@ -76,6 +82,9 @@
               <a href="../../about/recursos.html">Otros recursos</a>
             </div>
           </li>
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -116,6 +125,13 @@
       size="23"
       style="position: absolute; top: 400; left: 180"
     />
+
+
+
+        <!-- SIDENAV -->
+        <nav id="mySidenav" class="sidenav"></nav>
+        <!-- FIN SideNav-->
+
     <!-- FOOTER -  PIE DE PAGINA-->
     <div id="the-footer">
       <footer>
@@ -134,7 +150,8 @@
         </ul>
       </footer>
     </div>
-    <script src="data.js" type="module"></script>
-    <script src="script.js" type="module"></script>
+    <script src="../ui-sidebar.js"></script>
+    <script src="../../code-editor/codemirror-5-50-2.js"></script>
+    <script src="../../code-editor/editor-js.js"></script>
   </body>
 </html>

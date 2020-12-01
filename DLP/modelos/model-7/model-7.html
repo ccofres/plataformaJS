@@ -11,14 +11,19 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <!--   <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css" />
-  <link rel="stylesheet" href="../../code-editor/editor-js.css" /> -->
-    <link rel="stylesheet" href="../../../css/styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../css/style-sidebar.css" />
+    <link rel="stylesheet" href="../../../css/art-styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
     <script src="./webcam.js"></script>
     <script src="./rps-dataset.js"></script>
-    <title>Transfer Learning MobileNet</title>
+    <title>Transfer Learning con MobileNet</title>
   </head>
   <body>
     <!-- THE HEADER - SECOND HEADER-->
@@ -78,6 +83,9 @@
               <a href="../../about/recursos.html">Otros recursos</a>
             </div>
           </li>
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -117,6 +125,12 @@
     </button>
     <div id="prediction"></div>
 
+
+        <!-- SIDENAV -->
+        <nav id="mySidenav" class="sidenav"></nav>
+        <!-- FIN SideNav-->
+
+
     <!-- FOOTER -  PIE DE PAGINA-->
     <div id="the-footer">
       <footer>
@@ -136,5 +150,6 @@
       </footer>
     </div>
     <script src="index.js"></script>
+    <script src="../ui-sidebar.js"></script>
   </body>
 </html>

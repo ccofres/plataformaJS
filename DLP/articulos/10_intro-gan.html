@@ -263,7 +263,7 @@
         </ol>
         <div class="img-contenedor">
           <img
-            src="https://lh3.googleusercontent.com/pw/ACtC-3d6Flsy6LjTv88bN3V7lOHl2_qTNkvUY24Xz8x2-NSPwBLdVYtIFagVt5N_v4rlsG8wxbYwQ048N8SVh30As5q3S7Jcxa9E5UIbCaAb0MczY6Mf6gHUuLsfj0PywA_SGUVSzpGURfQ_3OJkXWaz1DU=w361-h641-no?authuser=2"
+            src="https://lh3.googleusercontent.com/pw/ACtC-3dvTwol2bD26bw4yMS2grrM9tC-Ej0Hp6-vibJlnwmPNUpv2BPiI2OiN8fSF_aQLM6n2KQ9Ep5Ewfuyb18Zx87wlyUedWNM-QQZLEmOeHKADBGWsqh2fari6gYOoO9M39UawF2f7xjjNOTpT1YfnB1s=w361-h641-no?authuser=2"
             alt="Proceso iterativo de entrenamiento de una GAN"
           />
           <p>Figura 2: Proceso iterativo de entrenamiento de una GAN</p>
@@ -300,13 +300,191 @@
           y se han desarrollado diversas arquitecturas y “trucos” de
           entrenamiento heurístico para alcanzar la convergencia.
         </p>
+
+        <h1 id="particularidades-de-las-gan">Particularidades de las GAN</h1>
         <p>
-          Para una explicación más detallada del funcionamiento de las GANs, se
-          recomienda el artículo de Ian Goodfellow, “Generative Adversarial
-          Network”, el tutorial realizado en la conferencia NIPS de 2016 por él
-          mismo y el Workshop realizado en la misma conferencia disponible en
-          video.
+          La GAN está compuesta de 2 redes neuronales, un Discriminador y un
+          Generador. El Discriminador es un clasificador que se entrena para
+          determinar la probabilidad de que cierta imagen sea falsa. Es decir,
+          modela la probabilidad de que cierto ejemplo sea falso, dadas ciertas
+          características de entrada. Esto es, es la probabilidad de dado una
+          imagen de entrada $X$, $Y$ sea falsa: $$\begin{aligned} P(Y=clase |
+          X=características)\end{aligned}$$
         </p>
+        <p>
+          Esta probabilidad es la que se envía como retroalimentación (feedback)
+          al Generador para su ajuste de pesos.
+        </p>
+        <p>
+          El principal objetivo del Generador es producir ejemplos realistas de
+          ciertas clases. Es decir, intenta encontrar y modelar el espacio de
+          las posibilidades de ciertas clases. Esto es, dado ciertas clases $Y$
+          (como por ejemplo, perro y/o gatos), se quiere obtener la probabilidad
+          de ciertas características $X$:
+        </p>
+        $$ P(X= características | Y= clase )$$
+        <p>
+          Si el generador solo se entrena para producir características
+          relevantes de sólo una clase, entonces el Generador intenta modelar la
+          probabilidad de ciertas características $X$, es decir: $$P(X)$$
+        </p>
+        <p>
+          Si la clase $Y$ son por ejemplo perros, $P(X)$ intenta modelar y
+          aproximar la distribución real de probabilidad de características de
+          todos los posibles perros existentes.
+        </p>
+        <h2 id="noise-vector-vector-aleatorio-z">
+          Noise Vector, vector aleatorio z
+        </h2>
+        <p>
+          Idealmente el Generador no produce el mismo ejemplo cada vez. para lo
+          anterior se le da un set distinto de valores aleatorios, conocidos
+          como “noise vector”, o “vector ruido”. Usualmente se generan de forma
+          aleatoria, tomando valores de forma uniforme entre 0 y 1 desde una
+          distribución normal:
+        </p>
+        $$\begin{aligned} Z \sim N(0,1)\end{aligned}$$
+        <p>
+          Debe de ser lo suficientemente grande para tener la mayor cantidad de
+          posibilidades. Generalmente se toman vectores con dimensiones en base
+          a potencias de 2.
+        </p>
+        <p>
+          La elección y/o generación del vector Z es una parte importante del
+          Generador, pues puede verse como una medida del balance entre la
+          fidelidad y calidad de la generación, y la diversidad de esta.
+        </p>
+        <ul>
+          <li>
+            Si la muestra de Z se saca de una Distribución Normal, el modelo
+            Generador tiene más probabilidades de ver valores de Z dentro de
+            media desviación estándar.
+          </li>
+          <li>
+            Con lo anterior, durante el entrenamiento del Generador, el modelo
+            tiende a familiarizarse más con ciertos
+            <em>vectores de ruido aleatorio</em>, modelando y generando áreas
+            que salen desde estos vectores más familiares y probables.
+          </li>
+          <li>
+            En estas áreas, el modelo tenderá a tener resultados posiblemente
+            mucho más realistas, pero tenderá a no generar nada fuera de lo
+            común.
+          </li>
+        </ul>
+        <p>
+          Lo anterior, constituye por lo tanto un <strong>balance</strong> entre
+          <strong>fidelidad</strong> y <strong>diversidad</strong>, esto es,
+          <em>imágenes realistas y con gran calidad</em> versus<br />
+          <em>diversidad y variedad de imágenes</em>.
+        </p>
+        <h2 id="función-de-pérdida">Función de pérdida</h2>
+        <p>
+          La función de pérdida u objetivo para una GAN definida en el paper
+          original está dada como: $$ J(\theta) = \dfrac{-1}{m} \sum_{i=1}^{m}
+          \left[ y^{i} log \left\{ h(x^{i}, \theta) \right\} + \left( 1-y^{i}
+          \right) log \left( 1 - \left\{ h(x^{i}, \theta) \right\} \right)
+          \right] $$ En donde:
+        </p>
+        <ul>
+          <li>
+            $x$, características/<em>features</em> que se utilizan para hacer
+            una predicción. Esto podría, por ejemplo, ser una imagen.
+          </li>
+          <li>
+            $y$, clases/<em>labels</em> o categorías reales para ciertas
+            características $x$.
+          </li>
+          <li>
+            $h$, es una predicción $x^{i}$ hecha por el modelo, para ciertos
+            parámetros de ajuste $\theta$.
+          </li>
+          <li>$\theta$, son los parámetros a ajustar del Discriminador.</li>
+          <li>
+            $\dfrac{-1}{m} \sum_{i=1}^{m}$ es el promedio de la pérdida en un
+            batch completo, en donde el signo negativo es relevante para el
+            cambio de signo, y así ajustar y obtener una pérdida siempre
+            positiva.
+          </li>
+        </ul>
+        <p>
+          De acuerdo a esta ecuación, se pueden distinguir claramente dos
+          partes:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <strong
+                >Parte $y^{i} log \left( h(x^{i}, \theta) \right)$ :
+              </strong>
+            </p>
+            <ul>
+              <li>
+                Predicción relevante sólo para cuando la clase $y=1$, debido a
+                que función pérdida $J(\theta) = 0$ para $y=0$.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 1$, entonces $log
+                \left(h(x^{i}, \theta) \right) \approx 0$, y por lo tanto la
+                función de pérdida $J(\theta) \approx 0$, porque predicción $h$
+                y clase $y$, son iguales o muy similares.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 0$, entonces $log
+                \left(h(x^{i}, \theta) \right) \approx -\infty$, y por lo tanto
+                la función de pérdida $J(\theta) \approx -\infty$, porque
+                predicción $h$ y clase $y$, son distintas.
+              </li>
+            </ul>
+            <div class="img-contenedor">
+              <img
+                src="https://lh3.googleusercontent.com/pw/ACtC-3dQ9xQlblikZ_jUshbn1QaMq8xqjFZRicBlslKXrJBcKxc1oW4ilsNQN-s32TFfmCztS4ymMgjMr0nAOQS9eDVLqdCU8uZwrH9ToWHZqat1tgcsgze-XVxPgfxi82x5SH0_xf8f4Oo02H49fWvv7ck-=w416-h168-no?authuser=2"
+                alt="enter image description here"
+              />
+              <p>
+                Tabla 1: Relación $y^{i} h(x^{i}, \theta)$ con $y^{i} log
+                (h(x^{i}, \theta))$
+              </p>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong
+                >Parte $\left( 1-y^{i} \right) log \left( 1 - h(x^{i}, \theta)
+                \right)$ :
+              </strong>
+            </p>
+            <ul>
+              <li>
+                Predicción relevante sólo para cuando la clase $y=0$, debido a
+                que función pérdida $J(\theta) = 0$ para $y=1$.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 0$, entonces $log \left(1-
+                h(x^{i}, \theta) \right) \approx 0$, y por lo tanto la función
+                de pérdida $J(\theta) \approx 0$, porque predicción $h$ y clase
+                $y$, son iguales o muy similares.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 1$, entonces $log \left(1-
+                h(x^{i}, \theta) \right) \approx -\infty$, y por lo tanto la
+                función de pérdida $J(\theta) \approx -\infty$, porque
+                predicción $h$ y clase $y$, son distintas.
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3fcjJ_JuenlR_6M3KZhLVn8c8e6piWhtda-pDrbe2JFK7k1OTDNZSy3ig1ZhqG1LgTIZ_vp2msqrdggsNrYTOZK2cFjTAQmTbqxdouJoWVs7D42SLYFmUwzP6pK31mAfvDpDc-O-ssLqZtoorAciFJf=w498-h170-no?authuser=2"
+            alt="enter image description here"
+          />
+          <p>
+            Tabla 2: $y^{i} h(x^{i}, \theta)$ con $\left( 1-y^{i} \right) log
+            \left( 1 - h(x^{i}, \theta) \right)$
+          </p>
+        </div>
       </div>
     </div>
 
@@ -328,5 +506,6 @@
         </ul>
       </footer>
     </div>
+    <script src="./load-mathjax.js"></script>
   </body>
 </html>
