@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plataforma JS</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
       rel="stylesheet"
@@ -12,24 +11,17 @@
       href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/style-sidebar.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/papers.css" />
+    <link rel="stylesheet" href="../../css/style-sidebar.css" />
+    <title>Papers</title>
   </head>
   <body>
-    <!-- HEADER -   TOP HEADER-->
+    <!-- THE HEADER - SECOND HEADER-->
     <div id="the-header">
       <header>
-        <div class="leftheader">
-          <a href="/"><img src="img/logo.png" alt="Click for home." /></a>
-        </div>
-        <div class="rightheader">
-          <h1>Plataforma JS</h1>
-          <p>Un proyecto en Tensorflow.js</p>
+        <div class="second-header">
+          <h1><a href="../../../index.html"> Plataforma JS </a></h1>
         </div>
       </header>
     </div>
@@ -38,21 +30,22 @@
     <div id="the-nav">
       <nav>
         <ul id="menu">
+          <!--           <li><a href="../../../index.html">Home</a></li> -->
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
             <div class="dropdown-content">
-              <a href="./src/modelos.html">Modelos</a>
-              <a href="./src/editorjs.html">Editor JS</a>
+              <a href="../modelos.html">Modelos</a>
+              <a href="../editorjs.html">Editor JS</a>
             </div>
           </li>
 
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">TensorFlow.js</a>
             <div class="dropdown-content">
-              <a href="./src/tensorflowjs/how-works.html"
+              <a href="../tensorflowjs/how-works.html"
                 >¿Cómo se trabaja en tfjs?</a
               >
-              <a href="./src/tensorflowjs/recursos.html">Otros recursos</a>
+              <a href="../tensorflowjs/recursos.html">Otros recursos</a>
             </div>
           </li>
 
@@ -66,6 +59,7 @@
               <a href="https://js.tensorflow.org/api/latest/" target="_blank"
                 >Referencia API</a
               >
+
               <a
                 href="https://github.com/tensorflow/tfjs-models"
                 target="_blank"
@@ -93,27 +87,46 @@
       </nav>
     </div>
 
-    <!-- ARTICLES -   Articulos-->
-    <div id="the-articles">
-      <article>
-        <img src="img/blog1.png" alt="Earth-Vision Reality TV. " />
-        <div>
-          <h2>articulos 1 - Maintenance</h2>
-          <p class="posted">Posted October 25, 2020</p>
-          <p>descripción del articulo</p>
-          <p><a href="#">Read more >> </a></p>
-        </div>
-      </article>
+    <!--    REDES NEURONALES    -->
+    <h1>Deep Learning</h1>
+    <button class="collapsible">
+      Schmidhuber 2015, "Deep learning in neural networks: An overview"
+    </button>
+    <div class="content">
+      <iframe
+        style="
+          width: 100%;
+          height: 100%;
+          overflow: show;
+          border: 1px solid #000;
+        "
+        src="https://arxiv.org/pdf/1404.7828.pdf"
+        width="100"
+        height="100"
+        scrolling="yes"
+        >Iframes not supported</iframe
+      >
+    </div>
 
-      <article>
-        <img src="img/blog1.png" alt="Earth-Vision Reality TV. " />
-        <div>
-          <h2>articulos 1 - Maintenance</h2>
-          <p class="posted">Posted October 25, 2020</p>
-          <p>descripción del articulo</p>
-          <p><a href="#">Read more >> </a></p>
-        </div>
-      </article>
+    <!--  GAN   -->
+    <h1>GAN</h1>
+    <button class="collapsible">
+      Recent Progress on Generative Adversarial Networks (GANs): A Survey
+    </button>
+    <div class="content">
+      <iframe
+        style="
+          width: 100%;
+          height: 100%;
+          overflow: show;
+          border: 1px solid #000;
+        "
+        src="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8667290"
+        width="100"
+        height="100"
+        scrolling="yes"
+        >Iframes not supported</iframe
+      >
     </div>
 
     <!-- FOOTER -  PIE DE PAGINA-->
@@ -122,25 +135,14 @@
         <p>Legal disclaimer, copyright, etc.</p>
         <ul>
           <li>
-            <a href="#"><img src="img/icon1.png" alt="Social Media 1." /></a>
+            <a href="#"
+              ><img src="../../../img/icon1.png" alt="Social Media 1."
+            /></a>
           </li>
           <li>
-            <a href="#"><img src="img/icon2.png" alt="Social Media 2." /></a>
-          </li>
-          <li>
-            <a href="#"><img src="img/icon3.png" alt="Social Media 3." /></a>
-          </li>
-          <li>
-            <a href="#"><img src="img/icon4.png" alt="Social Media 4." /></a>
-          </li>
-          <li>
-            <a href="#"><img src="img/icon5.png" alt="Social Media 5." /></a>
-          </li>
-          <li>
-            <a href="#"><img src="img/icon6.png" alt="Social Media 6." /></a>
-          </li>
-          <li>
-            <a href="#"><img src="img/icon7.png" alt="Social Media 7." /></a>
+            <a href="#"
+              ><img src="../../../img/icon2.png" alt="Social Media 2."
+            /></a>
           </li>
         </ul>
       </footer>
@@ -148,7 +150,7 @@
     <!-- SIDENAV -->
     <nav id="mySidenav" class="sidenav"></nav>
     <!-- FIN SideNav-->
-
-    <script src="./ui-sidebar.js"></script>
+    <script src="../tensorflowjs/ui-sidebar.js"></script>
+    <script src="./papers.js"></script>
   </body>
 </html>

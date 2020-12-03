@@ -1,14 +1,14 @@
 /*SIDE EDITOR*/
 .sideEditor {
-  height: 77%;
-  width: 0;
+  height: 80%;
+  width: 100%;
   position: fixed;
   z-index: 2;
-  top: 23%;
+  top: 20%;
   left: 0px;
   background-color: #590817;
-  overflow-x: hidden;
-  transition: 0.5s;
+  overflow-x: auto;
+  /*transition: 0.5s; */
   padding-top: 0px;
   display: flex;
   flex-flow: column nowrap;

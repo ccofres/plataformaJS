@@ -1,5 +1,4 @@
 #contenido-html {
-  font-family: "Oswald", sans-serif;
   font-family: "Merriweather", serif;
   font-feature-settings: "kern", "liga", "clig", "calt";
   font-kerning: normal;
@@ -10,7 +9,7 @@
   font-variant-east-asian: normal;
   font-weight: normal;
   font-stretch: normal;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.95;
   background-color: white; /* #f2c1ae; */
   border: 3px solid #590817;
@@ -50,7 +49,6 @@ h6 {
   font-weight: bolder;
 }
 #contenido-html ul {
-  /*   list-style: none; */
   list-style-type: "→";
 }
 #contenido-html .art-html ul {
@@ -75,15 +73,11 @@ h6 {
 }
 
 #contenido-html .img-contenedor {
-  /* border: 3px solid red; */
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  /* align-content: center; */
   margin-top: 5%;
   margin-bottom: 5%;
-  /*  justify-content: center; */
-  /* padding-top: 1%; */
   padding: 0 5px 0 5px;
 
   border-left: 3px solid #8c1f33;
@@ -97,8 +91,6 @@ h6 {
 }
 #contenido-html .img-contenedor p {
   margin: 1.5rem 0 0 0;
-  /*   color: #8c1f33; */
-  /* font-weight: 550; */
   padding: 0 50px 0 50px;
   border-bottom: 5px solid #8c1f33;
   border-left: 2px solid #8c1f33;

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../code-editor/codemirror-5-50-2.css" />
+    <link rel="stylesheet" href="../../code-editor/editor-js.css" />
+    <link rel="stylesheet" href="../../../css/styles.css" />
+    <link rel="stylesheet" href="../../../css/style-sidebar.css" />
+    <link rel="stylesheet" href="../../../css/art-styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <title>Clasificador MNIST</title>
+  </head>
+  <body>
+    <!-- THE HEADER - SECOND HEADER-->
+    <div id="the-header">
+      <header>
+        <div class="second-header">
+          <h1><a href="../../../index.html"> Plataforma JS </a></h1>
+        </div>
+      </header>
+    </div>
+
+    <!-- NAV -  BARRA NAVEGACION-->
+    <div id="the-nav">
+      <nav>
+        <ul id="menu">
+          <!--           <li><a href="../../../index.html">Home</a></li> -->
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
+            <div class="dropdown-content">
+              <a href="../../modelos.html">Modelos</a>
+              <a href="../../editorjs.html">Editor JS</a>
+            </div>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">TensorFlow.js</a>
+            <div class="dropdown-content">
+              <a href="../../tensorflowjs/how-works.html"
+                >¿Cómo se trabaja en tfjs?</a
+              >
+              <a href="../../tensorflowjs/recursos.html">Otros recursos</a>
+            </div>
+          </li>
+
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Recursos externos</a>
+            <div class="dropdown-content">
+              <a href="https://js.tensorflow.org/api/latest/" target="_blank"
+                >Referencia API</a
+              >
+
+              <a
+                href="https://github.com/tensorflow/tfjs-models"
+                target="_blank"
+                >Modelos tfjs</a
+              >
+              <a
+                href="https://github.com/tensorflow/tfjs-examples/"
+                target="_blank"
+                >Más ejemplos tfjs</a
+              >
+              <a
+                href="https://blog.tensorflow.org/search?label=TensorFlow.js&max-results=10"
+                target="_blank"
+                >Blog TensorFlow.js</a
+              >
+              <a href="https://playground.tensorflow.org/" target="_blank"
+                >Tensorflow Playground</a
+              >
+              <a href="https://poloclub.github.io/ganlab/" target="_blank"
+                >GAN Lab</a
+              >
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- contenido HTML-->
+    <div id="contenido-html">
+      <div class="art-html">
+        <h1 id="la-inteligencia-artificial-y-el-aprendizaje-automático">
+          La Inteligencia Artificial y el Aprendizaje Automático
+        </h1>
+        <p>
+          La Inteligencia Artificial o IA, es un campo de investigación y
+          estudio que intenta comprender
+          <em>cómo los seres humanos pensamos</em> y construir a partir de esto
+          entidades o máquinas que muestren capacidades cognitivas, que
+          perciban, entiendan, infieran o deduzcan, es decir, que demuestren
+          <em>inteligencia</em>.
+        </p>
+        <p>
+          El Aprendizaje Automático o Machine Learning, es un subcampo de la
+          Inteligencia Artificial, que intenta dotar a una máquina o sistema con
+          la capacidad de aprender de datos sin haber sido explícitamente
+          programada. Para esto se desarrollan técnicas con la capacidad de
+          generalizar comportamientos y aprender patrones, y de esta forma
+          mejorar, describir y predecir ciertos resultados.<br />
+        </p>
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3eUjuOaLqIzECUMt44lYj8az-xB7r7IpqXZkbjojEgDM0kY5u_0bqtj0SRq9A9jE0H3RUygJgqXNXnIcbJh_B4yA4C8S3Kr4AHtPOvpFNXuZhdLiaXFctcVnw__I0S-R16PuAnEScwcFoKt1i3gBIY=w608-h377-no?authuser=2"
+            alt="Inteligencia Artificial, Aprendizaje Automático y Aprendizaje Profundo"
+          />
+          <p>
+            Figura 1: Relación entre la Inteligencia Artificial, el Aprendizaje
+            Automático y el Aprendizaje Profundo
+          </p>
+        </div>
+        <p>
+          En general, las técnicas o enfoques del Aprendizaje Automático se
+          pueden dividir en 3 categorías:
+        </p>
+        <ul>
+          <li>
+            <strong>Aprendizaje Supervisado:</strong> al sistema o máquina se le
+            presenta un conjunto de datos o ejemplos de entrenamiento,
+            compuestos por los valores de entrada y los valores de salida
+            deseados. A partir de ello se busca generalizar un patrón mediante
+            algún algoritmo para hacer predicciones de datos no conocidos fuera
+            del conjunto de datos de entrenamiento.
+          </li>
+          <li>
+            <strong>Aprendizaje No Supervisado:</strong> el sistema se dota de
+            un conjunto de entrenamiento compuesto sólo por los valores de
+            entrada, sin los valores de salida deseados. Es decir, el conjunto
+            de entrenamiento no contiene los resultados debidamente etiquetados,
+            clasificados o categorizados para cada uno de los valores de
+            entrada, por lo que el algorítmo debe aprender a realizar la
+            clasificación o categorización de los datos sólo a partir de los
+            valores de entrada.
+          </li>
+          <li>
+            <strong>Aprendizaje por Refuerzo:</strong> el sistema o máquina a
+            través de la interacción aprende lo bueno o malo de una acción a
+            través del resultado obtenido. Si la acción o comportamiento es el
+            correcto, por ejemplo, la recompensa puede ser positiva, en caso
+            contrario, la recompensa será negativa.
+          </li>
+        </ul>
+        <h1 id="el-aprendizaje-profundo">El Aprendizaje Profundo</h1>
+        <p>
+          El Deep Learning o Aprendizaje Profundo, es un subcampo del Machine
+          Learning que utiliza como arquitectura fundamental
+          <em>Redes Neuronales</em>. Utiliza este tipo de redes como forma para
+          extraer información de los datos con el menor esfuerzo humano posible,
+          intentando realizar este proceso de forma automática.
+        </p>
+        <p>
+          Gran parte de los conceptos básicos del
+          <em>Aprendizaje Profundo</em> surgieron en los años 60, 80 y 90, pero
+          ha tenido su mayor auge en la última década debido principalmente a
+          factores tales como:
+        </p>
+        <ul>
+          <li>
+            Digitalización de la información y la consiguiente habilidad de
+            acceder a datos fácilmente, haciendo que muchos problemas tengan
+            ahora una forma digital.
+          </li>
+          <li>
+            Grandes avances de las telecomunicaciones y en especial el internet,
+            que le permiten a las comunidades científicas la capacidad de
+            trabajar y compartir remotamente.
+          </li>
+          <li>
+            Grandes avances en la computación y el diseño de nuevo hardware
+            (CPU, GPU, TPU), permitiendo la ejecución efectiva a gran escala.
+          </li>
+          <li>
+            Desarrollo de herramientas como TensorFlow, PyTorch y Keras con
+            grandes niveles de abstracción que ayudan a las personas a resolver
+            problemas en cada vez menos tiempo y con cada vez menos
+            conocimientos, dejando a la <em>idea</em> y los <em>datos</em> como
+            el punto central.
+          </li>
+        </ul>
+        <p>
+          Las Redes Neuronales son un modelo basado en el funcionamiento del
+          cerebro, diseñado para el reconocimiento de patrones. Estos patrones
+          son numéricos y están contenidos en vectores, como una representación
+          de los datos recibidos como entrada. Para esto, se utiliza un conjunto
+          de datos de ejemplo como
+          <strong>base o set de entrenamiento</strong> que se utiliza para
+          ajustar la red, y así posteriormente reconocer patrones. Una vez que
+          se extraen estos patrones, el sistema puede ser capáz de utilizarlos
+          para <em>etiquetar</em> nuevos datos de entrada.
+        </p>
+        <h2 id="estructura-de-las-redes-neuronales">
+          Estructura de las Redes Neuronales
+        </h2>
+        <p>
+          Las redes neuronales están compuestas por capas, y cada una de estas
+          capas está compuesta por nodos o neuronas. Los nodos tienen la
+          siguiente estructura:
+        </p>
+        <ul>
+          <li>
+            Una o más <strong>entradas</strong> que reciben los datos a
+            procesar.
+          </li>
+          <li>
+            <strong>Pesos</strong> dados a cada una de las entradas. Estos
+            aumentan o disminuyen la importancia de dicha entrada.
+          </li>
+          <li>
+            <strong>Función sumatoria</strong>, encargada de sumar todas las
+            combinaciones de peso-entrada.
+          </li>
+          <li>
+            <strong>Función de activación</strong>, que determina la activación
+            o no de un nodo según el valor obtenido en la función sumatoria.
+            Esta función puede ser una simple función escalón, una función
+            lineal que devuelve el mismo valor calculado o una función lineal
+            por tramos, como la función ReLU, que devuelve un valor si el valor
+            de la función sumatoria está dentro de ciertos límites, entre otras.
+          </li>
+        </ul>
+
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3cG9-rW0wdGRG27bKnOO5c1rlechA9AMrKlpISfTTDxx0loI9hHwgf5-Etlky-M6jDws9hgwwXosk0iCoGNCup2XfvQWy-GQok9btzkKeN8gWqfoLv0UDB2OBBi123eE_I0ylmXiDFBrEa_Zfh8z68=w695-h502-no?authuser=2"
+            alt="Estructura básica de una neurona"
+          />
+          <p>Figura 2: Estructura básica de una neurona</p>
+        </div>
+
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3f-9j5M1fKeUbTXbgnE4w0iljfMIs_1VGl0Rn1LEBcDKEn9ZY0bjgWCze_lusfBfT4JZ2bsYqTtTI7HfTpwiUSX7S0bOMGZZuYw5cnZhTPSgk-2vZeXuGjRQ4_EzXZMLzjIRNEHm_2aux_igNx0fac=w769-h409-no?authuser=2"
+            alt="Capas de una red neuronal"
+          />
+          <p>Figura 3: Capas de una red neuronal</p>
+        </div>
+
+        <h2 id="entrenamiento-de-una-red-neuronal">
+          Entrenamiento de una red neuronal
+        </h2>
+        <p>
+          Para entender los modelos de redes neuronales y su entrenamiento, se
+          deben definir los siguientes conceptos básicos:
+        </p>
+        <ul>
+          <li>
+            <strong>Etiquetas:</strong> tambień llamadas <em>labels</em> por su
+            nombre en inglés. Corresponde al valor, clasificación o categoría a
+            predecir.
+          </li>
+          <li>
+            <strong>Atributos:</strong> también llamados <em>features</em>.
+            Corresponden a las variables de entrada a la red.
+          </li>
+          <li>
+            <strong>Set de datos:</strong> corresponde a los ejemplos a utilizar
+            para entrenar o hacer predicciones con el modelo.<br />
+            Estos ejemplos pueden corresponder a atributos debidamente
+            etiquetados, que suelen utilizarse como ejemplos de entrenamiento
+            para un modelo, o pueden corresponder a atributos sin etiquetar que
+            se utilizan para probar el modelo ya entrenado o en instancias de
+            aprendizaje no supervisado.
+          </li>
+        </ul>
+        <p>
+          Con el fin de extraer información de los datos, el modelo de red
+          neuronal debe definir la relación entre las entradas o atributos y su
+          salida o etiquetas. Para esto el modelo debe pasar por el proceso de
+          entrenamiento o aprendizaje para posteriormente poder hacer
+          inferencias de acuerdo a los patrones aprendidos durante el
+          entrenamiento.<br />
+          En el <strong>proceso de entrenamiento</strong> ocurre un ajuste o
+          modificación de los pesos asociados a cada entrada a un nodo, con el
+          fin de minimizar una <strong>función de pérdida</strong>. Esta
+          <strong>función de pérdida</strong> recibe la predicción "$\hat{y}$" y
+          la etiqueta correcta "$y$", asociadas a cierto atributo. Con esto, la
+          <em>Función de Pérdida</em> calcula lo incorrecto o no de una
+          predicción.<br />
+          Estas <em>Funciones de Pérdida o Costo</em> pueden eleguirse de
+          acuerdo al tipo de modelo de red neuronal a implementar para evaluar
+          su rendimiento o performance. Entre estas, una de las más utilizadas
+          es la MSE, Mean Square Error, también conocida como
+          <em>Costo cuadrático medio</em>, definida como:
+        </p>
+        <p>$$ MSE = \frac{1}{N} \sum (y - (prediccion(x)))^2 $$</p>
+        <p>$$ MSE = \frac{1}{N} \sum (y - \hat{y})^2 $$</p>
+        <p>
+          Los pesos se suelen inicializar con valores escogidos de forma
+          aleatoria, y generalmente son números pequeños. El ajuste de estos
+          pesos ocurre gracias a un algoritmo de optimización, que ayudan a
+          reducir o minimizar la <em>Función de Pérdida</em>. Estos algoritmos
+          de optimización suelen estar basados en el cálculo del
+          <strong>gradiente</strong> de la <em>función de pérdida</em>, debido a
+          que éste indica la dirección de máximo crecimiento de la función en
+          cierto punto. Este tipo de algoritmos es por tanto llamado
+          <strong>Descenso de Gradiente</strong>, y son técnicas conocidas como
+          <strong>Gradient Descent Optimization</strong>. Entre ellas se
+          encuentran una gran variedad de algoritmos que implementan el Descenso
+          de Gradiente, tales como Adagrad, Adadelta, Adam, Adamax y Nadam.<br />
+          Para actualizar el peso una vez que la <em>Función de Pérdida</em> a
+          calculado el error y el algoritmo de optimización a recalculado los
+          pesos para <em>minimizar la Función de Pérdida</em>, se recurre a un
+          algoritmo de propagación hacia atrás, desde la capa de salida hacia
+          las capas anteriores. Este algoritmo de propagación se conoce como
+          <strong>Backpropagation</strong> o
+          <strong>Propagación hacia atras</strong>.
+        </p>
+      </div>
+    </div>
+
+    <h2>
+      Clasificador
+      <a href="http://yann.lecun.com/exdb/mnist/" target="_blank"> MNIST</a>
+    </h2>
+
+    <canvas
+      id="canvas"
+      width="280"
+      height="280"
+      style="position: absolute; top: 100; left: 100; border: 8px solid"
+    ></canvas>
+    <img
+      id="canvasimg"
+      style="
+        position: absolute;
+        top: 10%;
+        left: 52%;
+        width: 280;
+        height: 280;
+        display: none;
+      "
+    />
+    <input
+      type="button"
+      value="classify"
+      id="sb"
+      size="48"
+      style="position: absolute; top: 400; left: 100"
+    />
+    <input
+      type="button"
+      value="clear"
+      id="cb"
+      size="23"
+      style="position: absolute; top: 400; left: 180"
+    />
+
+    <!-- FOOTER -  PIE DE PAGINA-->
+    <div id="the-footer">
+      <footer>
+        <p>Legal disclaimer, copyright, etc.</p>
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="../../../img/icon1.png" alt="Social Media 1."
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../../../img/icon2.png" alt="Social Media 2."
+            /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- SIDENAV -->
+    <nav id="mySidenav" class="sidenav"></nav>
+    <!-- FIN SideNav-->
+    <script src="../ui-sidebar.js"></script>
+    <script src="../../code-editor/codemirror-5-50-2.js"></script>
+    <script src="../../code-editor/editor-js.js"></script>
+  </body>
+</html>
