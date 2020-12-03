@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>how tfjs works</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="configuración-de-tensorflow.js-para-uso-en-el-navegador">Configuración de TensorFlow.js para uso en el navegador</h1>
+<p>El mundo de las herramienta o software para el diseño, ejecución, y entrenamiendo de modelos de Machine Learning se ha ido expandiendo para hacer llegar este conocimiento a más personas, con la intención además de mejorar las formas de exposición del contenido y disminuir los tiempo de implementación.</p>
+<h4 id="a-continuación-se-presenta-una-breve-exposición-sobre-la-forma-de-uso-de-tensorflow.js-las-configuraciones-mínimas-para-el-uso-en-navegador--y-con-esto-la-forma-en-que-fue-diseñado-este-proyecto-en-su-entorno.">A continuación se presenta una breve exposición sobre la forma de uso de TensorFlow.js, las configuraciones mínimas para el uso en navegador , y con esto, la forma en que fue diseñado este proyecto en su entorno.</h4>
+<p>Para el uso de TensorFlow.js en el navegador existen 2 formas:</p>
+<ul>
+<li>Uso de NPM (gestor de paquetes para JavaScript) y herramientas de ayuda a la compilación de código como Parcel o Webpack.</li>
+<li>Inserción de un script tag en una simple página HTML que descarga el contenido desde servidores CDN (<a href="https://es.wikipedia.org/wiki/Red_de_distribuci%C3%B3n_de_contenidos">Content Delivery Network</a>).</li>
+</ul>
+<p>Debido a la facilidad de uso, y la claridad que presenta la inserción de un simple script tag, la segunda opción es la recomendada tanto para la <strong>exposición de código</strong> como el <strong>prototipado</strong>. Esto se detalla a continuación:</p>
+<ol>
+<li>Creación de documento HTML5 index.html, e inserción de script tag. Se debe mencionar que es posible elegir la version de TensorFlow.js modificando levemente el enlace:
+<ul>
+<li><em><a href="https://cdn.jsdelivr.net/npm/@tensorflow/">https://cdn.jsdelivr.net/npm/@tensorflow/</a><strong>tfjs@2.0.0</strong>/dist/tf.min.js</em> = <strong>TFjs 2.0.0</strong></li>
+<li><em><a href="https://cdn.jsdelivr.net/npm/@tensorflow/">https://cdn.jsdelivr.net/npm/@tensorflow/</a><strong>tfjs@2.6.0</strong>/dist/tf.min.js</em>= <strong>TFjs 2.6.0</strong></li>
+</ul>
+</li>
+<li>Con index.html y el script insertado, el archivo está preparado para TensorFlow.js.</li>
+<li>El código puede ir en el <em>body tag</em> del HTML encerrado mediante <em>script tag</em>, o puede ir en un archivo aparte <em>script.js</em> y ser insertado en el HTML mediante una etiqueta del tipo <em>&lt;script src=“script.js”&gt;&lt;/script&gt;</em></li>
+</ol>
+<p>Lo anterior se resumen en la siguiente figura:<br>
+<img src="https://lh3.googleusercontent.com/pw/ACtC-3dtbi8Y3dC_BPsUSx1stmsxt-ZBIV1_4SmzrrQobOZ7WNKM5zQVJsPlZqER9my2Q41AYQjyHE1IVL8oRw-bcv7VSdYlhcZ6zcUfkEiGu8DQEIqVII-NueB2VxAeusyVkGBvkBOEkPSrNNkFHYksSMcE=w711-h641-no?authuser=2" alt="Configuración y forma de uso de TensorFlow.js"></p>
+<p>De esta forma, es posible clonar o descargar de forma local el proyecto,<br>
+y utilizar estos modelos a través de la generación de un servidor web<br>
+local.</p>
+<p>La forma más sencilla y que garantiza una buena compatibilidad con TensorFlow.js, es utilizar un servidor generado a través de <strong>Chrome Apps</strong> en el navegador Google Chrome:</p>
+<ul>
+<li>Las Chrome Apps están disponibles en el navegador Google Chrome en <a>Chrome Apps</a>.</li>
+</ul>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fH8pYbuhfrNL7YFuOeD6RejUF3RELgWtkHfOIRuHUDvH7Qn3XAiKcWlAQ__G3QqT8jQtI_dwwdxlzm-U0o693v5kOdCEB-tHL-kYLRc_m4Gg6tFLOkcClhvFPEaKopJ1BsWXW76JIeYPhpSmxCpzAx=w1015-h327-no?authuser=2" alt="Chrome Apps de Google Chrome"></p>
+<p><img src="https://lh3.googleusercontent.com/pw/ACtC-3fK_u6BS6UCo8d6VsmQJBB4T0L2pcmG1fZWxzney8Vjtofn4Z5ImxgbDZH93XFQzh2KE1B-Ztf35BVW_eyqCLxWSRZIOHD1suKjtMp9GbhfbrL1VlQPwwCC4REpkbBOKKkFyC9V3ocu3iIu9wPex88N=w346-h177-no?authuser=2" alt="Servidor local generado en base a la carpeta del proyecto"></p>
+</div>
+</body>
+
+</html>
