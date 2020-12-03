@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/art-styles.css" />
+    <link rel="stylesheet" href="../../css/style-sidebar.css" />
+    <title>Intro a las GAN</title>
+  </head>
+  <body>
+    <!-- THE HEADER - SECOND HEADER-->
+    <div id="the-header">
+      <header>
+        <div class="second-header">
+          <h1><a href="../../index.html"> Plataforma JS </a></h1>
+        </div>
+      </header>
+    </div>
+
+    <!-- NAV -  BARRA NAVEGACION-->
+    <div id="the-nav">
+      <nav>
+        <ul id="menu">
+          <!--           <li><a href="../../../index.html">Home</a></li> -->
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
+            <div class="dropdown-content">
+              <a href="../modelos.html">Modelos</a>
+              <a href="../editorjs.html">Editor JS</a>
+            </div>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">TensorFlow.js</a>
+            <div class="dropdown-content">
+              <a href="../tensorflowjs/how-works.html"
+                >¿Cómo se trabaja en tfjs?</a
+              >
+              <a href="../tensorflowjs/recursos.html">Otros recursos</a>
+            </div>
+          </li>
+
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Recursos externos</a>
+            <div class="dropdown-content">
+              <a href="https://js.tensorflow.org/api/latest/" target="_blank"
+                >Referencia API</a
+              >
+
+              <a
+                href="https://github.com/tensorflow/tfjs-models"
+                target="_blank"
+                >Modelos tfjs</a
+              >
+              <a
+                href="https://github.com/tensorflow/tfjs-examples/"
+                target="_blank"
+                >Más ejemplos tfjs</a
+              >
+              <a
+                href="https://blog.tensorflow.org/search?label=TensorFlow.js&max-results=10"
+                target="_blank"
+                >Blog TensorFlow.js</a
+              >
+              <a href="https://playground.tensorflow.org/" target="_blank"
+                >Tensorflow Playground</a
+              >
+              <a href="https://poloclub.github.io/ganlab/" target="_blank"
+                >GAN Lab</a
+              >
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="contenido-html">
+      <div class="art-html">
+        <h1 id="una-introducción-a-las-redes-generativas-adversarias">
+          Una introducción a las Redes Generativas Adversarias
+        </h1>
+        <h2 id="gans-generative-adversarial-networks">
+          GANs: Generative Adversarial Networks
+        </h2>
+        <p>
+          Las Redes Generativas Adversariales, o GANs, fueron descritas por
+          primera vez el 2014 en el artículo de Ian Goodfellow, “Generative
+          Adversarial Networks”. Son una clase dentro de las técnicas del
+          Machine Learning que permiten la generación de imagénes sintéticas,
+          forzando las imágenes sintéticas generadas a ser estadísticamente
+          indistinguibles de las imágenes originales. La gran capacidad de
+          generación y la potencia de la idea de las redes adversariales
+          generativas ha hecho que en los últimos años se haya puesto el foco en
+          su investigación y en la generación de nuevas arquitecturas.
+        </p>
+        <p>
+          Las GANs consisten básicamente en dos redes que compiten mutuamente:
+          una <strong>red genera datos falsos</strong>, y otra que
+          <strong>intenta distinguir los datos falsos de los reales</strong
+          >.<br />
+          De esta forma, las GANs:
+        </p>
+        <ul>
+          <li>
+            Es un modelo <em>generativo</em> porque tiene como proposito el
+            generar nuevos datos.
+          </li>
+          <li>
+            Son <em>redes</em> porque fundamentalmente la arquitectura está
+            compuesta de dos redes neuronales; <strong>Discriminador</strong> y
+            <strong>Generador</strong>.
+          </li>
+          <li>
+            Son <em>adversarias o antagónicas</em> debido a que el Discriminador
+            compite con el Generador.
+          </li>
+        </ul>
+        <h2 id="funcionamiento-de-las-gan">Funcionamiento de las GAN</h2>
+        <p>
+          Las GANs constan en su forma más básica de dos redes neuronales,
+          <em>Generador</em> y <em>Discriminador</em>. De acuerdo a lo anterior,
+          los aspectos básicos y fundamentales de estas redes son:
+        </p>
+        <h3 id="generador">Generador</h3>
+        <ul>
+          <li>
+            Tiene como <strong>entrada</strong> un vector de números aleatorios,
+            seleccionado de un espacio latente predefinido, como una función
+            normal multivariada.
+          </li>
+          <li>
+            La <strong>salida</strong> es un ejemplo sintetizado falso que
+            intenta ser estadísticamente lo más parecido a un ejemplo real.
+          </li>
+          <li>
+            El <strong>objetivo</strong> es generar datos falsos que sean
+            indistinguibles de los datos reales.
+          </li>
+        </ul>
+        <h3 id="discriminador">Discriminador</h3>
+        <ul>
+          <li>
+            Tiene como <strong>entradas</strong>
+            <ul>
+              <li>
+                Los datos reales, que provienen de la base de datos de
+                entrenamiento.
+              </li>
+              <li>Los datos falsos, sintetizados por el Discriminador.</li>
+            </ul>
+          </li>
+          <li>
+            La <strong>salida</strong> es la probabilidad del ejemplo de entrada
+            de ser real.
+          </li>
+          <li>
+            El <strong>objetivo</strong> es distinguir los datos falsos
+            provenientes del Generador y los datos reales provenientes de la
+            base de datos.
+          </li>
+        </ul>
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3fu9lCU-fdwbIp1vTI8Aj1EJAOamTyR-j5yy2lD_tXIt4qEMDtPQgC4Ddej_qvhRQCEb8j7suW6eqtS38kpxyzR77vpSNaUb6SSMXQHeQP14UpILcvbbtRgorO0zwqJ8njiZ2VjaVFlwg1fY2_ssWk=w679-h513-no?authuser=2"
+            alt="Elementos y funcionamiento de una GAN"
+          />
+          <p>Figura 1: Elementos y funcionamiento de una GAN</p>
+        </div>
+        <p>De esta forma, se definen:</p>
+        <ol>
+          <li>
+            <strong>Conjunto de entrenamiento:</strong> Base de datos de
+            ejemplos reales. El Generador debe aprender a emular de forma
+            perfecta estos datos. Estos datos sirven como entrada a la red
+            Discriminador.
+          </li>
+          <li>
+            <strong>Vector de ruido aleatorio:</strong> Vector
+            <strong>z</strong> de entrada a la red Generador. Esta entrada es
+            utilizada por el Generador como punto de partida para la síntesis de
+            datos falsos.
+          </li>
+          <li>
+            <strong>Red Generadora:</strong> Toma como entrada un vector de
+            números aleatorio <strong>z</strong>, y genera como salida un dato
+            falso <strong>x*</strong>. El objetivo es que el dato falso sea
+            indistinguible del dato real.
+          </li>
+          <li>
+            <strong>Red Discriminadora:</strong> Toma como entrada un dato real
+            <strong>x</strong> o un dato falso <strong>x*</strong>. El objetivo
+            es determinar, para cada dato, la probabilidad si es real.
+          </li>
+          <li>
+            <strong>Proceso iterativo de entrenamiento/sintonización:</strong>
+            Para cada una de las predicciones del Discriminador, se determina lo
+            buena o no de esta, y se utiliza el resultado para volver a
+            sintonizar la red Discriminadora y Generadora mediante
+            <em>Propagación hacia atrás</em> (Backpropagation).
+          </li>
+        </ol>
+        <h2 id="proceso-básico-de-entrenamiento">
+          Proceso básico de entrenamiento
+        </h2>
+        <p>
+          El algorítmo de entrenamiento para una GAN para cada uno de los ciclos
+          de iteración es como sigue:
+        </p>
+        <ol>
+          <li>
+            <p>Entrenamiento del <em>Discriminador</em>:</p>
+            <ul>
+              <li>
+                <strong>a)</strong> Se toma una muestra aleatoria
+                <strong>x</strong> desde el conjunto de entrenamiento.
+              </li>
+              <li>
+                <strong>b)</strong> Se obtiene un nuevo vector aleatorio
+                <strong>z</strong>, y usando la red del Generador se sintetiza
+                un ejemplo falso <strong>x*</strong>.
+              </li>
+              <li>
+                <strong>c)</strong> Se usa la red del Discriminador para
+                clasificar <strong>x</strong> y <strong>x*</strong>.
+              </li>
+              <li>
+                <strong>d)</strong> Se calculan los errores de clasificación y
+                se propaga hacia atras (backpropagation) el error total para
+                actualizar los parámetros de entrenamiento del Discriminador,
+                intentando minimizar el error de clasificación.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>Entrenamiento del <em>Generador</em>:</p>
+            <ul>
+              <li>
+                <strong>a)</strong> Se toma un nuevo vector aleatorio
+                <strong>z</strong>, y se usa la red del Generador para
+                sintetizar un ejemplo falso <strong>x*</strong>.
+              </li>
+              <li>
+                <strong>b)</strong> Se usa el Discriminador para clasificar
+                <strong>x</strong>.
+              </li>
+              <li>
+                <strong>c)</strong> Se calculan los errores de clasificación y
+                se propaga hacia atrás (backpropagation) el error para
+                actualizar los parámetros de entrenamiento del Generador,
+                intentando maximizar el error del Discriminador.
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3dvTwol2bD26bw4yMS2grrM9tC-Ej0Hp6-vibJlnwmPNUpv2BPiI2OiN8fSF_aQLM6n2KQ9Ep5Ewfuyb18Zx87wlyUedWNM-QQZLEmOeHKADBGWsqh2fari6gYOoO9M39UawF2f7xjjNOTpT1YfnB1s=w361-h641-no?authuser=2"
+            alt="Proceso iterativo de entrenamiento de una GAN"
+          />
+          <p>Figura 2: Proceso iterativo de entrenamiento de una GAN</p>
+        </div>
+        <p>
+          Debido a que este proceso de entrenamiento es iterativo, cada vez que
+          el <em>Discriminador</em> es entrenado y mejora respecto al
+          <em>Generador</em>, el <em>Generador</em> es actualizado y mejora en
+          el proceso.<br />
+          Lo anterior, en palabras más simples, se debe a que el
+          <em>Generador</em> y el <em>Discriminador</em> están inmersos en un
+          <em>juego de suma cero</em>, debido a que cada red tiene como objetivo
+          mejorar respecto a la otra, haciendo que la otra red empeore. Esto
+          lleva a que la arquitectura deba tender a un punto de
+          <em>equilibrio</em>, en el cual ninguna de las dos pueda seguir
+          mejorando.
+        </p>
+        <p>
+          De acuerdo Ian Goodfellow, teóricamente para cada red
+          <em>Generador</em> existe una única red <em>Discriminador</em> óptima.
+          Se muestra también que el <em>Generador</em> es óptimo cuando el
+          <em>Discriminador</em> alcanza predicciones de un valor de 0.5 para
+          todas las entradas. Es decir, el <em>Generador</em> es óptimo cuando
+          el <em>Discriminador</em> está completamente confundido y es incapaz
+          de distinguir entre datos reales y datos falsos.
+        </p>
+        <p>
+          Sin embargo, alcanzar el <em>equilibrio</em> para una GAN, significa
+          en la práctica alcanzar el <strong>Equilibrio de Nash</strong> para un
+          caso en el que no existen algorítmos, en donde las
+          <em>funciones de costo</em> son no convexas y el espacio de parámetros
+          es de altas dimensiones. Debido a lo anterior, la utilización de
+          <strong>Gradiente Descendiente</strong> no garantiza su convergencia,
+          y se han desarrollado diversas arquitecturas y “trucos” de
+          entrenamiento heurístico para alcanzar la convergencia.
+        </p>
+
+        <h1 id="particularidades-de-las-gan">Particularidades de las GAN</h1>
+        <p>
+          La GAN está compuesta de 2 redes neuronales, un Discriminador y un
+          Generador. El Discriminador es un clasificador que se entrena para
+          determinar la probabilidad de que cierta imagen sea falsa. Es decir,
+          modela la probabilidad de que cierto ejemplo sea falso, dadas ciertas
+          características de entrada. Esto es, es la probabilidad de dado una
+          imagen de entrada $X$, $Y$ sea falsa: $$\begin{aligned} P(Y=clase |
+          X=características)\end{aligned}$$
+        </p>
+        <p>
+          Esta probabilidad es la que se envía como retroalimentación (feedback)
+          al Generador para su ajuste de pesos.
+        </p>
+        <p>
+          El principal objetivo del Generador es producir ejemplos realistas de
+          ciertas clases. Es decir, intenta encontrar y modelar el espacio de
+          las posibilidades de ciertas clases. Esto es, dado ciertas clases $Y$
+          (como por ejemplo, perro y/o gatos), se quiere obtener la probabilidad
+          de ciertas características $X$:
+        </p>
+        $$ P(X= características | Y= clase )$$
+        <p>
+          Si el generador solo se entrena para producir características
+          relevantes de sólo una clase, entonces el Generador intenta modelar la
+          probabilidad de ciertas características $X$, es decir: $$P(X)$$
+        </p>
+        <p>
+          Si la clase $Y$ son por ejemplo perros, $P(X)$ intenta modelar y
+          aproximar la distribución real de probabilidad de características de
+          todos los posibles perros existentes.
+        </p>
+        <h2 id="noise-vector-vector-aleatorio-z">
+          Noise Vector, vector aleatorio z
+        </h2>
+        <p>
+          Idealmente el Generador no produce el mismo ejemplo cada vez. para lo
+          anterior se le da un set distinto de valores aleatorios, conocidos
+          como “noise vector”, o “vector ruido”. Usualmente se generan de forma
+          aleatoria, tomando valores de forma uniforme entre 0 y 1 desde una
+          distribución normal:
+        </p>
+        $$\begin{aligned} Z \sim N(0,1)\end{aligned}$$
+        <p>
+          Debe de ser lo suficientemente grande para tener la mayor cantidad de
+          posibilidades. Generalmente se toman vectores con dimensiones en base
+          a potencias de 2.
+        </p>
+        <p>
+          La elección y/o generación del vector Z es una parte importante del
+          Generador, pues puede verse como una medida del balance entre la
+          fidelidad y calidad de la generación, y la diversidad de esta.
+        </p>
+        <ul>
+          <li>
+            Si la muestra de Z se saca de una Distribución Normal, el modelo
+            Generador tiene más probabilidades de ver valores de Z dentro de
+            media desviación estándar.
+          </li>
+          <li>
+            Con lo anterior, durante el entrenamiento del Generador, el modelo
+            tiende a familiarizarse más con ciertos
+            <em>vectores de ruido aleatorio</em>, modelando y generando áreas
+            que salen desde estos vectores más familiares y probables.
+          </li>
+          <li>
+            En estas áreas, el modelo tenderá a tener resultados posiblemente
+            mucho más realistas, pero tenderá a no generar nada fuera de lo
+            común.
+          </li>
+        </ul>
+        <p>
+          Lo anterior, constituye por lo tanto un <strong>balance</strong> entre
+          <strong>fidelidad</strong> y <strong>diversidad</strong>, esto es,
+          <em>imágenes realistas y con gran calidad</em> versus<br />
+          <em>diversidad y variedad de imágenes</em>.
+        </p>
+        <h2 id="función-de-pérdida">Función de pérdida</h2>
+        <p>
+          La función de pérdida u objetivo para una GAN definida en el paper
+          original está dada como: $$ J(\theta) = \dfrac{-1}{m} \sum_{i=1}^{m}
+          \left[ y^{i} log \left\{ h(x^{i}, \theta) \right\} + \left( 1-y^{i}
+          \right) log \left( 1 - \left\{ h(x^{i}, \theta) \right\} \right)
+          \right] $$ En donde:
+        </p>
+        <ul>
+          <li>
+            $x$, características/<em>features</em> que se utilizan para hacer
+            una predicción. Esto podría, por ejemplo, ser una imagen.
+          </li>
+          <li>
+            $y$, clases/<em>labels</em> o categorías reales para ciertas
+            características $x$.
+          </li>
+          <li>
+            $h$, es una predicción $x^{i}$ hecha por el modelo, para ciertos
+            parámetros de ajuste $\theta$.
+          </li>
+          <li>$\theta$, son los parámetros a ajustar del Discriminador.</li>
+          <li>
+            $\dfrac{-1}{m} \sum_{i=1}^{m}$ es el promedio de la pérdida en un
+            batch completo, en donde el signo negativo es relevante para el
+            cambio de signo, y así ajustar y obtener una pérdida siempre
+            positiva.
+          </li>
+        </ul>
+        <p>
+          De acuerdo a esta ecuación, se pueden distinguir claramente dos
+          partes:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <strong
+                >Parte $y^{i} log \left( h(x^{i}, \theta) \right)$ :
+              </strong>
+            </p>
+            <ul>
+              <li>
+                Predicción relevante sólo para cuando la clase $y=1$, debido a
+                que función pérdida $J(\theta) = 0$ para $y=0$.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 1$, entonces $log
+                \left(h(x^{i}, \theta) \right) \approx 0$, y por lo tanto la
+                función de pérdida $J(\theta) \approx 0$, porque predicción $h$
+                y clase $y$, son iguales o muy similares.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 0$, entonces $log
+                \left(h(x^{i}, \theta) \right) \approx -\infty$, y por lo tanto
+                la función de pérdida $J(\theta) \approx -\infty$, porque
+                predicción $h$ y clase $y$, son distintas.
+              </li>
+            </ul>
+            <div class="img-contenedor">
+              <img
+                src="https://lh3.googleusercontent.com/pw/ACtC-3dQ9xQlblikZ_jUshbn1QaMq8xqjFZRicBlslKXrJBcKxc1oW4ilsNQN-s32TFfmCztS4ymMgjMr0nAOQS9eDVLqdCU8uZwrH9ToWHZqat1tgcsgze-XVxPgfxi82x5SH0_xf8f4Oo02H49fWvv7ck-=w416-h168-no?authuser=2"
+                alt="enter image description here"
+              />
+              <p>
+                Tabla 1: Relación $y^{i} h(x^{i}, \theta)$ con $y^{i} log
+                (h(x^{i}, \theta))$
+              </p>
+            </div>
+          </li>
+          <li>
+            <p>
+              <strong
+                >Parte $\left( 1-y^{i} \right) log \left( 1 - h(x^{i}, \theta)
+                \right)$ :
+              </strong>
+            </p>
+            <ul>
+              <li>
+                Predicción relevante sólo para cuando la clase $y=0$, debido a
+                que función pérdida $J(\theta) = 0$ para $y=1$.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 0$, entonces $log \left(1-
+                h(x^{i}, \theta) \right) \approx 0$, y por lo tanto la función
+                de pérdida $J(\theta) \approx 0$, porque predicción $h$ y clase
+                $y$, son iguales o muy similares.
+              </li>
+              <li>
+                Si la predicción $h(x^{i}) \approx 1$, entonces $log \left(1-
+                h(x^{i}, \theta) \right) \approx -\infty$, y por lo tanto la
+                función de pérdida $J(\theta) \approx -\infty$, porque
+                predicción $h$ y clase $y$, son distintas.
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="img-contenedor">
+          <img
+            src="https://lh3.googleusercontent.com/pw/ACtC-3fcjJ_JuenlR_6M3KZhLVn8c8e6piWhtda-pDrbe2JFK7k1OTDNZSy3ig1ZhqG1LgTIZ_vp2msqrdggsNrYTOZK2cFjTAQmTbqxdouJoWVs7D42SLYFmUwzP6pK31mAfvDpDc-O-ssLqZtoorAciFJf=w498-h170-no?authuser=2"
+            alt="enter image description here"
+          />
+          <p>
+            Tabla 2: $y^{i} h(x^{i}, \theta)$ con $\left( 1-y^{i} \right) log
+            \left( 1 - h(x^{i}, \theta) \right)$
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -  PIE DE PAGINA-->
+    <div id="the-footer">
+      <footer>
+        <p>Legal disclaimer, copyright, etc.</p>
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="../../img/icon1.png" alt="Social Media 1."
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../../img/icon2.png" alt="Social Media 2."
+            /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- SIDENAV -->
+    <nav id="mySidenav" class="sidenav"></nav>
+    <!-- FIN SideNav-->
+    <script src="../about/ui-sidebar.js"></script>
+    <script src="./load-mathjax.js"></script>
+    <script src="../tensorflowjs/ui-sidebar.js"></script>
+  </body>
+</html>
