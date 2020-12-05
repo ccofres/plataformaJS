@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/art-styles.css" />
+    <link rel="stylesheet" href="../../css/style-sidebar.css" />
+    <title>¿Cómo funciona?</title>
+  </head>
+  <body>
+    <!-- THE HEADER - SECOND HEADER-->
+    <div id="the-header">
+      <header>
+        <div class="second-header">
+          <h1><a href="../../index.html"> Plataforma JS </a></h1>
+        </div>
+      </header>
+    </div>
+
+    <!-- NAV -  BARRA NAVEGACION-->
+    <div id="the-nav">
+      <nav>
+        <ul id="menu">
+          <!--           <li><a href="../../../index.html">Home</a></li> -->
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
+            <div class="dropdown-content">
+              <a href="../modelos.html">Modelos</a>
+              <a href="../editorjs.html">Editor JS</a>
+            </div>
+          </li>
+
+          <li class="dropdown">
+            <a href="./index-tfjs.html" class="dropbtn">TensorFlow.js</a>
+            <!--             <div class="dropdown-content">
+              <a href="javascript:void(0)">¿Cómo se trabaja en tfjs?</a>
+              <a href="./recursos.html">Otros recursos</a>
+            </div> -->
+          </li>
+
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Recursos externos</a>
+            <div class="dropdown-content">
+              <a href="https://js.tensorflow.org/api/latest/" target="_blank"
+                >Referencia API</a
+              >
+
+              <a
+                href="https://github.com/tensorflow/tfjs-models"
+                target="_blank"
+                >Modelos tfjs</a
+              >
+              <a
+                href="https://github.com/tensorflow/tfjs-examples/"
+                target="_blank"
+                >Más ejemplos tfjs</a
+              >
+              <a
+                href="https://blog.tensorflow.org/search?label=TensorFlow.js&max-results=10"
+                target="_blank"
+                >Blog TensorFlow.js</a
+              >
+              <a href="https://playground.tensorflow.org/" target="_blank"
+                >Tensorflow Playground</a
+              >
+              <a href="https://poloclub.github.io/ganlab/" target="_blank"
+                >GAN Lab</a
+              >
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- contenido HTML-->
+    <div id="contenido-html">
+      <div class="art-html">
+        <h1 id="forma-de-uso-y-trabajo-en-tensorflow.js">
+          Forma de uso y trabajo en TensorFlow.js
+        </h1>
+        <p>
+          La forma de trabajo define el marco de desarrollo y uso de este
+          librería, y es por lo tanto, la forma básica y principal de
+          utilización y trabajo en la plataforma.
+        </p>
+        <p>
+          De esta forma, el proceso descrito a continuación puede tomarse como
+          la forma básica de trabajo para la implementación de modelos con
+          TensorFlow.js .
+        </p>
+        <h2 id="descripción-del-proceso">Descripción del proceso</h2>
+        <p>Se distinguen básicamente 3 formas de implementación:</p>
+        <ul>
+          <li>Implementación de un modelo entrenado en Python.</li>
+          <li>Implementación de un modelo entrenado en JavaScript.</li>
+          <li>Implementación de un modelo pre entrenado de TensorFlow.js.</li>
+        </ul>
+        <h3 id="modelo-entrenado-en-python">Modelo entrenado en Python</h3>
+        <ol>
+          <li>
+            Diseño y entrenamiento del modelo en lenguaje Python, utilizando la
+            API TensorFlow.
+          </li>
+          <li>
+            Guardado del modelo en un tipo compatible con
+            <em
+              >convertidor de<br />
+              modelos</em
+            >
+          </li>
+          <li>
+            Conversion del modelo a formato web compatible, utilizando
+            <em>convertidor de modelos</em>.
+          </li>
+          <li>Implementación del modelo en TensorFlow.js.</li>
+        </ol>
+        <h3 id="modelo-entrenado-en-javascript">
+          Modelo entrenado en JavaScript
+        </h3>
+        <ol>
+          <li>
+            Diseño y entrenamiento del modelo en lenguaje JavaScript, utilizando
+            la API TensorFlow.js
+          </li>
+          <li>Guardado del modelo en formato web compatible.</li>
+          <li>Implementación del modelo en TensorFlow.js</li>
+        </ol>
+        <h3 id="modelo-pre-entrenado-de-tensorflow.js">
+          Modelo pre entrenado de TensorFlow.js
+        </h3>
+        <ol>
+          <li>Implementación/carga del modelo en TensorFlow.js</li>
+          <li>Entrenamiento del modelo en TensorFlow.js.</li>
+          <li>Guardado del modelo en formato web compatible.</li>
+          <li>Implementación del modelo en TensorFlow.js</li>
+        </ol>
+        <h4 id="los-procesos-anteriores-están-resumidos-en-la-figura-figuiente">
+          Los procesos anteriores están resumidos en la figura figuiente:
+        </h4>
+        <div class="img-contenedor">
+          <a href="https://imgur.com/4VGi5kQ"
+            ><img
+              src="https://i.imgur.com/4VGi5kQ.jpg"
+              title="source: imgur.com"
+          /></a>
+          <p>Formas de uso y trabajo en TensorFlow.js</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -  PIE DE PAGINA-->
+    <div id="the-footer">
+      <footer>
+        <p>Made with TFjs</p>
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="../../img/icon1.png" alt="Social Media 1."
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../../img/icon2.png" alt="Social Media 2."
+            /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- SIDENAV -->
+    <nav id="mySidenav" class="sidenav"></nav>
+    <!-- FIN SideNav-->
+    <script src="./ui-sidebar.js"></script>
+  </body>
+</html>

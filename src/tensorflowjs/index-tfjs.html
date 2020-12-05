@@ -16,17 +16,17 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/art-styles.css" />
-    <link rel="stylesheet" href="../css/style-sidebar.css" />
-    <title>Modelos</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/art-styles.css" />
+    <link rel="stylesheet" href="../../css/style-sidebar.css" />
+    <title>¿Cómo funciona?</title>
   </head>
   <body>
     <!-- THE HEADER - SECOND HEADER-->
     <div id="the-header">
       <header>
         <div class="second-header">
-          <h1><a href="../index.html"> Plataforma JS </a></h1>
+          <h1><a href="../../index.html"> Plataforma JS </a></h1>
         </div>
       </header>
     </div>
@@ -39,20 +39,16 @@
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
             <div class="dropdown-content">
-              <a href="javascript:void(0)">Modelos</a>
-              <a href="./editorjs.html">Editor JS</a>
+              <a href="../modelos.html">Modelos</a>
+              <a href="../editorjs.html">Editor JS</a>
             </div>
           </li>
 
           <li class="dropdown">
-            <a href="./tensorflowjs/index-tfjs.html" class="dropbtn"
-              >TensorFlow.js</a
-            >
-            <!-- <div class="dropdown-content">
-              <a href="./src/tensorflowjs/index-tfjs.html"
-                ></a
-              >
-              <a href="./src/tensorflowjs/recursos.html">Otros recursos</a>
+            <a href="javascript:void(0)" class="dropbtn">TensorFlow.js</a>
+            <!--             <div class="dropdown-content">
+              <a href="javascript:void(0)">¿Cómo se trabaja en tfjs?</a>
+              <a href="./recursos.html">Otros recursos</a>
             </div> -->
           </li>
 
@@ -96,60 +92,49 @@
 
     <!-- contenido HTML-->
     <div id="contenido-html">
-      <h1 id="aprendizaje-profundo">Aprendizaje Profundo</h1>
-      <h3 id="redes-neuronales-mediante-tensorflow.js">
-        <em>Redes Neuronales mediante TensorFlow.js</em>
-      </h3>
+      <h1 id="tensorflow.js">TensorFlow.js</h1>
+      <h2 id="aprendizaje-automático-en-la-web">
+        <em>Aprendizaje Automático en la web</em>
+      </h2>
       <p>
-        El Deep Learning o Aprendizaje Profundo, es un subcampo del Machine
-        Learning que utiliza como arquitectura fundamental las
-        <em>Redes Neuronales</em>. En esta sección, se introduce este campo de
-        la Inteligencia Artificial, haciendo una breve introducción sobre el
-        ámbito del Aprendizaje Automático y el Aprendizaje Profundo.
+        El mundo de las herramienta o software para el diseño, ejecución, y
+        entrenamiendo de modelos de Machine Learning se ha ido expandiendo para
+        hacer llegar este conocimiento a más personas, con la intención además
+        de mejorar las formas de exposición del contenido y disminuir los tiempo
+        de implementación.
+      </p>
+      <p>
+        Debido a este desarrollo y a estar basado en herramientas fuertemente
+        implementadas en la web, el desarrollo en TensorFlow.js ofrece una forma
+        simple de compartir proyectos, debido a la capacidad de correr un modelo
+        de Aprendizaje Automático en un simple navegador sin la necesidad de
+        mayores instalaciones. De esta forma, es mucho más simple de compartir
+        en la web, ayudando por ejemplo en casos educacionales bajando la
+        barrera de entrada al estudio, la implementación y puesta en marcha de
+        proyectos e incrementando la diversidad de contribuciones al campo.
+      </p>
+      <p>
+        En esta sección, se introduce esta nueva librería o framework Open
+        Source, haciendo una introducción en cuanto a su funcionamiento, a la
+        forma de trabajo y los primeros pasos a tomar en cuanto a su
+        utilización.
       </p>
       <ul>
         <li>
-          <a href="./articulos/00-intro-AI-ML-DL.html"
-            >Inteligencia Artificial, Aprendizaje Automático y Aprendizaje
-            Profundo</a
-          >
+          <a href="./00_intro-tfjs.html">Introducción a TensorFlow.js</a>
         </li>
         <li>
-          <a href="./articulos/01-breve-historia.html"
-            >Breve historia de la IA y el Aprendizaje Profundo</a
-          >
-        </li>
-      </ul>
-      <h2 id="redes-neuronales">Redes Neuronales</h2>
-      <ul>
-        <li><a href="#">Introducción a las Redes Neuronales</a></li>
-        <li>
-          <a style="cursor: pointer" onclick="DenseNet()">
-            Primeros modelos en TensorFlow.js
-          </a>
-        </li>
-      </ul>
-      <h2 id="redes-convolucionales">Redes Convolucionales</h2>
-      <ul>
-        <li>
-          <a href="#">Introducción a las Redes Neuronales Convolucionales</a>
+          <a href="./01_forma-trabajo.html">Forma de desarrollo y trabajo</a>
         </li>
         <li>
-          <a style="cursor: pointer" onclick="CnnNet()"
-            >Modelos de Redes Neuronales Convolucionales en TensorFlow.js</a
-          >
-        </li>
-      </ul>
-      <h2 id="modelos-generativos">Modelos Generativos</h2>
-      <ul>
-        <li>
-          <a href="./articulos/10_intro-gan.html"
-            >Introducción a las Redes Generativas Adversarias, GAN</a
-          >
+          <a href="./02_how-tfjs-works.html">Setup para uso en el navegador</a>
         </li>
         <li>
-          <a style="cursor: pointer" onclick="GenNet()"
-            >Modelos de Redes Generativas Adversarias en TensorFlow.js</a
+          <a href="#">Diseño y estructura de este proyecto</a>
+        </li>
+        <li>
+          <a href="./04_paginas-repos-destacados.html"
+            >Paginas y repositorios destacados</a
           >
         </li>
       </ul>
@@ -161,10 +146,14 @@
         <p>Made with TFjs</p>
         <ul>
           <li>
-            <a href="#"><img src="../img/icon1.png" alt="Social Media 1." /></a>
+            <a href="#"
+              ><img src="../../img/icon1.png" alt="Social Media 1."
+            /></a>
           </li>
           <li>
-            <a href="#"><img src="../img/icon2.png" alt="Social Media 2." /></a>
+            <a href="#"
+              ><img src="../../img/icon2.png" alt="Social Media 2."
+            /></a>
           </li>
         </ul>
       </footer>
@@ -172,7 +161,6 @@
     <!-- SIDENAV -->
     <nav id="mySidenav" class="sidenav"></nav>
     <!-- FIN SideNav-->
-
     <script src="./ui-sidebar.js"></script>
   </body>
 </html>

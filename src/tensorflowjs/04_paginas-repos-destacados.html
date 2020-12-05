@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <link rel="stylesheet" href="../../css/art-styles.css" />
+    <link rel="stylesheet" href="../../css/style-sidebar.css" />
+    <title>¿Cómo funciona?</title>
+  </head>
+  <body>
+    <!-- THE HEADER - SECOND HEADER-->
+    <div id="the-header">
+      <header>
+        <div class="second-header">
+          <h1><a href="../../index.html"> Plataforma JS </a></h1>
+        </div>
+      </header>
+    </div>
+
+    <!-- NAV -  BARRA NAVEGACION-->
+    <div id="the-nav">
+      <nav>
+        <ul id="menu">
+          <!--           <li><a href="../../../index.html">Home</a></li> -->
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Let's play!</a>
+            <div class="dropdown-content">
+              <a href="../modelos.html">Modelos</a>
+              <a href="../editorjs.html">Editor JS</a>
+            </div>
+          </li>
+
+          <li class="dropdown">
+            <a href="./index-tfjs.html" class="dropbtn">TensorFlow.js</a>
+            <!--             <div class="dropdown-content">
+              <a href="javascript:void(0)">¿Cómo se trabaja en tfjs?</a>
+              <a href="./recursos.html">Otros recursos</a>
+            </div> -->
+          </li>
+
+          <li>
+            <a style="cursor: pointer" onclick="openNav()">&#9776; Ejemplos</a>
+          </li>
+
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Recursos externos</a>
+            <div class="dropdown-content">
+              <a href="https://js.tensorflow.org/api/latest/" target="_blank"
+                >Referencia API</a
+              >
+
+              <a
+                href="https://github.com/tensorflow/tfjs-models"
+                target="_blank"
+                >Modelos tfjs</a
+              >
+              <a
+                href="https://github.com/tensorflow/tfjs-examples/"
+                target="_blank"
+                >Más ejemplos tfjs</a
+              >
+              <a
+                href="https://blog.tensorflow.org/search?label=TensorFlow.js&max-results=10"
+                target="_blank"
+                >Blog TensorFlow.js</a
+              >
+              <a href="https://playground.tensorflow.org/" target="_blank"
+                >Tensorflow Playground</a
+              >
+              <a href="https://poloclub.github.io/ganlab/" target="_blank"
+                >GAN Lab</a
+              >
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- contenido HTML-->
+    <div id="contenido-html">
+      <div class="art-html">
+        <h1 id="paginas-y-repositorios-destacados">
+          Paginas y Repositorios destacados
+        </h1>
+        <p>
+          TensorFlow.js es un proyecto Open Source que dispone de su código en
+          un repositorio público en GitHub. Los principales repositorios con
+          información sobre TensorFlow.js son:
+        </p>
+        <ol>
+          <li>
+            <p>Repositorio público con ejemplos implementados:</p>
+            <ul>
+              <li>
+                <a href="https://github.com/tensorflow/tfjs-examples"
+                  >https://github.com/tensorflow/tfjs-examples</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>Repositorio con modelos pre-entrenados:</p>
+            <ul>
+              <li>
+                <a href="https://github.com/tensorflow/tfjs-models"
+                  >https://github.com/tensorflow/tfjs-models</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <h3 id="además-de-esto-se-debe-destacar">
+          Además de esto se debe destacar:
+        </h3>
+        <ol start="3">
+          <li>
+            Documentación con tutoriales explicados paso a paso en CodeLab:
+            <ul>
+              <li>
+                <a href="https://www.tensorflow.org/js/tutorials"
+                  >https://www.tensorflow.org/js/tutorials</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            La documentación de la API:
+            <ul>
+              <li>
+                <a href="https://js.tensorflow.org/api/latest/"
+                  >https://js.tensorflow.org/api/latest/</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            El blog con las últimas actualizaciones acerca del desarrollo basado
+            en TensorFlow:
+            <ul>
+              <li>
+                <a href="https://blog.tensorflow.org/"
+                  >https://blog.tensorflow.org/</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>TensorFlow Playground</strong>, proyecto creado por Daniel
+            Smilkov y Shan Carter, creado en un inicio con el antecesor de
+            TensorFlow.js, <em>deeplearning.js</em>, como demostración de las
+            capacidades de ejecución y entrenamiento de redes neuronales en el
+            navegador. Hoy es usado para mostrar el funcionamiento de una red
+            neuronal.
+            <ul>
+              <li>
+                <a href="https://playground.tensorflow.org/"
+                  >https://playground.tensorflow.org/</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>GAN Lab</strong>, proyecto implementado en JavaScript y
+            TensorFlow.js para visualizar el entrenamiento de un modelo de una
+            GAN directamente en el navegador.
+            <ul>
+              <li>
+                <a href="https://poloclub.github.io/ganlab/"
+                  >https://poloclub.github.io/ganlab/</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <h4
+          id="esta-información-está-disponible-como-enlaces-directos-en-la-pestaña-recursos-externos-del-menú-superior."
+        >
+          Esta información está disponible como enlaces directos en la pestaña
+          <strong>Recursos Externos</strong> del menú superior.
+        </h4>
+      </div>
+    </div>
+
+    <!-- FOOTER -  PIE DE PAGINA-->
+    <div id="the-footer">
+      <footer>
+        <p>Made with TFjs</p>
+        <ul>
+          <li>
+            <a href="#"
+              ><img src="../../img/icon1.png" alt="Social Media 1."
+            /></a>
+          </li>
+          <li>
+            <a href="#"
+              ><img src="../../img/icon2.png" alt="Social Media 2."
+            /></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- SIDENAV -->
+    <nav id="mySidenav" class="sidenav"></nav>
+    <!-- FIN SideNav-->
+    <script src="./ui-sidebar.js"></script>
+  </body>
+</html>
