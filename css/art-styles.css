@@ -62,11 +62,19 @@ h6 {
   padding-bottom: 1%;
   padding-left: 2%;
   margin-left: 1%;
+  margin-bottom: 0;
 }
 #contenido-html ul li a:hover {
   background-color: #8c1f33;
   color: white;
   border-radius: 0.3rem;
+}
+#contenido-html ul > li > p {
+  text-decoration: none;
+  text-align: left;
+  padding-left: 2%;
+  margin-left: 3%;
+  margin-top: 0;
 }
 #contenido-html ul {
   margin-bottom: 0%;

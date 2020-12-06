@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>00_intro TensorFlowjs</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h1 id="tensorflow.js">TensorFlow.js</h1>
+      <p>
+        TensorFlow.js es una librería Open Source para Aprendizaje Automático,
+        sucesora del proyecto <em>deeplearning.js</em>, motivada por la
+        comunidad de desarrolladores en JavaScript, así como el desarrollo y la
+        implementación de nuevas aplicaciones del Machine Learning basado en la
+        web.
+      </p>
+      <p>
+        El ambiente de desarrollo en JavaScript tiene el potencial de generar
+        una nueva clase de aplicaciones en el Machine Learning, entre ellos la
+        posibilidad de la computación en el dispositivo a nivel local, lo que
+        trae consigo beneficios a nivel de la privacidad en los datos,
+        accesibilidad y baja latencia en la aplicación.
+      </p>
+      <ul>
+        <li>
+          Acerca del ambiente de desarrollo en JavaScript
+          <ul>
+            <li>API’s intermedias o Backend’s</li>
+          </ul>
+        </li>
+        <li>Diseño de la API de TensorFlow.js</li>
+        <li>
+          Beneficios de desarrollo en TensorFlow.js, o ¿Por qué utilizarlo?
+        </li>
+      </ul>
+      <h3 id="ambiente-de-desarrollo-en-javascript">
+        Ambiente de desarrollo en JavaScript
+      </h3>
+      <p>La computación en JavaScript puede suceder:</p>
+      <ul>
+        <li>
+          Del lado del cliente,
+          <strong
+            >client-side o ejecución a nivel local en el propio equipo del
+            usuario</strong
+          >.
+        </li>
+        <li>
+          Del lado del servidor,
+          <strong>server-side o ejecución a nivel remoto en el servidor</strong
+          >.
+        </li>
+      </ul>
+      <p>
+        Este último, del lado del servidor, debido a la integración con Node.js
+        también puede darse en el escritorio por la integración de Node.js con
+        frameworks como <em>Electron</em>.
+      </p>
+      <p>
+        Debido a esta “portabilidad” de JavaScript, es posible realizar y
+        desarrollar aplicaciones de Aprendizaje Automático en este lenguaje en
+        las siguientes plataformas:
+      </p>
+      <ul>
+        <li><strong>A nivel local</strong> en el propio navegador</li>
+        <li>
+          <strong>En un servidor</strong> remoto por medio de Node.js, haciendo
+          posible su ejecución en dispositivos IoT como una Raspberry Pie.
+        </li>
+        <li>
+          <strong>Aplicaciones de escritorio</strong>, utilizando
+          <em>Electron</em>.
+        </li>
+        <li>
+          <strong>Aplicaciones moviles nativas</strong>, a través de React
+          Native.
+        </li>
+      </ul>
+      <p>
+        JavaScript es un lenguaje interpretado, por lo que no es capáz de<br />
+        igualar la velocidad de un lenguaje compilado como C++ o Java en lo
+        relacionado a computación numérica, mientras que Python, a pesar de ser
+        un lenguaje interpretado, es capaz de utilizar rutinas en las que se
+        implementan librerias en C++. Debido a que los navegadores como Google
+        Chrome no poseen una gran capacidad nativa de computo, TensorFlow.js
+        hace uso de <strong>APIs intermedias</strong> para conseguir acceso al
+        hardware del dispositivo y poder conseguir
+        <em>capacidad de computo en paralelo</em>.<br />
+        Estas APIs intermedias, son conocidas en el entorno de TensorFlow.js
+        como <strong>Backends</strong>. Entre las principales
+        <strong>APIs intermedias o Backends</strong> utilizadas por
+        TensorFlow.js se encuentran las siguientes 3:
+      </p>
+      <ul>
+        <li>
+          <strong>WebAssembly:</strong> es un método para compilar C++ en
+          bytecode (código intermedio con un mayor nivel de abstracción que el
+          código maquina o assembler), y que puede ser interpretado/ejecutado en
+          el navegador. Su rendimiento es mayor a un simple fichero en
+          JavaScript.
+        </li>
+        <li>
+          <strong>WebGL:</strong> API (application programming interface) que
+          permite la utilización de OpenGL en JavaScript. De esta forma, se
+          utiliza OpenGL como API multiplataforma aprovechando el renderizado en
+          2D/3D de gráficos vectoriales teniendolos disponibles en una página
+          web. WebGL está basado en OpenGL ES, y por lo tanto no tiene un
+          soporte explícito para computación de propósito general en unidades de
+          procesamiento gráfico (GPGPU, general-purpose computing on graphics
+          processing units) por lo que su rendimiento es bastante menor al que
+          puede proveer un framework como CUDA. A pesar de esto, y de ser la
+          anternativa mas compleja de las 3 disponibles para ejecutar
+          TensorFlow.js, WebGL es la principal razón que permite la ejecución de
+          modelos de Machine Learning corriendo en el navegador.
+        </li>
+        <li>
+          <strong>Node.js:</strong> es una API que permite utilizar<br />
+          JavaScript corriendo en un servidor, permitiendo la programación en
+          JavaScript en el desarrollo web tanto para el típico diseño web como
+          en su implementación en un servidor web. Mediante Node.js las
+          librerias en JavaScript utilizan modulos escritos en C y C++, esto es,
+          la API de TensorFlow en C es usada para acelerar las operaciones de
+          computo. De esta forma, Node.js acerca al desarrollo en JavaScript la
+          misma aceleración por hardware, como CUDA, disponible en el desarrollo
+          de Machine Learning en Python. A pesar de que la<br />
+          ejecución en el navegador es la principal característica de<br />
+          TensorFlow.js y WebGL, la ejecución en el servidor por medio de la
+          implementación en Node.js permite full acceso al sistema de archivos y
+          a librerías en C y C++. Además de esto, la implementación en Node.js
+          utiliza la misma API, por lo que existe una portabilidad completa
+          entre el desarrollo para navegador y el servidor.
+        </li>
+      </ul>
+      <p>
+        Por lo anterior,
+        <strong
+          >TensorFlow.js esta diseñado para correr en el navegador a nivel local
+          y en el servidor del lado remoto.</strong
+        >
+      </p>
+      <ul>
+        <li>
+          Cuando se ejecuta en el navegador, utiliza la GPU del dispositivo a
+          través de WebGL para acelerar el cálculo de punto flotante en
+          paralelo.
+        </li>
+        <li>
+          De no tener disponible una GPU, dispone de una implementación en CPU
+          más lenta a través de la ejecución de un simple fichero en JavaScript.
+        </li>
+      </ul>
+      <p>
+        De esta forma, es capaz de ejecutarse en casi cualquier ambiente,
+        haciendo el
+        <strong>cambio de forma automática entre el acceso o no a WebGL</strong
+        >.
+      </p>
+      <h3 id="diseño-de-api">Diseño de API</h3>
+      <p>
+        TensorFlow.js está diseñado para acercar el Machine Learning al
+        ecosistema de desarrollo en JavaScript,
+        <strong
+          >teniendo en cuenta la posibilidad de que usuarios con mayor
+          experiencia en el campo puedan también migrar su trabajo fácilmente a
+          este lenguaje de programación</strong
+        >. Por lo anterior, TensorFlow.js está modelado y diseñado en base a
+        TensorFlow, y como tal, tiene como principal estructura de datos el
+        tensor. De esta forma la API define métodos para la creación de tensores
+        desde arrays definidos en JavaScript.
+      </p>
+      <p>
+        <img
+          src="https://i.imgur.com/MeAeVGqt.png"
+          alt="enter image description here"
+        />
+      </p>
+      <p>En general dispone de dos APIs:</p>
+      <ul>
+        <li>
+          <strong>Ops API:</strong> responsable de las operaciones algebraicas
+          de bajo nivel, como la multiplicación matricial y la adición o
+          sustracción de tensores.
+        </li>
+        <li>
+          <strong>Layers API:</strong> una API diseñada para considerar un mayor
+          nivel de abstracción, posibilitando la construcción de modelos de
+          redes neuronales en bloques. Está diseñada en base a tf.keras de
+          TensorFlow Python, basada a su vez en la API Keras. De esta forma,
+          existe una compatibilidad entre los modelos diseñados en Keras y
+          TensorFlow.js, por lo que es posible cargar un modelo preentrenado de
+          Keras en TensorFlow.js para modificarlo y después volver a cargarlo en
+          Keras Python.
+        </li>
+      </ul>
+      <h3 id="beneficios-de-desarrollo-en-tensorflow.js">
+        Beneficios de desarrollo en TensorFlow.js
+      </h3>
+      <p>
+        La interactividad de aplicaciones es casi inherente en los navegadores
+        web, y como tal es una puerta de entrada para la aparición y creación de
+        nuevos tipos de aplicaciones de Machine Learning haciendo uso de por
+        ejemplo, las ventajas de las herramientas de visualización web para una
+        mejor explicación de contenido a nivel educacional o para un mejor
+        entendimiento de las mismas investigaciones de nuevos modelos por parte
+        de investigadores. Con esto, el uso de TensorFlow.js puede llevar a una
+        nueva y mejor forma de estudiar, investigar, implementar, exponer y
+        visualizar tanto nuevos como antiguos modelos, generando un mejor nivel
+        de entendimiento al tener más y mejores herramientas con que exponer
+        mejores analogías, desarrollar buenas abstracciones y nuevas formas de
+        pensar.
+      </p>
+      <p>Entre los principales beneficios se encuentran:</p>
+      <ul>
+        <li>
+          <strong>Posibilidad de correr a nivel local</strong>, mediante
+          aceleración por WebGL o su implementación base para CPU.
+        </li>
+        <li>
+          <strong>Posibilidad de correr a nivel remoto</strong>, mediante su
+          implementación en Node.js.
+        </li>
+        <li>
+          <strong>Desarrollo basado en herramientas web</strong>, lo que ofrece
+          una manera fácil de compartir proyectos, toma ventaja de las
+          herramientas de visualización web, acorta la barrera de entrada y abre
+          la posibilidad a nuevas aplicaciones.
+        </li>
+        <li>
+          <strong>Costo de servidor</strong>, debido a que acerca la posibilidad
+          de implementar modelos a nivel local sin la utilización de servidores.
+        </li>
+        <li>
+          <strong>Baja latencia en el tiempo de inferencia</strong> al correr a
+          nivel local, posibilitando la implementación de aplicaciones en tiempo
+          real.
+        </li>
+        <li>
+          <strong>Privacidad en los datos</strong>, dado la posibilidad de
+          correr el modelo en un navegador, no es necesario transferencia de
+          datos hacia algún servidor fuera del dispositivo.
+        </li>
+        <li>
+          <strong>Aceleración por WebGL</strong>, que acerca la capacidad de
+          computo en paralelo en gran cantidad de dispositivos.
+        </li>
+        <li>
+          <strong>Acceso instantáneo</strong>, pues todo lo que se necesita para
+          ejecutar un modelo es un navegador como Google Chrome.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 *,
 *:before,
@@ -205,4 +206,10 @@ a:hover {
 }
 #myBtn:hover {
   background-color:#F2D43D;
+}
+/*
+Delimitador */
+hr.rounded {
+  border-top: 8px solid #590817;
+  border-radius: 5px;
 }

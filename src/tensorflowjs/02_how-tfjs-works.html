@@ -103,15 +103,40 @@
           además de mejorar las formas de exposición del contenido y disminuir
           los tiempo de implementación.
         </p>
-        <h4
-          id="a-continuación-se-presenta-una-breve-exposición-sobre-la-forma-de-uso-de-tensorflow.js-las-configuraciones-mínimas-para-el-uso-en-navegador--y-con-esto-la-forma-en-que-fue-diseñado-este-proyecto-en-su-entorno."
-        >
+        <strong>
           A continuación se presenta una breve exposición sobre la forma de uso
-          de TensorFlow.js, las configuraciones mínimas para el uso en navegador
-          , y con esto, la forma en que fue diseñado este proyecto en su
-          entorno.
-        </h4>
-        <p>Para el uso de TensorFlow.js en el navegador existen 2 formas:</p>
+          de TensorFlow.js, es decir, las configuraciones mínimas necesarias
+          para el uso en navegador y la utilización de todas sus funciones como
+          librería para el entrenamiento, visualización y ejecución de Redes
+          Neuronales.
+        </strong>
+
+        <ul>
+          <li>
+            <a href="#1">Formas de configuración de TensorFlow.js</a>
+          </li>
+          <li>
+            <a href="#2"
+              >Configuración mediante &nbsp;
+              <code>&lt;script src=“”&gt;</code> &nbsp; del CDN
+            </a>
+          </li>
+          <li>
+            <a href="#3">Resumen del proceso en una imagen</a>
+          </li>
+        </ul>
+        <br />
+        <br />
+        <br />
+        <hr class="rounded" />
+        <hr class="rounded" />
+        <br />
+
+        <h2 id="1">Formas de configuración de TensorFlow.js</h2>
+        <p>
+          Para el uso de TensorFlow.js en el navegador existen 2 formas de
+          configuración:
+        </p>
         <ul>
           <li>
             Uso de NPM (gestor de paquetes para JavaScript) y herramientas de
@@ -126,15 +151,25 @@
                 target="_blank"
                 >Content Delivery Network</a
               >
-              ).
+              ) como el siguiente:
+              <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Ftensorflowjs%2Findex.html%23L6&style=gruvbox-dark&showLineNumbers=on"></script>
             </div>
           </li>
         </ul>
+
+        <br />
+        <hr class="rounded" />
+        <br />
+
+        <h2 id="2">
+          Configuración mediante &nbsp;
+          <code>&lt;script src=“”&gt;</code> &nbsp; del CDN
+        </h2>
         <p>
           Debido a la facilidad de uso, y la claridad que presenta la inserción
-          de un simple script tag, la segunda opción es la recomendada tanto
-          para la <strong>exposición de código</strong> como el
-          <strong>prototipado</strong>. Esto se detalla a continuación en 3
+          de un simple <strong> script tag</strong>, la segunda opción es la
+          recomendada tanto para la <strong>exposición de código</strong> como
+          el <strong>prototipado</strong>. Esto se detalla a continuación en 3
           simples pasos:
         </p>
         <ol>
@@ -153,9 +188,9 @@
                   https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js
                 </em>
               </li>
-              <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2FDLP%2Fabout%2Findex.html%3F%23L3-L8&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
             </ul>
           </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Ftensorflowjs%2Findex.html%23L1-L8&style=gruvbox-dark&showLineNumbers=on"></script>
           <li>
             Con index.html y el script insertado, el archivo está preparado para
             TensorFlow.js.
@@ -166,55 +201,28 @@
             <em>script.js</em> y ser insertado en el HTML mediante una etiqueta
             del tipo <code>&lt;script src=“script.js”&gt;&lt;/script&gt;</code>
           </li>
-          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Ftensorflowjs%2Findex.html%23L9-L16&style=github&showBorder=on&showLineNumbers=on"></script>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Ftensorflowjs%2Findex.html%23L9-L17&style=gruvbox-dark&showLineNumbers=on"></script>
         </ol>
-
+        <br />
         <p>
           El documento descrito anteriormente, se presenta aquí completo como
           tipo
           <em>template</em>:
         </p>
-        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2FDLP%2Fabout%2Findex.html&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on"></script>
+        <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Ftensorflowjs%2Findex.html&style=gruvbox-dark&showLineNumbers=on"></script>
 
-        <h2>Resumen del proceso en una imagen:</h2>
+        <br />
+        <br />
+        <hr class="rounded" />
+        <br />
+        <br />
+
+        <h2 id="3">Resumen del proceso en una imagen:</h2>
         <div class="img-contenedor">
           <a href="https://imgur.com/cB6bfVX"
             ><img src="https://i.imgur.com/cB6bfVX.jpg"
           /></a>
           <p>Configuración y forma de uso TensorFlow.js en el navegador</p>
-        </div>
-        <p>
-          De esta forma, es posible clonar o descargar de forma local el
-          proyecto, y utilizar estos modelos a través de la generación de un
-          servidor web local. La forma más sencilla y que garantiza una buena
-          compatibilidad con TensorFlow.js, es utilizar un servidor generado a
-          través de
-          <strong>Chrome Apps</strong> en el navegador Google Chrome:
-        </p>
-        <ul>
-          <li>
-            <div>
-              Las Chrome Apps están disponibles en el navegador Google Chrome en
-              <a href="chrome://apps/" target="_blank">chrome://apps/</a> .
-            </div>
-          </li>
-        </ul>
-        <div class="img-contenedor">
-          <a href="https://imgur.com/n94VzrL"
-            ><img
-              src="https://i.imgur.com/n94VzrL.jpg"
-              title="Chrome Apps de Google Chrome"
-          /></a>
-          <p>Chrome Apps de Google Chrome</p>
-        </div>
-        <div class="img-contenedor">
-          <a href="https://imgur.com/uK4nr7A"
-            ><img
-              src="https://i.imgur.com/uK4nr7A.jpg"
-              title="Servidor local generado en base a la carpeta del proyecto"
-              alt="Servidor local generado en base a la carpeta del proyecto"
-          /></a>
-          <p>Servidor local generado en base a la carpeta del proyecto</p>
         </div>
       </div>
     </div>
