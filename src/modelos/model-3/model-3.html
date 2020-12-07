@@ -100,13 +100,11 @@
     <!-- contenido HTML-->
     <div id="contenido-html">
       <div class="art-html">
-        <h1>Dataset en CSV en TensorFlow.js</h1>
+        <h1>Entrenamiento con datos desde CSV en TensorFlow.js</h1>
 
-        El siguiente ejemplo es una modificación del ejemplo de
-        <a href="../model-1/model-1.html">introducción a TensorFlow.js</a>. En
-        este ejemplo se preseta una modificación para visualizar el
-        entrenamiento de una red neuronal a través de la correcta configuración
-        de **callbacks**.
+        El siguiente ejemplo es la implementación de un clasificador para el
+        dataset Iris. Con base a este dataset, se presenta el entrenamiento de
+        una red neuronal desde datos importados desde un archivo CSV.
         <ul>
           <li>
             <a href="#1">Descripción del modelo</a>
@@ -127,30 +125,111 @@
         <br />
         <h2 id="1">Descripción del modelo</h2>
         <p>
-          El modelo intenta predecir mediante una
-          <strong> Regresión Lineal</strong> el tiempo de descarga en
-          <strong> segundos</strong>
-          de ciertos paquetes definidos en <strong>MB, megabytes</strong>. Para
-          esto entrena una neurona y configura <strong> callbacks</strong> para
-          la visualización de su entrenamiento.
+          El modelo implementa una clasificación de datos. Los datos
+          corresponden a 150 muestras, en donde cada muestra dispone de 4
+          atributos o características. Cada muestra está debidamente etiquetada
+          como una de las 3 variedades: "setosa", "verginica" o "versicolor".
         </p>
+        <p>Todo este proceso está definido como una función asíncrona.</p>
         <ol start="1">
           <li>
-            Define una función asíncrona para ejecutar de forma asíncrona el
-            ajuste del modelo mediante <em>model.fit()</em>.
+            Se define una constante &nbsp;<code>csvUrl</code>&nbsp; que contiene
+            la dirección url del dataset. Es decir, el CSV se carga mediante una
+            llamada HTTP. En este caso, el CSV es cargado directamente del
+            directorio raíz del modelo, sin embargo, este enlace podría ser un
+            enlace directo al archivo CSV alojado en algún servidor remoto.
             <ul>
               <li>
-                Como tercer argumento de <em>model.fit()</em> se definen
-                callbacks a ejecutar a cada término de <em>época</em>. Estos
-                callbacks se definen para mostrarse a través de la consola
-                (mediante <code>console.log()</code>), y muestran el
-                <strong> número de época </strong> y el
-                <strong> valor de la función de pérdida </strong> al final de
-                cada época.
+                Los datos de entrenamiento son guardados en una constante
+                mediante el llamado a la función &nbsp;<code>
+                  tf.data.csv()</code
+                >.&nbsp; Por medio de esta función, se configuran los datos de
+                entrenamiento para el reconocimiento de la columna
+                <em>species</em> como la columna que contiene las etiquetas del
+                conjunto de entrenamiento.
               </li>
             </ul>
           </li>
-          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-2%2Fmodel-2.js%23L1-L14&style=gruvbox-dark&showLineNumbers=on"></script>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-3%2Fmodel-3.js%23L2-L8&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
+        <ol start="2">
+          <li>
+            El número de atributos (o "features") se obtienen del número de
+            columnas de los datos de entrenamiento menos 1. Esto es, se le resta
+            el número de etiquetas. <br />
+            Los datos de entrenamiento se modifican mediante una función
+            &nbsp;<code>map()</code>&nbsp; para convertir las etiquetas en un
+            vector manejable:
+            <ul>
+              <li>
+                Los atributos se convierten o mapean mediante
+                &nbsp;<code>map()</code>&nbsp; sin modificación.
+              </li>
+              <li>
+                Las etiquetas "setosa", "virginica" y "versicolor" se mapean a
+                la etiqueta "ys" como siguen:
+                <ul>
+                  <li>setosa: [1,0,0]</li>
+                  <li>virginica: [0,1,0]</li>
+                  <li>versicolor: [0,0,1]</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-3%2Fmodel-3.js%23L9-L19&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
+        <ol start="3">
+          <li>
+            <p>
+              Se define un modelo de tipo secuencial, con capa de entrada de 5
+              neuronas y función de activación <em>sigmoide</em>, y capa de
+              salida de 3 neuronsa con función de activación <em>softmax</em>.
+              Este modelo se compila utilizando:
+            </p>
+            <ul>
+              <li>
+                Un optimizador tipo ‘adam’. Es posible definir este optimizador
+                como <code>tf.train.adam()</code> y de esta forma tener control
+                sobre el <em>Learning Rate</em>.
+              </li>
+              <li>Una función de pérdida de tipo ‘categoricalCrossentropy’.</li>
+              <li>
+                La <em>precisión</em> (<code>accuracy</code>) como métrica a
+                ajustar.
+              </li>
+            </ul>
+          </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-3%2Fmodel-3.js%23L20-L26&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
+        <ol start="4">
+          <li>
+            Implementa la función &nbsp; <code>model.fitDataset()</code> &nbsp;
+            como una función asíncrona mediante
+            &nbsp;<code>await()</code>.&nbsp; Es decir, al estar esta función
+            dentro de una función asíncrona, espera la disponibilidad de las
+            demás variables que utiliza para poder ejecutarse.
+            <ul>
+              <li>
+                <code>model.fitDataset()</code> &nbsp; ajusta el modelo del
+                mismo modo que &nbsp; <code>model.fit()</code>. La principal
+                diferencia es que &nbsp; <code>model.fitDataset()</code> &nbsp;
+                recibe los datos de entrada como un conjunto de datos
+                debidamente <em>mapeados</em> en atributos o "xs" y etiquetas o
+                "ys".
+              </li>
+              <li>
+                <div>
+                  La definición de la cantidad de <em>epocas</em> de
+                  entrenamiento y <em>callbacks</em> es exactamente igual al
+                  ejemplo
+                  <a href="../model-2/model-2.html"
+                    >Modificando la introducción a TensorFlow.js
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-3%2Fmodel-3.js%23L27-L35&style=gruvbox-dark&showLineNumbers=on"></script>
         </ol>
       </div>
     </div>
