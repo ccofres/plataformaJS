@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../../css/styles.css" />
     <link rel="stylesheet" href="../../css/art-styles.css" />
     <link rel="stylesheet" href="../../css/style-sidebar.css" />
-    <title>¿Cómo funciona?</title>
+    <title>Formas de trabajo</title>
   </head>
   <body>
     <!-- THE HEADER - SECOND HEADER-->
@@ -99,32 +99,35 @@
         <p>
           La forma de trabajo define el marco de desarrollo y uso de este
           librería, y es por lo tanto, la forma básica y principal de
-          utilización y trabajo en la plataforma.
+          utilización y trabajo en la plataforma. De esta forma, el proceso
+          descrito a continuación puede tomarse como la forma básica de trabajo
+          para la implementación de modelos con TensorFlow.js .
         </p>
-        <p>
-          De esta forma, el proceso descrito a continuación puede tomarse como
-          la forma básica de trabajo para la implementación de modelos con
-          TensorFlow.js .
-        </p>
+        <br />
         <h2 id="descripción-del-proceso">Descripción del proceso</h2>
         <p>Se distinguen básicamente 3 formas de implementación:</p>
         <ul>
           <li>
-            <a href="#modelo-entrenado-en-python">
-              Implementación de un modelo entrenado en Python.</a
-            >
+            <a href="#1"> Implementación de un modelo entrenado en Python.</a>
           </li>
           <li>
-            <a href="#modelo-entrenado-en-javascript">
+            <a href="#2">
               Implementación de un modelo entrenado en JavaScript.</a
             >
           </li>
           <li>
-            <a href="#modelo-pre-entrenado-de-tensorflow.js">
+            <a href="#3">
               Implementación de un modelo pre entrenado de TensorFlow.js.</a
             >
           </li>
         </ul>
+        <h3>
+          <ul>
+            <li>
+              <a href="#4">Resumen en una figura</a>
+            </li>
+          </ul>
+        </h3>
 
         <br />
         <br />
@@ -132,8 +135,15 @@
         <hr class="rounded" />
         <hr class="rounded" />
         <br />
+        <br />
+        <br />
 
-        <h3 id="modelo-entrenado-en-python">Modelo entrenado en Python</h3>
+        <h3 id="1">Modelo entrenado en Python</h3>
+        <p>
+          Básicamente, es el entrenamiento primero en TensorFlow, para después
+          convertir el modelo entrenado a un formato web compatible y de esta
+          forma, portarlo a TensorFlow.js
+        </p>
         <ol>
           <li>
             Diseño y entrenamiento del modelo en lenguaje Python, utilizando la
@@ -151,10 +161,32 @@
             <em>convertidor de modelos</em>.
           </li>
           <li>Implementación del modelo en TensorFlow.js.</li>
+          <br />
+          <p>
+            Este proceso, que en general resulta ser
+            <strong>
+              el más recomendado para aplicaciones finales o modelos en donde se
+              necesita alta capacidad de computo</strong
+            >, puede llevarse a cabo con la ayuda del siguiente
+            <em>Notebook de Google Colab</em> :
+          </p>
+          <br />
+          <script src="https://gist.github.com/ccofres/b0192c2513c83a6df7981ea2152d5139.js"></script>
         </ol>
-        <h3 id="modelo-entrenado-en-javascript">
-          Modelo entrenado en JavaScript
-        </h3>
+
+        <br />
+        <br />
+        <hr class="rounded" />
+        <br />
+        <br />
+
+        <h3 id="2">Modelo entrenado en JavaScript</h3>
+        <p>
+          Es el entrenamiento de principio a fin en TensorFlow.js, con la
+          capacidad de la conversion y guardado a un formato compatible con
+          TensorFlow en Python, para por por ejemplo, entrenar el modelo en una
+          etapa intermedia si es necesaria más capacidad de computo.
+        </p>
         <ol>
           <li>
             Diseño y entrenamiento del modelo en lenguaje JavaScript, utilizando
@@ -162,19 +194,51 @@
           </li>
           <li>Guardado del modelo en formato web compatible.</li>
           <li>Implementación del modelo en TensorFlow.js</li>
+          <br />
+          <p>
+            Este tipo de forma de trabajo es el utilizado en los ejemplos
+            desarrollados para la
+            <a href="../modelos/model-5/model-5.html">
+              clasificación del dataset MNIST</a
+            >
+            y
+            <a href="../modelos/model-6/model-6.html">
+              el dataset Fashion MNIST</a
+            >.
+          </p>
         </ol>
-        <h3 id="modelo-pre-entrenado-de-tensorflow.js">
-          Modelo pre entrenado de TensorFlow.js
-        </h3>
+
+        <br />
+        <br />
+        <hr class="rounded" />
+        <br />
+        <br />
+
+        <h3 id="3">Modelo pre entrenado de TensorFlow.js</h3>
         <ol>
           <li>Implementación/carga del modelo en TensorFlow.js</li>
           <li>Entrenamiento del modelo en TensorFlow.js.</li>
           <li>Guardado del modelo en formato web compatible.</li>
           <li>Implementación del modelo en TensorFlow.js</li>
+          <br />
+          <p>
+            Este tipo de forma de trabajo es el utilizado en el desarrollo del
+            ejemplo
+            <a href="../modelos/model-5/model-5.html">
+              Transfer Learning con MobileNet</a
+            >
+          </p>
         </ol>
-        <h3 id="los-procesos-anteriores-están-resumidos-en-la-figura-figuiente">
+
+        <br />
+        <br />
+        <hr class="rounded" />
+        <br />
+        <br />
+
+        <h3 id="4">
           Los procesos anteriores están resumidos en la figura figuiente:
-        </h4>
+        </h3>
         <div class="img-contenedor">
           <a href="https://imgur.com/4VGi5kQ"
             ><img src="https://i.imgur.com/4VGi5kQ.jpg"
