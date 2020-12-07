@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>model1</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <p>
+        El modelo intenta predecir mediante una
+        <strong>Regresión Lineal</strong> el tiempo de descarga en
+        <strong>segundos</strong> de ciertos paquetes definidos en
+        <strong>Mb, megabytes</strong>.<br />
+        Para esto:
+      </p>
+      <ol>
+        <li>
+          Los datos de entrenamiento (<strong>train data</strong>) y los datos
+          de prueba (<strong>test data</strong>), se define como constantes en
+          JavaScript:
+        </li>
+      </ol>
+
+      <ol start="2">
+        <li>
+          Para su uso con TensorFlow.js, se convierten estas contantes a
+          tensores teniendo en consideración las dimensiones. Esto es, se
+          definieron 2 constantes, cada una con 20 muestras
+          (<strong>samples</strong>), en donde cada dato de entrenamiento en
+          <strong>Mb</strong> le corresponde un dato en
+          <strong>segundos</strong>:
+        </li>
+      </ol>
+
+      <ol start="3">
+        <li>
+          <p>
+            Se define un modelo de tipo secuencial, con sólo una capa y una
+            neurona. Este modelo se compila utilizando:
+          </p>
+          <ul>
+            <li>
+              Un optimizador tipo ‘sgd’, o simplemente “gradiente descendiente
+              estocástico”.
+            </li>
+            <li>Una función de pérdida de tipo ‘meanAbsoluteError’.</li>
+          </ul>
+        </li>
+        <li>
+          <p>
+            Debido a que JavaScript es un lenguaje interpretado capaz de
+            ejecutar sólo un hilo de ejecución a la vez, se define una
+            <strong>función asíncrona</strong> para realizar el ajuste del
+            modelo mediante <em>model.fit()</em>
+          </p>
+        </li>
+      </ol>
+
+      <ol start="5">
+        <li>
+          Ejecuta una evaluación del modelo entrenado mediante
+          <em>model.evaluate()</em>
+        </li>
+      </ol>
+
+      <ol start="6">
+        <li>
+          Ejecuta una predicción mediante <em>model.predict()</em>. Para esto,
+          define primero ciertos datos como constantes, y utilizando la
+          capacidad de tratamiento de los datos como objetos de TensorFlow.js,
+          convierte estas constantes a tensores, para finalmente
+          <strong>imprimir la predicción en la consola</strong>.
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>

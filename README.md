@@ -4,6 +4,8 @@ Este proyecto intenta llevar el entrenamiento y visualización de Redes Neuronal
 
 ### Forma básica de uso
 **Esto iniciará un servidor local que permite la ejecución completa de la plataforma y sus proyectos implementados**
+
+
 - Clonar este repositorio
   - `git clone git@github.com:ccofres/plataformaJS.git`
 

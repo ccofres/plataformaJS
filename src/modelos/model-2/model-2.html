@@ -100,236 +100,120 @@
     <!-- contenido HTML-->
     <div id="contenido-html">
       <div class="art-html">
-        <h1 id="la-inteligencia-artificial-y-el-aprendizaje-automático">
-          La Inteligencia Artificial y el Aprendizaje Automático
-        </h1>
-        <p>
-          La Inteligencia Artificial o IA, es un campo de investigación y
-          estudio que intenta comprender
-          <em>cómo los seres humanos pensamos</em> y construir a partir de esto
-          entidades o máquinas que muestren capacidades cognitivas, que
-          perciban, entiendan, infieran o deduzcan, es decir, que demuestren
-          <em>inteligencia</em>.
-        </p>
-        <p>
-          El Aprendizaje Automático o Machine Learning, es un subcampo de la
-          Inteligencia Artificial, que intenta dotar a una máquina o sistema con
-          la capacidad de aprender de datos sin haber sido explícitamente
-          programada. Para esto se desarrollan técnicas con la capacidad de
-          generalizar comportamientos y aprender patrones, y de esta forma
-          mejorar, describir y predecir ciertos resultados.<br />
-        </p>
-        <div class="img-contenedor">
-          <img
-            src="https://lh3.googleusercontent.com/pw/ACtC-3eUjuOaLqIzECUMt44lYj8az-xB7r7IpqXZkbjojEgDM0kY5u_0bqtj0SRq9A9jE0H3RUygJgqXNXnIcbJh_B4yA4C8S3Kr4AHtPOvpFNXuZhdLiaXFctcVnw__I0S-R16PuAnEScwcFoKt1i3gBIY=w608-h377-no?authuser=2"
-            alt="Inteligencia Artificial, Aprendizaje Automático y Aprendizaje Profundo"
-          />
-          <p>
-            Figura 1: Relación entre la Inteligencia Artificial, el Aprendizaje
-            Automático y el Aprendizaje Profundo
-          </p>
-        </div>
-        <p>
-          En general, las técnicas o enfoques del Aprendizaje Automático se
-          pueden dividir en 3 categorías:
-        </p>
+        <h1>Modificando la introducción a TensorFlow.js</h1>
+
+        El siguiente ejemplo es una modificación del ejemplo de
+        <a href="../model-1/model-1.html">introducción a TensorFlow.js</a>. En
+        este ejemplo se preseta una modificación para visualizar el
+        entrenamiento de una red neuronal a través de la correcta configuración
+        de **callbacks**.
         <ul>
           <li>
-            <strong>Aprendizaje Supervisado:</strong> al sistema o máquina se le
-            presenta un conjunto de datos o ejemplos de entrenamiento,
-            compuestos por los valores de entrada y los valores de salida
-            deseados. A partir de ello se busca generalizar un patrón mediante
-            algún algoritmo para hacer predicciones de datos no conocidos fuera
-            del conjunto de datos de entrenamiento.
+            <a href="#1">Descripción del modelo</a>
           </li>
+
           <li>
-            <strong>Aprendizaje No Supervisado:</strong> el sistema se dota de
-            un conjunto de entrenamiento compuesto sólo por los valores de
-            entrada, sin los valores de salida deseados. Es decir, el conjunto
-            de entrenamiento no contiene los resultados debidamente etiquetados,
-            clasificados o categorizados para cada uno de los valores de
-            entrada, por lo que el algorítmo debe aprender a realizar la
-            clasificación o categorización de los datos sólo a partir de los
-            valores de entrada.
-          </li>
-          <li>
-            <strong>Aprendizaje por Refuerzo:</strong> el sistema o máquina a
-            través de la interacción aprende lo bueno o malo de una acción a
-            través del resultado obtenido. Si la acción o comportamiento es el
-            correcto, por ejemplo, la recompensa puede ser positiva, en caso
-            contrario, la recompensa será negativa.
-          </li>
-        </ul>
-        <h1 id="el-aprendizaje-profundo">El Aprendizaje Profundo</h1>
-        <p>
-          El Deep Learning o Aprendizaje Profundo, es un subcampo del Machine
-          Learning que utiliza como arquitectura fundamental
-          <em>Redes Neuronales</em>. Utiliza este tipo de redes como forma para
-          extraer información de los datos con el menor esfuerzo humano posible,
-          intentando realizar este proceso de forma automática.
-        </p>
-        <p>
-          Gran parte de los conceptos básicos del
-          <em>Aprendizaje Profundo</em> surgieron en los años 60, 80 y 90, pero
-          ha tenido su mayor auge en la última década debido principalmente a
-          factores tales como:
-        </p>
-        <ul>
-          <li>
-            Digitalización de la información y la consiguiente habilidad de
-            acceder a datos fácilmente, haciendo que muchos problemas tengan
-            ahora una forma digital.
-          </li>
-          <li>
-            Grandes avances de las telecomunicaciones y en especial el internet,
-            que le permiten a las comunidades científicas la capacidad de
-            trabajar y compartir remotamente.
-          </li>
-          <li>
-            Grandes avances en la computación y el diseño de nuevo hardware
-            (CPU, GPU, TPU), permitiendo la ejecución efectiva a gran escala.
-          </li>
-          <li>
-            Desarrollo de herramientas como TensorFlow, PyTorch y Keras con
-            grandes niveles de abstracción que ayudan a las personas a resolver
-            problemas en cada vez menos tiempo y con cada vez menos
-            conocimientos, dejando a la <em>idea</em> y los <em>datos</em> como
-            el punto central.
-          </li>
-        </ul>
-        <p>
-          Las Redes Neuronales son un modelo basado en el funcionamiento del
-          cerebro, diseñado para el reconocimiento de patrones. Estos patrones
-          son numéricos y están contenidos en vectores, como una representación
-          de los datos recibidos como entrada. Para esto, se utiliza un conjunto
-          de datos de ejemplo como
-          <strong>base o set de entrenamiento</strong> que se utiliza para
-          ajustar la red, y así posteriormente reconocer patrones. Una vez que
-          se extraen estos patrones, el sistema puede ser capáz de utilizarlos
-          para <em>etiquetar</em> nuevos datos de entrada.
-        </p>
-        <h2 id="estructura-de-las-redes-neuronales">
-          Estructura de las Redes Neuronales
-        </h2>
-        <p>
-          Las redes neuronales están compuestas por capas, y cada una de estas
-          capas está compuesta por nodos o neuronas. Los nodos tienen la
-          siguiente estructura:
-        </p>
-        <ul>
-          <li>
-            Una o más <strong>entradas</strong> que reciben los datos a
-            procesar.
-          </li>
-          <li>
-            <strong>Pesos</strong> dados a cada una de las entradas. Estos
-            aumentan o disminuyen la importancia de dicha entrada.
-          </li>
-          <li>
-            <strong>Función sumatoria</strong>, encargada de sumar todas las
-            combinaciones de peso-entrada.
-          </li>
-          <li>
-            <strong>Función de activación</strong>, que determina la activación
-            o no de un nodo según el valor obtenido en la función sumatoria.
-            Esta función puede ser una simple función escalón, una función
-            lineal que devuelve el mismo valor calculado o una función lineal
-            por tramos, como la función ReLU, que devuelve un valor si el valor
-            de la función sumatoria está dentro de ciertos límites, entre otras.
+            <a href="#editor">Editor y ejecución del modelo</a>
           </li>
         </ul>
 
-        <div class="img-contenedor">
-          <img
-            src="https://lh3.googleusercontent.com/pw/ACtC-3cG9-rW0wdGRG27bKnOO5c1rlechA9AMrKlpISfTTDxx0loI9hHwgf5-Etlky-M6jDws9hgwwXosk0iCoGNCup2XfvQWy-GQok9btzkKeN8gWqfoLv0UDB2OBBi123eE_I0ylmXiDFBrEa_Zfh8z68=w695-h502-no?authuser=2"
-            alt="Estructura básica de una neurona"
-          />
-          <p>Figura 2: Estructura básica de una neurona</p>
-        </div>
+        <br />
+        <br />
+        <br />
+        <hr class="rounded" />
+        <hr class="rounded" />
+        <br />
+        <br />
+        <br />
+        <h2 id="1">Descripción del modelo</h2>
+        <p>
+          El modelo intenta predecir mediante una
+          <strong> Regresión Lineal</strong> el tiempo de descarga en
+          <strong> segundos</strong>
+          de ciertos paquetes definidos en <strong>MB, megabytes</strong>. Para
+          esto entrena una neurona y configura <strong> callbacks</strong> para
+          la visualización de su entrenamiento.
+        </p>
+        <ol start="1">
+          <li>
+            Define una función asíncrona para ejecutar de forma asíncrona el
+            ajuste del modelo mediante <em>model.fit()</em>.
+            <ul>
+              <li>
+                Como tercer argumento de <em>model.fit()</em> se definen
+                callbacks a ejecutar a cada término de <em>época</em>. Estos
+                callbacks se definen para mostrarse a través de la consola
+                (mediante <code>console.log()</code>), y muestran el
+                <strong> número de época </strong> y el
+                <strong> valor de la función de pérdida </strong> al final de
+                cada época.
+              </li>
+            </ul>
+          </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-2%2Fmodel-2.js%23L1-L14&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
+        <ol start="2">
+          <li>
+            <p>
+              Se define un modelo de tipo secuencial, con sólo una capa y una
+              neurona. Este modelo se compila utilizando:
+            </p>
+            <ul>
+              <li>
+                Un optimizador tipo ‘sgd’, o simplemente “gradiente descendiente
+                estocástico”.
+              </li>
+              <li>Una función de pérdida de tipo ‘meanAbsoluteError’.</li>
+            </ul>
+          </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-2%2Fmodel-2.js%23L15-L18&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
 
-        <div class="img-contenedor">
-          <img
-            src="https://lh3.googleusercontent.com/pw/ACtC-3f-9j5M1fKeUbTXbgnE4w0iljfMIs_1VGl0Rn1LEBcDKEn9ZY0bjgWCze_lusfBfT4JZ2bsYqTtTI7HfTpwiUSX7S0bOMGZZuYw5cnZhTPSgk-2vZeXuGjRQ4_EzXZMLzjIRNEHm_2aux_igNx0fac=w769-h409-no?authuser=2"
-            alt="Capas de una red neuronal"
-          />
-          <p>Figura 3: Capas de una red neuronal</p>
-        </div>
+        <ol start="3">
+          <li>
+            <p>
+              Los datos de entrenamiento (<strong>train data</strong>) y los
+              datos de prueba (<strong>test data</strong>), se define como
+              constantes en JavaScript.
+            </p>
+            <p>
+              Para su uso con TensorFlow.js, se convierten estas contantes a
+              tensores teniendo en consideración las dimensiones. Esto es, se
+              definieron 2 constantes, cada una con 20 muestras
+              (<strong>samples</strong>), en donde cada dato de entrenamiento en
+              <strong>Mb</strong> le corresponde un dato en
+              <strong>segundos</strong>:
+            </p>
+          </li>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-2%2Fmodel-2.js%23L20-L33&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
 
-        <h2 id="entrenamiento-de-una-red-neuronal">
-          Entrenamiento de una red neuronal
-        </h2>
-        <p>
-          Para entender los modelos de redes neuronales y su entrenamiento, se
-          deben definir los siguientes conceptos básicos:
-        </p>
-        <ul>
+        <ol start="4">
           <li>
-            <strong>Etiquetas:</strong> tambień llamadas <em>labels</em> por su
-            nombre en inglés. Corresponde al valor, clasificación o categoría a
-            predecir.
+            <p>
+              Ejecuta una predicción mediante <em>model.predict()</em>. Para
+              esto, espera la ejecución de la función asíncrona definida
+              anteriormente al implementar en este paso el método
+              <code>then()</code>.
+            </p>
+            <p>
+              Los datos definidos como constantes, son convertidos a tensores
+              usando la capacidad de tratamiento de los datos como objetos de
+              TensorFlow.js, que convierte estas constantes a tensores, para
+              finalmente
+              <strong
+                >imprimir la predicción en la consola y a una ventana
+                emergente</strong
+              >.
+            </p>
           </li>
-          <li>
-            <strong>Atributos:</strong> también llamados <em>features</em>.
-            Corresponden a las variables de entrada a la red.
-          </li>
-          <li>
-            <strong>Set de datos:</strong> corresponde a los ejemplos a utilizar
-            para entrenar o hacer predicciones con el modelo.<br />
-            Estos ejemplos pueden corresponder a atributos debidamente
-            etiquetados, que suelen utilizarse como ejemplos de entrenamiento
-            para un modelo, o pueden corresponder a atributos sin etiquetar que
-            se utilizan para probar el modelo ya entrenado o en instancias de
-            aprendizaje no supervisado.
-          </li>
-        </ul>
-        <p>
-          Con el fin de extraer información de los datos, el modelo de red
-          neuronal debe definir la relación entre las entradas o atributos y su
-          salida o etiquetas. Para esto el modelo debe pasar por el proceso de
-          entrenamiento o aprendizaje para posteriormente poder hacer
-          inferencias de acuerdo a los patrones aprendidos durante el
-          entrenamiento.<br />
-          En el <strong>proceso de entrenamiento</strong> ocurre un ajuste o
-          modificación de los pesos asociados a cada entrada a un nodo, con el
-          fin de minimizar una <strong>función de pérdida</strong>. Esta
-          <strong>función de pérdida</strong> recibe la predicción "$\hat{y}$" y
-          la etiqueta correcta "$y$", asociadas a cierto atributo. Con esto, la
-          <em>Función de Pérdida</em> calcula lo incorrecto o no de una
-          predicción.<br />
-          Estas <em>Funciones de Pérdida o Costo</em> pueden eleguirse de
-          acuerdo al tipo de modelo de red neuronal a implementar para evaluar
-          su rendimiento o performance. Entre estas, una de las más utilizadas
-          es la MSE, Mean Square Error, también conocida como
-          <em>Costo cuadrático medio</em>, definida como:
-        </p>
-        <p>$$ MSE = \frac{1}{N} \sum (y - (prediccion(x)))^2 $$</p>
-        <p>$$ MSE = \frac{1}{N} \sum (y - \hat{y})^2 $$</p>
-        <p>
-          Los pesos se suelen inicializar con valores escogidos de forma
-          aleatoria, y generalmente son números pequeños. El ajuste de estos
-          pesos ocurre gracias a un algoritmo de optimización, que ayudan a
-          reducir o minimizar la <em>Función de Pérdida</em>. Estos algoritmos
-          de optimización suelen estar basados en el cálculo del
-          <strong>gradiente</strong> de la <em>función de pérdida</em>, debido a
-          que éste indica la dirección de máximo crecimiento de la función en
-          cierto punto. Este tipo de algoritmos es por tanto llamado
-          <strong>Descenso de Gradiente</strong>, y son técnicas conocidas como
-          <strong>Gradient Descent Optimization</strong>. Entre ellas se
-          encuentran una gran variedad de algoritmos que implementan el Descenso
-          de Gradiente, tales como Adagrad, Adadelta, Adam, Adamax y Nadam.<br />
-          Para actualizar el peso una vez que la <em>Función de Pérdida</em> a
-          calculado el error y el algoritmo de optimización a recalculado los
-          pesos para <em>minimizar la Función de Pérdida</em>, se recurre a un
-          algoritmo de propagación hacia atrás, desde la capa de salida hacia
-          las capas anteriores. Este algoritmo de propagación se conoce como
-          <strong>Backpropagation</strong> o
-          <strong>Propagación hacia atras</strong>.
-        </p>
+          <script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2Fccofres%2FplataformaJS%2Fblob%2Fmain%2Fsrc%2Fmodelos%2Fmodel-2%2Fmodel-2.js%23L35-L44&style=gruvbox-dark&showLineNumbers=on"></script>
+        </ol>
       </div>
     </div>
 
     <!--CodeMirror Editor-->
-    <h2>Code Editor</h2>
+    <h2>Editor JS</h2>
     <section id="static">
       <pre><code id="static-js" data-height="">async function doTraining(model){
       const history =

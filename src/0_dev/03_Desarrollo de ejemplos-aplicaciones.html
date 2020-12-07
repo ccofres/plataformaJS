@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03_Desarrollo de ejemplos-aplicaciones</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h1 id="tensorflow.js-en-la-práctica">TensorFlow.js en la práctica</h1>
+      <h2 id="desarrollo-de-ejemplos-y-aplicaciones-en-tensorflow.js">
+        Desarrollo de ejemplos y aplicaciones en TensorFlow.js
+      </h2>
+      <p>
+        Para el desarrollo de modelos en TensorFlow.js, se debe de tener en
+        cuenta que los conocimientos mínimos necesarios son:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <strong>Un conocimiento básico de HTML</strong>, para estructurar la
+            forma de visualizar el modelo. El documento HTML es en sí el archivo
+            que contiene el modelo a entrenar y ejecutar.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Conocimientos básicos de CSS</strong>. Como lenguaje que
+            acompaña a HTML para estructurar el proyecto-modelo, es el encargado
+            de los estilos (tipos de letras, tamaños de letras, colores de
+            fondo, etc) y por lo tanto es importante para una buena
+            visualización.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Conocimientos de JavaScript</strong>. Es el lenguaje
+            encargado de hacer de las páginas web contenidos dinámicos, y que al
+            igual que Python, es un lenguaje interpretado y que es la base para
+            el desarrollo de proyectos y modelos en TensorFlow.js.
+          </p>
+        </li>
+      </ul>
+      <p>
+        Para estos conocimientos propios del desarrollo web, se sugieren los
+        siguientes recursos:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <a href="https://frontendmasters.com/bootcamp/"
+              >Frontend Masters Bootcamp</a
+            >, un curso en inglés, <strong>gratis</strong>, que repasa lo
+            necesario de HTML, CSS y JavaScript.
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="https://developer.mozilla.org/es/"
+              >MDN - Mozilla Developer Network</a
+            >, mantenido por la Fundación Mozilla, creadores del navegador
+            Mozilla Firefox, contiene la información más actual de los
+            estandares de desarrollo web, así como una gran cantidad de
+            ejemplos.
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="https://www.w3schools.com/">W3Schools</a>, contiene una
+            gran cantidad de ejemplos, tutoriales, ejercicios y referencias
+            sobre desarrollo web.
+          </p>
+        </li>
+      </ul>
+      <p>
+        Con los conocimientos anteriores como referencias, el proceso se puede
+        dividir en 2 subprocesos:
+      </p>
+      <ul>
+        <li>
+          <p>
+            Configuración de TensorFlow.js, descrito en
+            <a href="">Configuración de TensorFlow.js para uso en navegador</a>,
+            cuya descripción termina con la generación de un archivo
+            <code>index.html</code> y un <code>script.js</code> que contiene la
+            descripción del modelo en JavaScript.
+          </p>
+        </li>
+        <li>
+          <p>
+            Generación de un servidor local, para la ejecución del
+            proyecto-modelo.
+          </p>
+        </li>
+      </ul>
+      <h2 id="generación-de-un-servidor-local">
+        Generación de un servidor local
+      </h2>
+      <p>
+        Se crea una carpeta con los archivos del proyecto-modelo y se ejecutan a
+        través de la generación de un servidor web local.
+      </p>
+      <p>
+        Para la generación de este servidor local existen dos formas simples de
+        hacerlo:
+      </p>
+      <h3 id="forma-1-chrome-apps">Forma 1: Chrome Apps</h3>
+      <p>
+        La forma más sencilla y que garantiza una buena compatibilidad con
+        TensorFlow.js, es utilizar un servidor generado a través de
+        <strong>Chrome Apps</strong> en el navegador Google Chrome:
+      </p>
+      <ul>
+        <li>
+          Las Chrome Apps están disponibles en el navegador Google Chrome en
+          <a>Chrome Apps</a>.
+        </li>
+      </ul>
+      <p>
+        <img
+          src="https://lh3.googleusercontent.com/pw/ACtC-3fH8pYbuhfrNL7YFuOeD6RejUF3RELgWtkHfOIRuHUDvH7Qn3XAiKcWlAQ__G3QqT8jQtI_dwwdxlzm-U0o693v5kOdCEB-tHL-kYLRc_m4Gg6tFLOkcClhvFPEaKopJ1BsWXW76JIeYPhpSmxCpzAx=w1015-h327-no?authuser=2"
+          alt="Chrome Apps de Google Chrome"
+        />
+      </p>
+      <p>
+        <img
+          src="https://lh3.googleusercontent.com/pw/ACtC-3fK_u6BS6UCo8d6VsmQJBB4T0L2pcmG1fZWxzney8Vjtofn4Z5ImxgbDZH93XFQzh2KE1B-Ztf35BVW_eyqCLxWSRZIOHD1suKjtMp9GbhfbrL1VlQPwwCC4REpkbBOKKkFyC9V3ocu3iIu9wPex88N=w346-h177-no?authuser=2"
+          alt="Servidor local generado en base a la carpeta del proyecto"
+        />
+      </p>
+      <h3 id="forma-2-live-server-en-vscode">Forma 2: Live Server en VScode</h3>
+      <p>
+        VSCode, o Visual Studio Code, es un editor de texto capaz de generar un
+        servidor local mediante la instalación de una extensión.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Instalación de VScode
+            <a href="https://code.visualstudio.com/"
+              >https://code.visualstudio.com/</a
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            Instalación de extensión Live Server
+            <a
+              href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+              >https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer</a
+            >
+          </p>
+        </li>
+        <li>
+          <p>
+            Abrir carpeta del proyecto, y en <code>index.html</code>, iniciar
+            Live Server mediante <strong>Open with Live Server</strong>
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

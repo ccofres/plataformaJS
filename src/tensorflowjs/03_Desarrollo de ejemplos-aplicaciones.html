@@ -93,14 +93,112 @@
     <!-- contenido HTML-->
     <div id="contenido-html">
       <div class="art-html">
+        <h1 id="tensorflow.js-en-la-práctica">TensorFlow.js en la práctica</h1>
+        <h2 id="desarrollo-de-ejemplos-y-aplicaciones-en-tensorflow.js">
+          Desarrollo de ejemplos y aplicaciones en TensorFlow.js
+        </h2>
+
+        <h3>Introducción</h3>
         <p>
-          De esta forma, es posible clonar o descargar de forma local el
-          proyecto, y utilizar estos modelos a través de la generación de un
-          servidor web local. La forma más sencilla y que garantiza una buena
-          compatibilidad con TensorFlow.js, es utilizar un servidor generado a
-          través de
+          Para el desarrollo de modelos en TensorFlow.js, se debe de tener en
+          cuenta que los conocimientos mínimos necesarios son:
+        </p>
+        <ul>
+          <li>
+            <strong>Un conocimiento básico de HTML</strong>, para estructurar la
+            forma de visualizar el modelo. El documento HTML es en sí el archivo
+            que contiene el modelo a entrenar y ejecutar.
+          </li>
+          <li>
+            <strong>Conocimientos básicos de CSS</strong>. Como lenguaje que
+            acompaña a HTML para estructurar el proyecto-modelo, es el encargado
+            de los estilos (tipos de letras, tamaños de letras, colores de
+            fondo, etc) y por lo tanto es importante para una buena
+            visualización.
+          </li>
+          <li>
+            <strong>Conocimientos de JavaScript</strong>. Es el lenguaje
+            encargado de hacer de las páginas web contenidos dinámicos, y que al
+            igual que Python, es un lenguaje interpretado y que es la base para
+            el desarrollo de proyectos y modelos en TensorFlow.js.
+          </li>
+        </ul>
+        <p>
+          Para estos conocimientos propios del desarrollo web, se sugieren los
+          siguientes recursos:
+        </p>
+        <ul>
+          <li>
+            <div>
+              <a href="https://frontendmasters.com/bootcamp/"
+                >Frontend Masters Bootcamp</a
+              >, un curso en inglés, <strong>gratis</strong>, que repasa lo
+              necesario de HTML, CSS y JavaScript.
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="https://developer.mozilla.org/es/"
+                >MDN - Mozilla Developer Network</a
+              >, mantenido por la Fundación Mozilla creadores del navegador
+              Mozilla Firefox, contiene la información más actual de los
+              estandares de desarrollo web, así como una gran cantidad de
+              ejemplos.
+            </div>
+          </li>
+          <li>
+            <div>
+              <a href="https://www.w3schools.com/">W3Schools</a>, contiene una
+              gran cantidad de ejemplos, tutoriales, ejercicios y referencias
+              sobre desarrollo web.
+            </div>
+          </li>
+        </ul>
+
+        <br />
+        <br />
+        <hr class="rounded" />
+        <br />
+        <br />
+
+        <h3>Procesos para el desarrollo en TensorFlow.js en la práctica</h3>
+        <p>
+          Con los conocimientos anteriores como referencias, el proceso se puede
+          dividir en 2 subprocesos:
+        </p>
+        <ul>
+          <li>
+            <div>
+              Configuración de TensorFlow.js, descrito en
+              <a href="">Configuración de TensorFlow.js para uso en navegador</a
+              >, cuya descripción termina con la generación de un archivo
+              <code>index.html</code> y un <code>script.js</code> que contiene
+              la descripción del modelo en JavaScript.
+            </div>
+          </li>
+          <li>
+            <div>
+              Generación de un servidor local, para la ejecución del
+              proyecto-modelo.
+            </div>
+          </li>
+        </ul>
+
+        <h4 id="generación-de-un-servidor-local">
+          Generación de un servidor local
+        </h4>
+        <p>
+          Se crea una carpeta con los archivos del proyecto-modelo y se ejecutan
+          a través de la generación de un servidor web local. Para la generación
+          de este servidor local existen dos formas simples de hacerlo:
+        </p>
+        <strong id="forma-1">Forma 1: Chrome Apps</strong>
+        <p>
+          La forma más sencilla y que garantiza una buena compatibilidad con
+          TensorFlow.js, es utilizar un servidor generado a través de
           <strong>Chrome Apps</strong> en el navegador Google Chrome:
         </p>
+
         <ul>
           <li>
             <div>
@@ -126,6 +224,67 @@
           /></a>
           <p>Servidor local generado en base a la carpeta del proyecto</p>
         </div>
+
+        <br />
+        <br />
+        <hr class="rounded" />
+        <br />
+        <br />
+
+        <strong id="forma-2">Forma 2: Live Server en VScode</strong>
+        <p>
+          VSCode, o Visual Studio Code, es un editor de texto capaz de generar
+          un servidor local mediante la instalación de una extensión.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Instalación de VS Code:
+              <a href="https://code.visualstudio.com/"
+                >https://code.visualstudio.com/</a
+              >
+            </p>
+            <div class="img-contenedor">
+              <a href="https://imgur.com/QIbi2zJ"
+                ><img
+                  src="https://i.imgur.com/QIbi2zJ.jpg"
+                  title="VS Code en la carpeta del proyecto"
+              /></a>
+              <p>VS Code en la carpeta del proyecto</p>
+            </div>
+          </li>
+          <li>
+            <p>
+              Instalación de
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer"
+                >extensión Live Server.</a
+              >
+            </p>
+            <div class="img-contenedor">
+              <a href="https://imgur.com/EQGbRvS"
+                ><img
+                  src="https://i.imgur.com/EQGbRvS.jpg"
+                  title="Instalación de Live Server en VS Code"
+              /></a>
+              <p>Instalación de Live Server en VS Code</p>
+            </div>
+          </li>
+          <li>
+            <p>
+              Abrir carpeta del proyecto, y en <code>index.html</code>, iniciar
+              Live Server mediante <strong>Open with Live Server</strong>.
+            </p>
+            <div class="img-contenedor">
+              <a href="https://imgur.com/pP77zea"
+                ><img
+                  src="https://i.imgur.com/pP77zea.jpg"
+                  title="Iniciar Live Server en VS Code"
+              /></a>
+              <p>Iniciar Live Server en VS Code</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
 
