@@ -63,7 +63,7 @@ function run() {
   let bar = document.getElementById("mySidenav");
   bar.insertAdjacentHTML(
     "afterbegin",
-    '<a href="javascript:void(0)" class="closebtn removeElement" onclick="closeNav()">&times;</a><a href="javascript:void(0)" class="removeElement" onclick="DenseNet()">Dense Net</a><a href="javascript:void(0)" class="removeElement" onclick="CnnNet()">Redes Convolucionales</a><a class="removeElement" href="javascript:void(0)" onclick="GenNet()">Generativos</a>'
+    '<a href="javascript:void(0)" class="closebtn removeElement" onclick="closeNav()">&times;</a><a href="javascript:void(0)" class="removeElement" onclick="DenseNet()">Redes Neuronales</a><a href="javascript:void(0)" class="removeElement" onclick="CnnNet()">Redes Neuronales Convolucionales</a><a class="removeElement" href="javascript:void(0)" onclick="GenNet()">Modelos Generativos</a>'
   );
   time = setTimeout(openNav, 500);
 }
@@ -71,7 +71,7 @@ function firstTime() {
   let bar = document.getElementById("mySidenav");
   bar.insertAdjacentHTML(
     "afterbegin",
-    '<a href="javascript:void(0)" class="closebtn removeElement" onclick="closeNav()">&times;</a><a href="javascript:void(0)" class="removeElement" onclick="DenseNet()">Dense Net</a><a href="javascript:void(0)" class="removeElement" onclick="CnnNet()">Redes Convolucionales</a><a class="removeElement" href="javascript:void(0)" onclick="GenNet()">Generativos</a>'
+    '<a href="javascript:void(0)" class="closebtn removeElement" onclick="closeNav()">&times;</a><a href="javascript:void(0)" class="removeElement" onclick="DenseNet()">Redes Neuronales</a><a href="javascript:void(0)" class="removeElement" onclick="CnnNet()">Redes Neuronales Convolucionales</a><a class="removeElement" href="javascript:void(0)" onclick="GenNet()">Modelos Generativos</a>'
   );
 }
 document.addEventListener("DOMContentLoaded", firstTime);
