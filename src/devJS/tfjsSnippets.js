@@ -11,3 +11,31 @@ tf.getBackend();
 //Setea el Backend a usar: 'cpu', 'webgl', 'wasm'
 tf.setBackend("cpu");
 tf.setBackend("webgl");
+
+//OPTIMIZADORES
+/**
+ * optimizer: [optimizador(LEARNING_RATE)]
+ */
+//Stochastic Gradient Descent (SGD)
+optimizer: "sgd";
+optimizer: tf.train.sgd();
+
+//Momentum
+optimizer: "momemtum";
+optimizer: tf.train.momemtum();
+
+//RMSProp
+optimizer: "rmsprop";
+optimizer: tf.train.rmsprop();
+
+//AdaDelta
+optimizer: "adadelta";
+optimizer: tf.train.adadelta();
+
+//ADAM
+optimizer: "adam";
+optimizer: tf.train.adam();
+
+//AdaMax
+optimizer: "adamax";
+optimizer: tf.train.adamax();
