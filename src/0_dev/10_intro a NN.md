@@ -11,12 +11,8 @@
 Tamaños de minilotes más grandes ayudan a un entrenamiento y aprendizaje más rápido, pero requieren mayor espacio en memoria. Un buen tamaño por default es 32.
 - **Entrenamiento**: es el proceso de aprendizaje gradual mediante el cual se relacionan los atributos y sus respectivas etiquetas.
 - **Inferencia o predicción**: es la aplicación de un modelo entrenado a ejemplos sin etiqueta.
-
-
-
-
-- **Regresión**
-- **Clasificación**
+- **Clasificación**: es una tarea típica dentro del aprendizaje supervisado en donde se predicen *clases* dados ciertos atributos.
+- **Regresión**: tarea típica dentro del aprendizaje supervisado en donde se predicen valores continuos, como el precio de una casa o un auto, dados ciertos atributos usados como *predictores*.
 
 
 
@@ -36,7 +32,65 @@ Los problemas dependiendo el tipo de datos, pueden ser clasificados en lineales 
 
 
 ## Funciones de Activación
+Las funciones de activación son a veces llamadas *funciones de transferencia* o *no linearidades*, porque transforman la combinación lineal de las entradas y sus pesos asociados a una forma no lineal.
 
+Estas funciones de activación se ubican al final de cada Perceptron o neurona artificial, y es la forma que tiene cada neurona de decidir o no su activación.
+- **¿Por qué se utilizan**
+  Se utilizan para introducir no linearidades, y de esta forma, dotar a la red de la capacidad de afrontar problemas no lineales. Sin una función de activación no-lineal, un Perceptron Multicapa sin importar su cantidad de capas ocultas, se comportará de forma similar a un simple Perceptron. Esto es debido a que la combinación de *funciones de activacion lineales*, es simplemente otra función lineal.
+  Al mismo tiempo, se utilizan para restringir los valores de salida de cada neurona dentro de un rango finito.
+
+Existe una gran cantidad de funciones de activación, sin embargo, las que se utilizan más comunmente son pocas. Entre las más usadas están las siguientes:
+
+### Función Lineal
+La función lineal, muchas veces utilizada como una *función identidad* pasando la señal inalterada. Es decir, la *salida* de la función de activación es igual a su entrada, y de esta forma, es como si no hubiera una función de activación. En el mejor de los casos, dependiendo el tipo de función lineal, sólo se escala la salida de la *función sumatoria*, sin la capacidad de transformar esta entrada en una función no lineal.
+
+![Imgur](https://i.imgur.com/MYDv3zG.png)
+
+### Función Step, Heaviside, o escalón
+La función escalón unitario produce una salida binaria. Es una función simple, en la que básicamente:
+- Si x>0, la salida es 1
+- Si x<0, la salida es 0
+Esta función es utilizada debido a su tipo de salida, en problemas de clasificación binaria del tipo verdadero o falso.
+![Imgur](https://i.imgur.com/F0j1evV.png)
+
+### Función Sigmoide o Logística
+La función Sigmoide es una de las más comunmente utilizadas. Su uso es común en problemas de clasificación binaria en donde lo que se quiere es predecir la probabilidad de una clase *en problemas en donde existen 2 clases*.
+La función toma todos los valores de entrada, y los reduce a un rango [0,1], convirtiendo valores continuos entre -infinito y +infinito en una simple probabilidad entre 0 y 1.
+
+![Imgur](https://i.imgur.com/WOyjAH6.png)
+
+
+#### Función Softmax
+La función Softmax es una generalización de la **función sigmoide**, y por esto es utilizada en problemas de clasificación para obtener las probabilidades de una clase cuando *el problema tiene más de 2 clases*. Esta función de activación, fuerza la salida de la red en el rango 0 a 1. Para esto, implementa la siguiente ecuación:
+
+La función Softmax es la función aconsejada para problemas de clasificación de más de dos clases, o donde existen sólo dos clases, en donde se comporta como una Sigmoide.
+
+
+
+### Función Tangente Hiperbólica
+La función tangente hiperbólica es una versión *desplazada* de la función sigmoide. De esta forma, en vez de reducir los valores de entrada a un rango [0,1], esta función lleva estos valores al rango [-1,1].
+Esta función trabaja relativamente mejor que una función sigmoide en las *capas ocultas*, debido a que al llevar los valores al rango [-1,1] tiene el efecto de centrar los datos, haciendo que el promedio esté cercano a 0 (en la sigmoide el promedio está en 0.5), haciendo que el aprendizaje para la capa posterior (o siguiente) sea un poco más fácil.
+La función Tangente Hiperbólica esta dada por:
+
+Esta función, al igual que la función sigmoide, tiene como principal contra la saturación que ocurre para valores muy grandes (tanto positivos como negativos). Esto provoca que las derivadas locales, es decir, el *gradiente*, sea muy cercano a 0, y por lo tanto al momento de la *Propagación hacia atras* (**Backpropagation**) casi no exista gradiente a propagar.
+
+![Imgur](https://i.imgur.com/flxLBtP.png)
+
+### Función ReLU (Rectified Linear Unit)
+La función de activación ReLU, activa un nodo o neurona sólo si la entrada es mayor a 0. Si la entrada es menor a 0, entonces la salida es siempre 0. Cuando la entrada es mayor a 0, el nodo o neurona se activa, y la salida es una relación lineal con la variable de entrada de la forma $f(x) = x$.
+Actualmente es muy utilizada debido a su buen funcionamiento para diferentes situaciones y problemas, teniendo incluso una tendencia a mejores entrenamientos para las capas ocultas que los realizados con la *función sigmoide* o *tanh*.
+![Imgur](https://i.imgur.com/MXtRkkS.png)
+
+### Función Leaky ReLU
+
+![Imgur](https://i.imgur.com/wmH0Y3T.png)
+
+
+
+
+
+
+## Funciones de Pérdida
 
 ## Optimizadores
 ### Stochastic Gradient Descent (SGD)
