@@ -73,8 +73,8 @@ activation: tf.layers.leakyReLU(alpha);
 
 //FUNCIONES DE PÉRDIDA
 model.compile({
-  optimizer: tf.train.adam(0.001);    //Optimizador ADAM con Learning Rate de 0.001
-  loss: "meanSquaredError",           //Función de Pérdida
+  optimizer: tf.train.adam(0.001), //Optimizador ADAM con Learning Rate de 0.001
+  loss: "meanSquaredError", //Función de Pérdida
 });
 //Mean square error (MSE)
 loss: "meanSquaredError";
