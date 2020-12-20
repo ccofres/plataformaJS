@@ -44,9 +44,9 @@ optimizer: tf.train.adamax();
 const model = tf.sequential();
 model.add(
   tf.layers.dense({
-    units: 10,
-    activation: "sigmoid",
-    inputShape: [data.shape[1]],
+    units: 10, //Número de nodos o neuronas
+    activation: "sigmoid", //Función de Activación
+    inputShape: [data.shape[1]], //Dimensión de los datos de entrada
   })
 );
 //Lineal
@@ -73,8 +73,8 @@ activation: tf.layers.leakyReLU(alpha);
 
 //FUNCIONES DE PÉRDIDA
 model.compile({
-  optimizer: "adam",
-  loss: "meanSquaredError",
+  optimizer: tf.train.adam(0.001);    //Optimizador ADAM con Learning Rate de 0.001
+  loss: "meanSquaredError",           //Función de Pérdida
 });
 //Mean square error (MSE)
 loss: "meanSquaredError";

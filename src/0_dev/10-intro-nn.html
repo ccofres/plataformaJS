@@ -1,0 +1,866 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10-intro-nn</title>
+    <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  </head>
+
+  <body class="stackedit">
+    <div class="stackedit__html">
+      <h1 id="introducción-a-redes-neuronales">
+        Introducción a Redes Neuronales
+      </h1>
+      <h2 id="redes-neuronales">Redes Neuronales</h2>
+      <p>
+        Las redes neuronales, tienen su inspiración en la neurona biológica. Es
+        por esto, que el nombre correcto para referirse a ellas es “Redes
+        Neuronales Artificiales”.
+      </p>
+      <p>
+        Las redes neuronales artificiales están en el centro del Aprendizaje
+        Profundo, y tienen como primer modelo el propuesto en 1943 por Pitts y
+        McCulloch. Este primer modelo propuesto, conocido como “Threshold Logic
+        Unit”, era un modelo simple de una neurona biológica, de tipo binario,
+        en donde cada neurona tenía un umbral prefijado. Tenía
+        <strong>una o más entradas binarias</strong>, y
+        <strong>una salida binaria</strong>. La neurona artificial activa su
+        salida cuando al menos cierto número de entradas estan activas. Este
+        modelo era capáz de aprender funciones de lógica binaria como AND y OR,
+        y sirvió de base para modelos posteriores como el Perceptron y el
+        Perceptron Multicapa.
+      </p>
+      <h3 id="el-perceptron">El Perceptron</h3>
+      <p>
+        Es un modelo propuesto en 1957 por Frank Rosenblatt, usado para
+        clasificación binaria. Básicamente, es un tipo de neurona artificial en
+        donde:
+      </p>
+      <ul>
+        <li>
+          Las entradas, a diferencia del TLU, son simple números en vez de
+          valores binarios.
+        </li>
+        <li>
+          La <strong>función sumatoria</strong> es la sumatoria lineal de las
+          entradas o
+          <strong
+            >producto puntro entre las entradas y sus pesos asociados</strong
+          >
+        </li>
+      </ul>
+      <p>
+        <span class="katex--display"
+          ><span class="katex-display"
+            ><span class="katex"
+              ><span class="katex-mathml"
+                ><math
+                  ><semantics
+                    ><mrow
+                      ><mi>M</mi><mi>S</mi><mi>E</mi><mo>=</mo
+                      ><mfrac><mn>1</mn><mi>N</mi></mfrac
+                      ><mo>∑</mo><mo stretchy="false">(</mo><mi>y</mi><mo>−</mo
+                      ><mo stretchy="false">(</mo><mi>p</mi><mi>r</mi><mi>e</mi
+                      ><mi>d</mi><mi>i</mi><mi>c</mi><mi>c</mi><mi>i</mi
+                      ><mi>o</mi><mi>n</mi><mo stretchy="false">(</mo><mi>x</mi
+                      ><mo stretchy="false">)</mo><mo stretchy="false">)</mo
+                      ><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow
+                    ><annotation encoding="application/x-tex"
+                      >MSE = \frac{1}{N} \sum (y -
+                      (prediccion(x)))^2</annotation
+                    ></semantics
+                  ></math
+                ></span
+              ><span class="katex-html" aria-hidden="true"
+                ><span class="base"
+                  ><span
+                    class="strut"
+                    style="height: 0.68333em; vertical-align: 0em"
+                  ></span
+                  ><span
+                    class="mord mathdefault"
+                    style="margin-right: 0.10903em"
+                    >M</span
+                  ><span
+                    class="mord mathdefault"
+                    style="margin-right: 0.05764em"
+                    >S</span
+                  ><span
+                    class="mord mathdefault"
+                    style="margin-right: 0.05764em"
+                    >E</span
+                  ><span class="mspace" style="margin-right: 0.277778em"></span
+                  ><span class="mrel">=</span
+                  ><span
+                    class="mspace"
+                    style="margin-right: 0.277778em"
+                  ></span></span
+                ><span class="base"
+                  ><span
+                    class="strut"
+                    style="height: 2.00744em; vertical-align: -0.686em"
+                  ></span
+                  ><span class="mord"
+                    ><span class="mopen nulldelimiter"></span
+                    ><span class="mfrac"
+                      ><span class="vlist-t vlist-t2"
+                        ><span class="vlist-r"
+                          ><span class="vlist" style="height: 1.32144em"
+                            ><span class="" style="top: -2.314em"
+                              ><span class="pstrut" style="height: 3em"></span
+                              ><span class="mord"
+                                ><span
+                                  class="mord mathdefault"
+                                  style="margin-right: 0.10903em"
+                                  >N</span
+                                ></span
+                              ></span
+                            ><span class="" style="top: -3.23em"
+                              ><span class="pstrut" style="height: 3em"></span
+                              ><span
+                                class="frac-line"
+                                style="border-bottom-width: 0.04em"
+                              ></span></span
+                            ><span class="" style="top: -3.677em"
+                              ><span class="pstrut" style="height: 3em"></span
+                              ><span class="mord"
+                                ><span class="mord">1</span></span
+                              ></span
+                            ></span
+                          ><span class="vlist-s">​</span></span
+                        ><span class="vlist-r"
+                          ><span class="vlist" style="height: 0.686em"
+                            ><span class=""></span></span></span></span></span
+                    ><span class="mclose nulldelimiter"></span></span
+                  ><span class="mspace" style="margin-right: 0.166667em"></span
+                  ><span
+                    class="mop op-symbol large-op"
+                    style="position: relative; top: -5e-6em"
+                    >∑</span
+                  ><span class="mopen">(</span
+                  ><span
+                    class="mord mathdefault"
+                    style="margin-right: 0.03588em"
+                    >y</span
+                  ><span class="mspace" style="margin-right: 0.222222em"></span
+                  ><span class="mbin">−</span
+                  ><span
+                    class="mspace"
+                    style="margin-right: 0.222222em"
+                  ></span></span
+                ><span class="base"
+                  ><span
+                    class="strut"
+                    style="height: 1.11411em; vertical-align: -0.25em"
+                  ></span
+                  ><span class="mopen">(</span
+                  ><span class="mord mathdefault">p</span
+                  ><span
+                    class="mord mathdefault"
+                    style="margin-right: 0.02778em"
+                    >r</span
+                  ><span class="mord mathdefault">e</span
+                  ><span class="mord mathdefault">d</span
+                  ><span class="mord mathdefault">i</span
+                  ><span class="mord mathdefault">c</span
+                  ><span class="mord mathdefault">c</span
+                  ><span class="mord mathdefault">i</span
+                  ><span class="mord mathdefault">o</span
+                  ><span class="mord mathdefault">n</span
+                  ><span class="mopen">(</span
+                  ><span class="mord mathdefault">x</span
+                  ><span class="mclose">)</span><span class="mclose">)</span
+                  ><span class="mclose"
+                    ><span class="mclose">)</span
+                    ><span class="msupsub"
+                      ><span class="vlist-t"
+                        ><span class="vlist-r"
+                          ><span class="vlist" style="height: 0.864108em"
+                            ><span
+                              class=""
+                              style="top: -3.113em; margin-right: 0.05em"
+                              ><span class="pstrut" style="height: 2.7em"></span
+                              ><span class="sizing reset-size6 size3 mtight"
+                                ><span class="mord mtight">2</span></span
+                              ></span
+                            ></span
+                          ></span
+                        ></span
+                      ></span
+                    ></span
+                  ></span
+                ></span
+              ></span
+            ></span
+          ></span
+        >
+      </p>
+      <ul>
+        <li>
+          La <strong>función de activación</strong> es la función escalón o
+          <strong>Heaviside</strong> con un valor umbral típico de 0.5.
+        </li>
+      </ul>
+      <p><img src="https://i.imgur.com/zUEbTR6.png" alt="Imgur" /></p>
+      <p>
+        <img
+          src="https://i.imgur.com/WS4gqql.jpg"
+          alt="Estructura básica de una neurona"
+        />
+      </p>
+      <p>
+        De esta forma, si la sumatoria lineal de las entradas, esto es,
+        <strong
+          >el producto punto entre las entradas y sus pesos asociados</strong
+        >
+        es:
+      </p>
+      <ul>
+        <li>
+          mayor al <em>valor umbral de la función escalón</em>, la salida del
+          Perceptron será 1.
+        </li>
+        <li>
+          menor al <em>valor umbral de la función escalón</em>, la salida del
+          Perceptron será 0.
+        </li>
+      </ul>
+      <p>La lógica de aprendizaje del Perceptron es:</p>
+      <ol>
+        <li>
+          <p>
+            Se calcula la sumatoria entre entradas y sus pesos asociados. Esta
+            <em>función sumatoria</em> es aplicada a la
+            <em>función de activación</em> para generar una predicción
+            <strong>ŷ</strong>. Este proceso es llamado
+            <strong>FeedForward</strong>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Se compara la predicción hecha con la etiqueta correcta, para
+            calcular el error:<br />
+            <span class="katex--display"
+              ><span class="katex-display"
+                ><span class="katex"
+                  ><span class="katex-mathml"
+                    ><math
+                      ><semantics
+                        ><mrow
+                          ><mi>e</mi><mi>r</mi><mi>r</mi><mi>o</mi><mi>r</mi
+                          ><mo>=</mo><mi>y</mi><mo>−</mo
+                          ><mover accent="true"
+                            ><mi>y</mi><mo>^</mo></mover
+                          ></mrow
+                        ><annotation encoding="application/x-tex"
+                          >error = y-ŷ</annotation
+                        ></semantics
+                      ></math
+                    ></span
+                  ><span class="katex-html" aria-hidden="true"
+                    ><span class="base"
+                      ><span
+                        class="strut"
+                        style="height: 0.43056em; vertical-align: 0em"
+                      ></span
+                      ><span class="mord mathdefault">e</span
+                      ><span
+                        class="mord mathdefault"
+                        style="margin-right: 0.02778em"
+                        >r</span
+                      ><span
+                        class="mord mathdefault"
+                        style="margin-right: 0.02778em"
+                        >r</span
+                      ><span class="mord mathdefault">o</span
+                      ><span
+                        class="mord mathdefault"
+                        style="margin-right: 0.02778em"
+                        >r</span
+                      ><span
+                        class="mspace"
+                        style="margin-right: 0.277778em"
+                      ></span
+                      ><span class="mrel">=</span
+                      ><span
+                        class="mspace"
+                        style="margin-right: 0.277778em"
+                      ></span></span
+                    ><span class="base"
+                      ><span
+                        class="strut"
+                        style="height: 0.77777em; vertical-align: -0.19444em"
+                      ></span
+                      ><span
+                        class="mord mathdefault"
+                        style="margin-right: 0.03588em"
+                        >y</span
+                      ><span
+                        class="mspace"
+                        style="margin-right: 0.222222em"
+                      ></span
+                      ><span class="mbin">−</span
+                      ><span
+                        class="mspace"
+                        style="margin-right: 0.222222em"
+                      ></span></span
+                    ><span class="base"
+                      ><span
+                        class="strut"
+                        style="height: 0.88888em; vertical-align: -0.19444em"
+                      ></span
+                      ><span class="mord accent"
+                        ><span class="vlist-t vlist-t2"
+                          ><span class="vlist-r"
+                            ><span class="vlist" style="height: 0.69444em"
+                              ><span class="" style="top: -3em"
+                                ><span class="pstrut" style="height: 3em"></span
+                                ><span
+                                  class="mord mathdefault"
+                                  style="margin-right: 0.03588em"
+                                  >y</span
+                                ></span
+                              ><span class="" style="top: -3em"
+                                ><span class="pstrut" style="height: 3em"></span
+                                ><span
+                                  class="accent-body"
+                                  style="left: -0.19444em"
+                                  >^</span
+                                ></span
+                              ></span
+                            ><span class="vlist-s">​</span></span
+                          ><span class="vlist-r"
+                            ><span class="vlist" style="height: 0.19444em"
+                              ><span
+                                class=""
+                              ></span></span></span></span></span></span></span></span></span
+            ></span>
+          </p>
+        </li>
+        <li>
+          <p>
+            Se actualizan los pesos intentando minimizar el error. De esta forma
+            se mejora la predicción intentando que el error sea lo más cercano a
+            0.
+          </p>
+        </li>
+        <li>
+          <p>Se repite el proceso desde el paso 1.</p>
+        </li>
+      </ol>
+      <p><strong>Una nota sobre el Perceptron</strong></p>
+      <ul>
+        <li>
+          Como el perceptron implementa una sumatoria lineal de las entradas,
+          <strong>es en sí un modelo de función lineal</strong>.
+        </li>
+        <li>
+          Dado lo anterior, el Perceptron producirá una
+          <strong>línea recta</strong> que “separa” o clasifica cierta parte de
+          los datos.
+        </li>
+        <li>
+          De esta forma, si el problema es lineal, o
+          <strong>linealmente separable</strong>, es decir los datos pueden ser
+          separados por una línea recta, el Perceptron funciona bien.
+        </li>
+        <li>
+          Si los datos son no-lineales, el Perceptron fallará como modelo.
+        </li>
+      </ul>
+      <h3 id="el-perceptron-multicapa">El Perceptron Multicapa</h3>
+      <p>
+        El Multilayer Perceptron (MLP), o Perceptron Multicapa, son redes
+        neuronales con una capa de entrada (Input Layers), una o más capas
+        ocultas (Hidden Layers) y una capa de salida (Output Layer) compuestas
+        de Perceptrones. Cada una de sus capas, a excepción de la capa de
+        salida, tiene cada una de sus neuronas conectada a cada una de las
+        neuronas de la capa siguiente.
+      </p>
+      <p><img src="https://i.imgur.com/To5a8yS.jpg" alt="Imgur" /></p>
+      <p>
+        Una red es <strong>densa</strong> o <strong>Fully connected</strong>,
+        cuando cada uno de los nodos o neuronas de una capa está conectado a
+        todos los nodos o neuronas de la siguiente capa. Esta arquitectura es
+        conocida como <strong>fully connected network</strong> y es la
+        arquitectura más básica de redes neuronales. Es posible referirse a ella
+        usualmente como <em>Red Neuronal Artificial</em>,
+        <em>Multilayer Perceptron</em> (MLP), <em>Fully connected network</em> o
+        <em>Feedforward network</em>.
+      </p>
+      <p>
+        <img src="https://i.imgur.com/Fj7BwVo.png" alt="Red Fully Connected" />
+      </p>
+      <p>
+        Cada neurona en el Perceptron Multicapa es similar al Perceptron, pero
+        tiene la flexibilidad de elegir el tipo de función de activación a usar,
+        y de esta forma añade la posibilidad de representar funciones de
+        activación más complejas.
+      </p>
+      <p>
+        Al encadenar varios perceptrones, sólo se terminan obteniendo
+        transformaciones lineales, incapaces de afrontar datos no-lineales. De
+        esta forma, una red neuronal profunda con funciones de activación
+        no-lineales puede teóricamente ser capáz de aproximar cualquier función
+        continua, y con esto, afrontar y resolver problemas más complejos.
+      </p>
+      <h2 id="el-proceso-de-entrenamiento">El proceso de entrenamiento</h2>
+      <p>
+        El proceso de entrenamiento de una red neuronal, consiste básicamente en
+        encontrar y aprender los valores de los pesos de todas las capas de la
+        red que minimicen la función de pérdida, y por lo tanto, ajusten las
+        predicciones de los datos de entrada con sus verdaderas etiquetas. Este
+        proceso, es un proceso iterativo compuesto de una
+        <em>propagación hacia adelante</em>,
+        <em>forward propagation o feedforward</em>, y una
+        <em>propagación hacia atrás</em>,
+        <em>retropropagación o backpropagation</em>.
+      </p>
+      <p>
+        En la primera fase, de <em>feedforward</em>, la información o datos de
+        entrenamiento fluyen a través de la red desde la capa de entrada a la
+        capa de salida en donde se calculan las predicciones. Estos datos pasan
+        a través de la red, en donde cada neurona aplica su transformación a la
+        información que recibe de las neuronas de la capa anterior y la envía a
+        las neuronas de la capa siguiente. Cuando se llega a la capa final, se
+        genera una predicción de la etiqueta para los datos o ejemplos de
+        entrada.
+      </p>
+      <p>
+        Con la predicción de la etiqueta, se utiliza una
+        <strong>función de pérdida</strong> como medida y estimación del error
+        en la predicción. Esta <strong>función de pérdida</strong> tomas las
+        predicciones que realiza la red y los valores reales, y calcula qué tan
+        bueno o mala fue la predicción. De esta forma, se mide lo lejos que está
+        cada predicción respecto a lo que se esperaba obtener.
+      </p>
+      <p>
+        Con la <em>estimación del error</em>, se inicia la propagación hacia
+        atras o segunda fase llamada <em>backpropagation</em>, en donde se llama
+        al <strong>optimizador</strong> para la actualización y ajuste de los
+        <em>pesos</em> de la red, en la dirección del gradiente que
+        <em>reduce esta pérdida o error</em> y por lo tanto minimiza la
+        <strong>función de pérdida</strong>.
+      </p>
+      <p>
+        Esta información se propaga hacia todas las neuronas que contribuyen
+        directamente a la salida, basándose en la contribución relativa que haya
+        aportado cada neurona.
+      </p>
+      <p>
+        El optimizador ajusta los pesos de cada neurona con la ayuda del cálculo
+        del gradiente de la función de pérdida en pequeños pasos o
+        <em>steps</em>, dado por el <em>Learning Rate</em> o
+        <em>Tasa de Aprendizaje</em>. La actualización de los pesos se hace
+        generalmente en lotes o batches, capa por capa, hasta que todas las
+        neuronas de la red hayan sido actualizadas.
+      </p>
+      <p><img src="https://i.imgur.com/altrQa5.jpg" alt="Imgur" /></p>
+      <h2 id="términos-básicos">Términos básicos</h2>
+      <ul>
+        <li>
+          <strong>Modelo</strong>: se entiende como la relacióne entre los
+          atributos y la etiqueta.
+        </li>
+        <li>
+          <strong>Atributos</strong>: son las variables de entrada a la red o
+          modelo.
+        </li>
+        <li>
+          <strong>Clases</strong>: es un set de posibles etiquetas a escoger en
+          un problema de clasificación. De esta forma, si se están clasificando
+          imagenes de perro y gatos, <em>perro</em> y <em>gato</em> son sus dos
+          clases.
+        </li>
+        <li>
+          <strong>Label, etiqueta o target</strong>: es el valor a predecir.
+          Este puede ser una categoría o clasificación a predecir, como el tipo
+          de animal en una imagen. Es una instancia específica de una clase, es
+          decir, si una imagen tiene una clase específica <em>perro</em>,
+          entonces <em>perro</em> es la etiqueta de esa imagen-ejemplo.
+        </li>
+        <li>
+          <strong>Ejemplo etiquetado</strong>: es una instancia que incluye los
+          atributos y su correspondiente etiqueta.
+        </li>
+        <li>
+          <strong>Ejemplo sin etiqueta</strong>: es una instancia que incluye
+          solo los atributos, sin la etiqueta correspondiente.
+        </li>
+        <li>
+          <strong>Mini-batch o Batch</strong>: los minilotes o lotes de datos
+          son pequeños set de muestras o ejemplos que son procesados
+          simultáneamente por el modelo. El número de muestras o ejemplos es
+          usualmente una potencia de 2, típicamente entre 8 a 128, para
+          facilitar la asignación de recursos en memoria. Durante el
+          entrenamiento, un minilote (mini-batch) es usado para calcular el
+          gradiente descendiente y actualizar los pesos del modelo.<br />
+          Tamaños de minilotes más grandes ayudan a un entrenamiento y
+          aprendizaje más rápido, pero requieren mayor espacio en memoria. Un
+          tamaño por default recomendado es 32.
+        </li>
+        <li>
+          <strong>Entrenamiento</strong>: es el proceso de aprendizaje gradual
+          mediante el cual se relacionan los atributos y sus respectivas
+          etiquetas.
+        </li>
+        <li>
+          <strong>Inferencia o predicción</strong>: es la aplicación de un
+          modelo entrenado a ejemplos sin etiqueta.
+        </li>
+        <li>
+          <strong>Clasificación</strong>: es una tarea típica dentro del
+          aprendizaje supervisado en donde se predicen <em>clases</em> dados
+          ciertos atributos.
+        </li>
+        <li>
+          <strong>Regresión</strong>: tarea típica dentro del aprendizaje
+          supervisado en donde se predicen valores continuos, como el precio de
+          una casa o un auto, dados ciertos atributos usados como
+          <em>predictores</em>.
+        </li>
+      </ul>
+      <h3 id="problemas-lineales-vs-no-lineales">
+        Problemas lineales vs no-lineales
+      </h3>
+      <p>
+        Los problemas dependiendo el tipo de datos, pueden ser clasificados en
+        lineales y no lineales. Estos se describen a continuación.
+      </p>
+      <ul>
+        <li>
+          <strong>Si un problema es lineal</strong>, viene a significar que los
+          datos pueden ser separados por una simple línea recta, y por lo tanto,
+          el problema podría ser abordado con un simple Perceptron con función
+          de activación lineal.
+        </li>
+      </ul>
+      <p><img src="https://i.imgur.com/yqqzXUx.png" alt="Lineal" /></p>
+      <ul>
+        <li>
+          <strong>Si el problema es no lineal</strong>, los datos no pueden ser
+          separados por una simple línea recta, por lo que se necesita más de
+          una línea recta para separar los datos. De esta forma, este tipo de
+          problemas debe ser abordados al menos mediante Perceptrones Multicapa,
+          con posibles funciones de activación no lineales para mejores
+          rendimientos.
+        </li>
+      </ul>
+      <p><img src="https://i.imgur.com/At2yhUV.png" alt="No Lineal" /></p>
+      <h2 id="funciones-de-activación">Funciones de Activación</h2>
+      <p>
+        Las funciones de activación son a veces llamadas
+        <em>funciones de transferencia</em> o <em>no linearidades</em>, porque
+        transforman la combinación lineal de las entradas y sus pesos asociados
+        a una forma no lineal.<br />
+        Estas funciones de activación se ubican al final de cada Perceptron o
+        neurona artificial, y es la forma de activar neurona.
+      </p>
+      <ul>
+        <li><strong>¿Por qué se utilizan?</strong></li>
+      </ul>
+      <p>
+        Se utilizan para introducir no linearidades, y de esta forma, dotar a la
+        red de la capacidad de afrontar problemas no lineales. Sin una función
+        de activación no-lineal, un Perceptron Multicapa sin importar su
+        cantidad de capas ocultas, se comportará de forma similar a un simple
+        Perceptron. Esto es debido a que la combinación de
+        <em>funciones de activacion lineales</em>, es simplemente otra función
+        lineal.
+      </p>
+      <p>
+        Al mismo tiempo, se utilizan para restringir los valores de salida de
+        cada neurona dentro de un rango finito.
+      </p>
+      <p>
+        Existe una gran cantidad de funciones de activación, sin embargo, las
+        que se utilizan más comunmente son pocas. Entre las más usadas están las
+        siguientes:
+      </p>
+      <h3 id="función-lineal">Función Lineal</h3>
+      <p>
+        La función lineal, muchas veces utilizada como una
+        <em>función identidad</em> pasando la señal inalterada. Es decir, la
+        <em>salida</em> de la función de activación es igual a su entrada, y de
+        esta forma, es como si no hubiera una función de activación. En el mejor
+        de los casos, dependiendo el tipo de función lineal, sólo se escala la
+        salida de la <em>función sumatoria</em>, sin la capacidad de transformar
+        esta entrada en una función no lineal.
+      </p>
+      <p><img src="https://i.imgur.com/MYDv3zG.png" alt="Imgur" /></p>
+      <h3 id="función-step-heaviside-o-escalón">
+        Función Step, Heaviside, o escalón
+      </h3>
+      <p>
+        La función escalón unitario produce una salida binaria. Es una función
+        simple, en la que básicamente:
+      </p>
+      <ul>
+        <li>
+          <p>Si x&gt;0, la salida es 1</p>
+        </li>
+        <li>
+          <p>Si x&lt;0, la salida es 0</p>
+        </li>
+      </ul>
+      <p>
+        Esta función es utilizada debido a su tipo de salida, en problemas de
+        clasificación binaria del tipo verdadero o falso.
+      </p>
+      <p><img src="https://i.imgur.com/F0j1evV.png" alt="Imgur" /></p>
+      <h3 id="función-sigmoide-o-logística">Función Sigmoide o Logística</h3>
+      <p>
+        La función Sigmoide es una de las más comunmente utilizadas. Su uso es
+        común en problemas de clasificación binaria en donde lo que se quiere es
+        predecir la probabilidad de una clase
+        <em>en problemas en donde existen 2 clases</em>.
+      </p>
+      <p>
+        La función toma todos los valores de entrada, y los reduce a un rango
+        [0,1], convirtiendo valores continuos entre -infinito y +infinito en una
+        simple probabilidad entre 0 y 1.
+      </p>
+      <p><img src="https://i.imgur.com/WOyjAH6.png" alt="Imgur" /></p>
+      <h4 id="función-softmax">Función Softmax</h4>
+      <p>
+        La función Softmax es una generalización de la
+        <strong>función sigmoide</strong>, y por esto es utilizada en problemas
+        de clasificación para obtener las probabilidades de una clase cuando
+        <em>el problema tiene más de 2 clases</em>. Esta función de activación,
+        fuerza la salida de la red en el rango 0 a 1. Para esto, implementa la
+        siguiente ecuación:
+      </p>
+      <p>
+        La función Softmax es la función aconsejada para problemas de
+        clasificación de más de dos clases, o donde existen sólo dos clases, en
+        donde se comporta como una Sigmoide.
+      </p>
+      <h3 id="función-tangente-hiperbólica">Función Tangente Hiperbólica</h3>
+      <p>
+        La función tangente hiperbólica es una versión <em>desplazada</em> de la
+        función sigmoide. De esta forma, en vez de reducir los valores de
+        entrada a un rango [0,1], esta función lleva estos valores al rango
+        [-1,1].
+      </p>
+      <p>
+        Esta función trabaja relativamente mejor que una función sigmoide en las
+        <em>capas ocultas</em>, debido a que al llevar los valores al rango
+        [-1,1] tiene el efecto de centrar los datos, haciendo que el promedio
+        esté cercano a 0 (en la sigmoide el promedio está en 0.5), haciendo que
+        el aprendizaje para la capa posterior (o siguiente) sea un poco más
+        fácil.
+      </p>
+      <p>La función Tangente Hiperbólica esta dada por:</p>
+      <p>
+        Esta función, al igual que la función sigmoide, tiene como principal
+        contra la saturación que ocurre para valores muy grandes (tanto
+        positivos como negativos). Esto provoca que las derivadas locales, es
+        decir, el <em>gradiente</em>, sea muy cercano a 0, y por lo tanto al
+        momento de la
+        <em>Propagación hacia atras</em> (<strong>Backpropagation</strong>) casi
+        no exista gradiente a propagar.
+      </p>
+      <p><img src="https://i.imgur.com/flxLBtP.png" alt="Imgur" /></p>
+      <h3 id="función-relu-rectified-linear-unit">
+        Función ReLU (Rectified Linear Unit)
+      </h3>
+      <p>
+        La función de activación ReLU, activa un nodo o neurona sólo si la
+        entrada es mayor a 0. Si la entrada es menor a 0, entonces la salida es
+        siempre 0. Cuando la entrada es mayor a 0, el nodo o neurona se activa,
+        y la salida es una relación lineal con la variable de entrada de la
+        forma
+        <span class="katex--inline"
+          ><span class="katex"
+            ><span class="katex-mathml"
+              ><math
+                ><semantics
+                  ><mrow
+                    ><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi
+                    ><mo stretchy="false">)</mo><mo>=</mo><mi>x</mi></mrow
+                  ><annotation encoding="application/x-tex"
+                    >f(x) = x</annotation
+                  ></semantics
+                ></math
+              ></span
+            ><span class="katex-html" aria-hidden="true"
+              ><span class="base"
+                ><span
+                  class="strut"
+                  style="height: 1em; vertical-align: -0.25em"
+                ></span
+                ><span class="mord mathdefault" style="margin-right: 0.10764em"
+                  >f</span
+                ><span class="mopen">(</span
+                ><span class="mord mathdefault">x</span
+                ><span class="mclose">)</span
+                ><span class="mspace" style="margin-right: 0.277778em"></span
+                ><span class="mrel">=</span
+                ><span
+                  class="mspace"
+                  style="margin-right: 0.277778em"
+                ></span></span
+              ><span class="base"
+                ><span
+                  class="strut"
+                  style="height: 0.43056em; vertical-align: 0em"
+                ></span
+                ><span class="mord mathdefault">x</span></span
+              ></span
+            ></span
+          ></span
+        >.
+      </p>
+      <p><img src="https://i.imgur.com/MXtRkkS.png" alt="Imgur" /></p>
+      <p>
+        Actualmente es muy utilizada debido a su buen funcionamiento para
+        diferentes situaciones y problemas, teniendo incluso una tendencia a
+        mejores entrenamientos para las capas ocultas que los realizados con la
+        <em>función sigmoide</em> o <em>tanh</em>.
+      </p>
+      <p>
+        Como una de sus principales contras, sufre de un problema conocido como
+        <em>“dying ReLU”</em>. Este problema consiste en la <em>muerte</em> de
+        algunas neuronas durante el entrenamiento, dado que su salida, debido a
+        esta función de activación, es siempre 0 y por lo tanto no llega a
+        activarse. Esto puede ocurrir cuando los pesos de una neurona son
+        actualizados de modo que la suma ponderada de entradas y pesos asociados
+        es siempre menor a 0. Cuando esto pasa, la función de activación sólo
+        genera como salida ceros, y el Gradiente Descendiente deja de tener
+        efecto porque el gradiente de la función ReLU es cero cuando su entrada
+        es negativa.
+      </p>
+      <h3 id="función-leaky-relu">Función Leaky ReLU</h3>
+      <p>
+        La función Leaky ReLU es una variante de la función de activación ReLU
+        que viene a solucionar el problema conocido como <em>“dying ReLU”</em>.
+        Para esto, en vez de tener una salida igual a 0 para entradas menos a 0,
+        esta función introduce una pequeña pendiente típica de
+        <span class="katex--inline"
+          ><span class="katex"
+            ><span class="katex-mathml"
+              ><math
+                ><semantics
+                  ><mrow><mn>0.01</mn></mrow
+                  ><annotation encoding="application/x-tex"
+                    >0.01</annotation
+                  ></semantics
+                ></math
+              ></span
+            ><span class="katex-html" aria-hidden="true"
+              ><span class="base"
+                ><span
+                  class="strut"
+                  style="height: 0.64444em; vertical-align: 0em"
+                ></span
+                ><span class="mord">0</span><span class="mord">.</span
+                ><span class="mord">0</span><span class="mord">1</span></span
+              ></span
+            ></span
+          ></span
+        >. Esta pequeña pendiente es posible usarla como otro
+        <em>hiperparámetro</em> a sintonizar.
+      </p>
+      <p>Esta función está definida como:</p>
+      <p><img src="https://i.imgur.com/wmH0Y3T.png" alt="Imgur" /></p>
+      <p>
+        El hiperparámetro <em>alpha</em> define la pendiente para la función
+        cuando la entrada es x&lt;0. Esta pequeña pendiente asegura que aún
+        cuando una situación como <em>“dying ReLU”</em> suceda, la salida no sea
+        totalmente 0, si no cercano a este, dejando siempre la posibilidad de
+        una posible activación.
+      </p>
+      <h2 id="funciones-de-pérdida">Funciones de Pérdida</h2>
+      <p>
+        La función de pérdida, también conocida como <em>función de costo</em> o
+        <em>función de error</em>, es una medida de
+        <em>qué tan incorrecta</em> es una predicción de una red. Si esta
+        pérdida es alta, el modelo no está haciendo un muy buen trabajo. Esto
+        quiere decir que a <em>pérdida</em> más pequeña, mejor trabajo estará
+        haciendo el modelo.
+      </p>
+      <ul>
+        <li>
+          <strong>¿Por qué se necesitan?</strong> porque el cálculo del error es
+          un problema de optimización, y como tal, es necesario ajustar y
+          optimizar sus parámetros para minimizar este el
+          <em>error en la predicción</em>.
+        </li>
+      </ul>
+      <p>Entre las funciones de pérdida más usadas, están las siguientes:</p>
+      <h3 id="mean-square-error-mse">Mean square error (MSE)</h3>
+      <p>
+        Es el error cuadrático medio entre las predicciones y los valores
+        reales. Es comunmente usada en problemas de regresión que requiere como
+        salida un valor continuo.
+      </p>
+      <h3 id="mean-absolute-error-mae">Mean Absolute Error (MAE)</h3>
+      <p>
+        El error medio absoluto calcula cuan lejos está la predicción de su
+        valor real, tomando el valor absoluto y retornando el valor promedio. Es
+        recomendada en problemas de regresión.
+      </p>
+      <h3 id="binary-cross-entropy">Binary cross entropy</h3>
+      <p>
+        Es la función de pérdida recomendada para problemas de clasificación de
+        dos clases.
+      </p>
+      <h3 id="categorical-cross-entropy">Categorical cross entropy</h3>
+      <p>
+        Función de pérdida recomendada para problemas de clasificación de más de
+        2 clases.
+      </p>
+      <h2 id="optimizadores">Optimizadores</h2>
+      <p>
+        Los optimizadores son algorítmos encargados de <em>encontrar</em> los
+        pesos asociados que <em>minimicen la función de pérdida</em>. El
+        algorítmo más popular es el Gradiente Descendiente que calcula el
+        gradiente de la función de pérdida, para obtener la dirección de máximo
+        crecimiento de la función, y así poder moverse en pequeños pasos en la
+        dirección contraria. Cada <em>paso</em> o <em>step</em> dado en la
+        dirección de mínimo crecimiento de la función de pérdida, es lo que se
+        conoce como <strong>Learning Rate</strong> o
+        <strong>Tasa de Aprendizaje</strong>.
+      </p>
+      <h3 id="stochastic-gradient-descent-sgd">
+        Stochastic Gradient Descent (SGD)
+      </h3>
+      <p>
+        El <em>optimizador más simple</em>. Usa siempre el Learning Rate (Tasa
+        de aprendizaje) como el multiplicador para gradientes.
+      </p>
+      <h3 id="momemtum">Momemtum</h3>
+      <p>
+        Acumula gradientes pasados de modo que la actulización de
+        pesos-parámetros se hace más rápido si estos
+        <em>gradiente pasados</em> se alinean con los
+        <em>gradientes actualizados</em>. Si el gradiente comienza a cambiar
+        mucho de dirección en cada actualización, la actualización de parámetros
+        se ralentiza.
+      </p>
+      <h3 id="rmsprop">RMSProp</h3>
+      <p>
+        Escala el factor multiplicativo de forma diferente para diferentes
+        pesos-parámetros. Lo hace manteniendo un historial reciente del valor
+        RMS (root mean square) de cada gradiente por peso.
+      </p>
+      <h3 id="adadelta">AdaDelta</h3>
+      <p>
+        Tiene un comportamiento parecido a RMSprop, debido a que escala la tasa
+        de aprendizaje de forma individual para cada peso-parámetro.
+      </p>
+      <h3 id="adam">ADAM</h3>
+      <p>
+        El optimizador ADAM, es uno de los más utilizados, y puede ser entendido
+        como una combinación entre una tasa de aprendizaje adaptativa como en
+        AdaDelta y el método utilizado por el optimizador Momemtum.
+      </p>
+      <h3 id="adamax">AdaMax</h3>
+      <p>
+        Es un optimizador similar a ADAM, que mantiene el rastro de las
+        magnitudes de los gradientes.
+      </p>
+    </div>
+  </body>
+</html>
