@@ -143,17 +143,20 @@ function init() {
 }
 
 async function FMnistRun() {
-  const data = new FMnistData();
+  /* const data = new FMnistData();
   await data.load();
   const model = getModel();
-  tfvis.show.modelSummary({ name: "Model Architecture" }, model);
+  tfvis.show.modelSummary({ name: "Model Architecture" }, model); */
   await train(model, data);
   await model.save("downloads://my_model");
   init();
   alert("Training is done, try classifying your drawings!");
 }
-function run() {
-  init();
+async function run() {
+  const data = new FMnistData();
+  await data.load();
+  const model = getModel();
+  tfvis.show.modelSummary({ name: "Model Architecture" }, model);
   rubBTN = document.getElementById("run");
   runBTN.addEventListener("click", FMnistRun);
 }
