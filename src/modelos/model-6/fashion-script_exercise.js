@@ -136,9 +136,13 @@ function init() {
   saveButton.addEventListener("click", save);
   clearButton = document.getElementById("cb");
   clearButton.addEventListener("click", erase);
+  clearButton = document.getElementById("cb");
+  clearButton.addEventListener("click", erase);
+  /*   rubBTN = document.getElementById("run");
+  runBTN.addEventListener("click", FMnistRun); */
 }
 
-async function run() {
+async function FMnistRun() {
   const data = new FMnistData();
   await data.load();
   const model = getModel();
@@ -148,5 +152,9 @@ async function run() {
   init();
   alert("Training is done, try classifying your drawings!");
 }
-
-//document.addEventListener("DOMContentLoaded", run);
+function run() {
+  init();
+  rubBTN = document.getElementById("run");
+  runBTN.addEventListener("click", FMnistRun);
+}
+document.addEventListener("DOMContentLoaded", run);

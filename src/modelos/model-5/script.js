@@ -109,7 +109,7 @@ function init() {
   clearButton.addEventListener("click", erase);
 }
 
-async function run() {
+async function MnistRun() {
   const data = new MnistData();
   await data.load();
   const model = getModel();

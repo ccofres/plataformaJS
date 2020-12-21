@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../../../css/style-sidebar.css" />
     <link rel="stylesheet" href="../../../css/art-styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.7.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.4.3/dist/tfjs-vis.umd.min.js"></script>
     <title>Modelo 5</title>
   </head>
   <body>
@@ -256,37 +257,40 @@
       <a href="http://yann.lecun.com/exdb/mnist/" target="_blank"> MNIST</a>
     </h2>
 
-    <canvas
-      id="canvas"
-      width="280"
-      height="280"
-      style="position: absolute; top: 100; left: 100; border: 8px solid"
-    ></canvas>
-    <img
-      id="canvasimg"
-      style="
-        position: absolute;
-        top: 10%;
-        left: 52%;
-        width: 280;
-        height: 280;
-        display: none;
-      "
-    />
-    <input
-      type="button"
-      value="classify"
-      id="sb"
-      size="48"
-      style="position: absolute; top: 400; left: 100"
-    />
-    <input
-      type="button"
-      value="clear"
-      id="cb"
-      size="23"
-      style="position: absolute; top: 400; left: 180"
-    />
+    <section>
+      <canvas
+        id="canvas"
+        width="280"
+        height="280"
+        style="position: relative; top: 100; left: 100; border: 8px solid"
+      ></canvas>
+      <img
+        id="canvasimg"
+        style="
+          position: relative;
+          top: 10%;
+          left: 52%;
+          width: 280;
+          height: 280;
+          display: none;
+        "
+      />
+      <input
+        type="button"
+        value="classify"
+        id="sb"
+        size="48"
+        style="position: relative; top: 400; left: 100"
+      />
+      <input
+        type="button"
+        value="clear"
+        id="cb"
+        size="23"
+        style="position: relative; top: 400; left: 180"
+      />
+      <button type="button" onclick="MnistRun()">Train Network</button>
+    </section>
 
     <!-- FOOTER -  PIE DE PAGINA-->
     <div id="the-footer">
@@ -312,6 +316,7 @@
     <!-- SCROLL BUTTON -->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Up!</button>
     <!-- SCROLL BUTTON -->
+    <script src="./script.js"></script>
     <script src="../ui-sidebar.js"></script>
     <script src="../../../ui-scrollButton.js"></script>
     <script src="../../code-editor/codemirror-5-50-2.js"></script>
